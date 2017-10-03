@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Msafiri</string>
+    <string name="title_activity_vehicle_registration">Vehicle Registration</string>
+
+
+    <!-- EditTexts -->
+    <string name="editTextVehicleType">Vehicle Type</string>
+    <string name="editTextRegistrationDetails">Registration Details</string>
+    <string name="editTextNumberOfSeats">Number of Seats</string>
+    <string name="editTextTravelRoute">Travel Route</string>
+    <string name="editTextPriceOfTravel">Price in KES</string>
+    <!-- End of EditTexts-->
+
+    <!-- Buttons -->
+    <string name="buttonVehicleTypeSubmit">Submit</string>
+    <!-- End of Buttons -->
+
+    <!-- TextViews -->
+    <string name="textViewVehicleType">Please fill in details of a vehicle type to avail it for booking.</string>
+    <!-- End of TextViews -->
+</resources>
