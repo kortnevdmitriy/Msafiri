@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="ai.kortnevdmitriy.msafiri.activities.Help"
-    tools:showIn="@layout/activity_help">
+    tools:context="ai.kortnevdmitriy.msafiri.activities.DealOffers"
+    tools:showIn="@layout/activity_deal_offers">
 
     <com.jetradar.desertplaceholder.DesertPlaceholder
         android:id="@+id/placeholder"
@@ -18,4 +18,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

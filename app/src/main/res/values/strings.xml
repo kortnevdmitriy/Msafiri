@@ -48,4 +48,7 @@
         <item>Isolo</item>
         <item>Migori</item>
     </string-array>
+    <string name="title_activity_vehicle_details">" Vehicle Details"</string>
+    <string name="title_activity_deal_offers">Deals &amp; Offers</string>
+    <string name="title_activity_tickets">Tickets</string>
 </resources>

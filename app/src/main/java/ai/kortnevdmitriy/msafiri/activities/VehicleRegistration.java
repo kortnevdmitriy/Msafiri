@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.tapadoo.alerter.Alerter;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
@@ -103,7 +104,7 @@ public class VehicleRegistration extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(getApplicationContext(), "Submitted Successfully", Toast.LENGTH_LONG).show();
+                        successMessageVehicleRegistration();
                         updateUI();
                     }
                 })
@@ -126,4 +127,12 @@ public class VehicleRegistration extends AppCompatActivity {
         editTextPriceOfTravel.setText("");
     }
 
+    // Success Message
+    public void successMessageVehicleRegistration() {
+        Alerter.create(this)
+                .setTitle("Vehicle Registration")
+                .setText("Data submitted successfully")
+                .setBackgroundColorRes(R.color.colorAccent) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+    }
 }

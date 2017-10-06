@@ -9,9 +9,17 @@
             android:icon="@drawable/ic_pageview"
             android:title="View All" />
         <item
+            android:id="@+id/nav_my_tickets"
+            android:icon="@drawable/ic_tickets"
+            android:title="My Tickets" />
+        <item
             android:id="@+id/nav_my_trips"
             android:icon="@drawable/ic_mytrip"
             android:title="My Trips" />
+        <item
+            android:id="@+id/nav_deals"
+            android:icon="@drawable/ic_badge"
+            android:title="Deals &amp; Offers" />
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_help"

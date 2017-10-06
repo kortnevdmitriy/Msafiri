@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ai.kortnevdmitriy.msafiri">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity android:name=".activities.Onboarding">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,6 +62,32 @@
             android:name=".activities.Help"
             android:label="@string/title_activity_help"
             android:parentActivityName=".activities.Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
+        </activity>
+        <activity
+            android:name=".activities.VehicleDetails"
+            android:label="@string/title_activity_vehicle_details"
+            android:parentActivityName=".activities.ViewAll"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.ViewAll" />
+        </activity>
+        <activity
+            android:name=".activities.DealOffers"
+            android:label="@string/title_activity_deal_offers"
+            android:parentActivityName=".activities.Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
+        </activity>
+        <activity
+            android:name=".activities.Tickets"
+            android:label="@string/title_activity_tickets"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

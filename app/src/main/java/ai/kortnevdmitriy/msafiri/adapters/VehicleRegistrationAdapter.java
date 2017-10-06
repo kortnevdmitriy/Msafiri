@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -48,6 +49,7 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, year, genre, price, regdet;
+        public Button buttonBook;
 
         public MyViewHolder(View view) {
             super(view);
@@ -56,6 +58,8 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
             year = view.findViewById(R.id.year);
             price = view.findViewById(R.id.price);
             regdet = view.findViewById(R.id.regdet);
+            buttonBook = view.findViewById(R.id.buttonBook);
+
         }
     }
 }

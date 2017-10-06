@@ -8,4 +8,15 @@
     tools:context="ai.kortnevdmitriy.msafiri.activities.MyTrips"
     tools:showIn="@layout/activity_my_trips">
 
+    <com.jetradar.desertplaceholder.DesertPlaceholder
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:dp_buttonText="Stay Tuned"
+        app:dp_message="Working hard to bring you this :)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

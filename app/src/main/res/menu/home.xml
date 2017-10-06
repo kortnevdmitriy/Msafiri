@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/overflow"
+        android:icon="@drawable/ic_overflow"
+        android:orderInCategory="201"
+        android:title="overflow"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/action_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/action_settings"
+                app:showAsAction="always|withText" />
+            <item
+                android:id="@+id/action_signout"
+                android:icon="@drawable/ic_signout"
+                android:orderInCategory="100"
+                android:title="Sign Out"
+                app:showAsAction="always|withText" />
+        </menu>
+
+    </item>
 </menu>

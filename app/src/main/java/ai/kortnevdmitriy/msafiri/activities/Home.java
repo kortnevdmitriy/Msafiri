@@ -11,8 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -45,15 +43,6 @@ public class Home extends AppCompatActivity
 
         updateNavigationViewUI();
 
-        Spinner spinner = findViewById(R.id.spinner);
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.destinations, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        spinner2.setAdapter(adapter);
     }
 
     @Override
@@ -102,8 +91,10 @@ public class Home extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), Help.class));
         } else if (id == R.id.nav_account) {
             startActivity(new Intent(getApplicationContext(), Account.class));
-        } else if (id == R.id.nav_share) {
-            //todo
+        } else if (id == R.id.nav_deals) {
+            startActivity(new Intent(getApplicationContext(), DealOffers.class));
+        } else if (id == R.id.nav_my_tickets) {
+            startActivity(new Intent(getApplicationContext(), Tickets.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

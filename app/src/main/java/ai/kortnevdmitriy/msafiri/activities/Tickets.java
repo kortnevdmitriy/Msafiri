@@ -6,15 +6,14 @@ import android.support.v7.widget.Toolbar;
 
 import ai.kortnevdmitriy.msafiri.R;
 
-public class MyTrips extends AppCompatActivity {
+public class Tickets extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_trips);
+        setContentView(R.layout.activity_tickets);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
