@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#005005</color>
     <color name="colorPrimaryLight">#60ad5e</color>
     <color name="colorAmber">#ff8f00</color>
-    <color name="colorDeepOrange">#d84315</color>
+    <color name="colorAccent">#d84315</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPink">#FF4081</color>
 </resources>

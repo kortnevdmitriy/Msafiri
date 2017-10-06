@@ -1,11 +1,25 @@
 <resources>
     <string name="app_name">Msafiri</string>
     <string name="title_activity_vehicle_registration">Vehicle Registration</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_account">Account</string>
+    <string name="title_activity_home">Msafiri</string>
+    <string name="title_activity_account">Account</string>
+    <string name="title_activity_view_all">View All</string>
+    <string name="title_activity_my_trips">My Trips</string>
+    <string name="title_activity_help">Help</string>
+    <string name="short_bio">I love travelling around my country Kenya. I seek adventure.</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
     <!-- EditTexts -->
     <string name="editTextVehicleType">Vehicle Type</string>
     <string name="editTextRegistrationDetails">Registration Details</string>
+    <string name="editTextCompanyName">Company Name</string>
     <string name="editTextNumberOfSeats">Number of Seats</string>
     <string name="editTextTravelRoute">Travel Route</string>
     <string name="editTextPriceOfTravel">Price in KES</string>
@@ -17,5 +31,21 @@
 
     <!-- TextViews -->
     <string name="textViewVehicleType">Please fill in details of a vehicle type to avail it for booking.</string>
+    <string name="textViewAppName">Msafiri</string>
     <!-- End of TextViews -->
+
+    <string-array name="destinations">
+        <item>Nairobi</item>
+        <item>Mombasa</item>
+        <item>Kisumu</item>
+        <item>Eldoret</item>
+        <item>Machakos</item>
+        <item>Kerugoya</item>
+        <item>Turkana</item>
+        <item>Kitale</item>
+        <item>Busia</item>
+        <item>Bungoma</item>
+        <item>Isolo</item>
+        <item>Migori</item>
+    </string-array>
 </resources>
