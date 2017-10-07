@@ -93,6 +93,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
         </activity>
+        <activity
+            android:name=".activities.DirectBook"
+            android:label="@string/title_activity_direct_book"
+            android:parentActivityName=".activities.ViewAll"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.ViewAll" />
+        </activity>
+        <activity
+            android:name=".activities.Settings"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activities.Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
+        </activity>
     </application>
 
 </manifest>

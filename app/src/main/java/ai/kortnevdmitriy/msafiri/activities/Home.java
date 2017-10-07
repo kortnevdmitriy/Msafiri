@@ -70,7 +70,17 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == R.id.action_direct_book) {
+            startActivity(new Intent(getApplicationContext(), DirectBook.class));
+            return true;
+        }
         if (id == R.id.action_settings) {
+            startActivity(new Intent(getApplicationContext(), Settings.class));
+            return true;
+        }
+        if (id == R.id.action_signout) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), Signin.class));
             return true;
         }
 

@@ -91,6 +91,7 @@
         android:layout_below="@+id/year"
         android:background="@drawable/bookbuttonshape"
         android:fontFamily="@font/quattrocento_sans_bold"
+        android:gravity="center"
         android:text="Book"
         android:textColor="@color/white" />
 

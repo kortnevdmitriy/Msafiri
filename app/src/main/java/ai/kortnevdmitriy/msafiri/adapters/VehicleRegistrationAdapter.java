@@ -1,6 +1,7 @@
 package ai.kortnevdmitriy.msafiri.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegistrationAdapter.MyViewHolder> {
 
     private List<VehicleDetails> vehicleDetails;
+    private VehicleDetails detailsOfVehicles;
+
 
     public VehicleRegistrationAdapter(List<VehicleDetails> vehicleDetails) {
         this.vehicleDetails = vehicleDetails;
@@ -34,12 +37,18 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        VehicleDetails detailsOfVehicles = vehicleDetails.get(position);
+        detailsOfVehicles = vehicleDetails.get(position);
         holder.title.setText(detailsOfVehicles.getCompanyName());
         holder.genre.setText(detailsOfVehicles.getVehicleType());
         holder.year.setText(detailsOfVehicles.getTravelRoute());
         holder.price.setText(detailsOfVehicles.getPriceOfTravel());
         holder.regdet.setText(detailsOfVehicles.getRegistrationDetails());
+        holder.buttonBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("Clicked", detailsOfVehicles.getPriceOfTravel().toString());
+            }
+        });
     }
 
     @Override
