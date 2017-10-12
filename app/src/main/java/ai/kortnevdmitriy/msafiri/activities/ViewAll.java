@@ -8,14 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.tapadoo.alerter.Alerter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,7 @@ import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.adapters.VehicleRegistrationAdapter;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 
-public class ViewAll extends AppCompatActivity implements View.OnClickListener {
+public class ViewAll extends AppCompatActivity {
 
     private final String TAG = "View All";
     private FirebaseFirestore db;
@@ -81,14 +79,4 @@ public class ViewAll extends AppCompatActivity implements View.OnClickListener {
         mAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.buttonBook) {
-            Alerter.create(this)
-                    .setTitle("Vehicle Booking")
-                    .setText("You'll soon be able to book")
-                    .setBackgroundColorRes(R.color.colorAccent) // or setBackgroundColorInt(Color.CYAN)
-                    .show();
-        }
-    }
 }

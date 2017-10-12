@@ -2,28 +2,39 @@ package ai.kortnevdmitriy.msafiri.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import ai.kortnevdmitriy.msafiri.R;
+import ai.kortnevdmitriy.msafiri.utilities.Constants;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public String extractedTravelRoute;
     private NavigationView navigationView;
+    private AutoCompleteTextView destinationFrom, destinationTo;
+    private ArrayAdapter<String> adapter;
+    private String separator = " - ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +42,15 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                extractTravelRoute();
+                /*Snackbar.make(view, "Searching the database", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+            }
+        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,6 +62,7 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         updateNavigationViewUI();
+        searchUI();
 
     }
 
@@ -69,11 +90,6 @@ public class Home extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_direct_book) {
-            startActivity(new Intent(getApplicationContext(), DirectBook.class));
-            return true;
-        }
         if (id == R.id.action_settings) {
             startActivity(new Intent(getApplicationContext(), Settings.class));
             return true;
@@ -95,8 +111,6 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.nav_view_all) {
             startActivity(new Intent(getApplicationContext(), ViewAll.class));
-        } else if (id == R.id.nav_my_trips) {
-            startActivity(new Intent(getApplicationContext(), MyTrips.class));
         } else if (id == R.id.nav_help) {
             startActivity(new Intent(getApplicationContext(), Help.class));
         } else if (id == R.id.nav_account) {
@@ -124,5 +138,34 @@ public class Home extends AppCompatActivity
         nameView.setText(mFirebaseUser.getDisplayName());
         emailView.setText(mFirebaseUser.getEmail());
         Glide.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
+    }
+
+    public void searchUI() {
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Constants.DESTINATIONS);
+        destinationFrom = findViewById(R.id.autoCompleteDestinationFrom);
+        destinationTo = findViewById(R.id.autoCompleteDestinationTo);
+        destinationFrom.setAdapter(adapter);
+        destinationTo.setAdapter(adapter);
+    }
+
+    public void extractTravelRoute() {
+        String destFrom = destinationFrom.getText().toString().trim();
+        String destTo = destinationTo.getText().toString().trim();
+
+        if (TextUtils.isEmpty(destFrom)) {
+            Toast.makeText(getApplicationContext(), "Fill Travelling From!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(destTo)) {
+            Toast.makeText(getApplicationContext(), "Fill Travelling To", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        extractedTravelRoute = destFrom + separator + destTo;
+        Log.i("Extracted Route:", extractedTravelRoute);
+
+        Intent intent = new Intent(getApplicationContext(), Search.class);
+        intent.putExtra("keyName", extractedTravelRoute);
+        startActivity(intent);
     }
 }

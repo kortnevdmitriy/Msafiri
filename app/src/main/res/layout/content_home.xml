@@ -8,15 +8,68 @@
     tools:context="ai.kortnevdmitriy.msafiri.activities.Home"
     tools:showIn="@layout/app_bar_home">
 
-    <com.jetradar.desertplaceholder.DesertPlaceholder
-        android:id="@+id/placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:dp_buttonText="Stay Tuned :)"
-        app:dp_message="We promise to make this page the favorite part of your Msafiri experience.  "
-        app:layout_constraintBottom_toBottomOf="parent"
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteDestinationFrom"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittextshape"
+        android:fontFamily="@font/quattrocento_sans_bold"
+        android:gravity="center"
+        android:hint="Travelling From"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteDestinationTo"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittextshape"
+        android:fontFamily="@font/quattrocento_sans_bold"
+        android:gravity="center"
+        android:hint="Travelling To"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDestinationFrom" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteDestinationFrom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_distance" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteDestinationTo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_distance" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDestinationTo"
+        app:srcCompat="@drawable/ic_search" />
 
 </android.support.constraint.ConstraintLayout>

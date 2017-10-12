@@ -11,11 +11,6 @@
 
         <menu>
             <item
-                android:id="@+id/action_direct_book"
-                android:icon="@drawable/ic_book"
-                android:title="Direct Book"
-                app:showAsAction="always|withText" />
-            <item
                 android:id="@+id/action_settings"
                 android:icon="@drawable/ic_settings"
                 android:title="@string/action_settings"

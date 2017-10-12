@@ -92,7 +92,7 @@
         android:background="@drawable/bookbuttonshape"
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center"
-        android:text="Book"
+        android:text="Info"
         android:textColor="@color/white" />
 
 </RelativeLayout>

@@ -1,7 +1,6 @@
 package ai.kortnevdmitriy.msafiri.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
  * Created by kortn on 10/4/2017.
  */
 
-public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegistrationAdapter.MyViewHolder> {
+public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegistrationAdapter.VehicleRegViewHolder> {
 
     private List<VehicleDetails> vehicleDetails;
     private VehicleDetails detailsOfVehicles;
@@ -28,27 +27,22 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VehicleRegViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.viewall_list_row, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new VehicleRegViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(VehicleRegViewHolder holder, int position) {
         detailsOfVehicles = vehicleDetails.get(position);
         holder.title.setText(detailsOfVehicles.getCompanyName());
         holder.genre.setText(detailsOfVehicles.getVehicleType());
         holder.year.setText(detailsOfVehicles.getTravelRoute());
         holder.price.setText(detailsOfVehicles.getPriceOfTravel());
         holder.regdet.setText(detailsOfVehicles.getRegistrationDetails());
-        holder.buttonBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("Clicked", detailsOfVehicles.getPriceOfTravel().toString());
-            }
-        });
+
     }
 
     @Override
@@ -56,11 +50,11 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
         return vehicleDetails.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class VehicleRegViewHolder extends RecyclerView.ViewHolder {
         public TextView title, year, genre, price, regdet;
         public Button buttonBook;
 
-        public MyViewHolder(View view) {
+        public VehicleRegViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.title);
             genre = view.findViewById(R.id.genre);
@@ -71,4 +65,5 @@ public class VehicleRegistrationAdapter extends RecyclerView.Adapter<VehicleRegi
 
         }
     }
+
 }

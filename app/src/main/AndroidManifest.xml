@@ -110,6 +110,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
         </activity>
+        <activity
+            android:name=".activities.Search"
+            android:label="@string/title_activity_search"
+            android:parentActivityName=".activities.Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
+        </activity>
     </application>
 
 </manifest>

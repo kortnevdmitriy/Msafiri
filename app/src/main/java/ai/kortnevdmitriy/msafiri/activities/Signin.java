@@ -24,6 +24,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.tapadoo.alerter.Alerter;
 
 import ai.kortnevdmitriy.msafiri.R;
 
@@ -37,6 +38,11 @@ public class Signin extends AppCompatActivity implements GoogleApiClient.OnConne
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        auth = FirebaseAuth.getInstance(); // Get Firebase auth instance
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), Home.class));
+            finish();
+        }
 
         // Make Screen Window Fullscreen before setting the contents.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -101,6 +107,7 @@ public class Signin extends AppCompatActivity implements GoogleApiClient.OnConne
                 firebaseAuthWithGoogle(account);
             } else {
                 // Google Sign In failed
+                googleSignInErrorNotification();
                 Log.e(TAG, "Google Sign In failed.");
             }
         }
@@ -120,8 +127,7 @@ public class Signin extends AppCompatActivity implements GoogleApiClient.OnConne
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            authenticationErrorNotification();
                         } else {
                             startActivity(new Intent(getApplicationContext(), Home.class));
                             finish();
@@ -136,6 +142,26 @@ public class Signin extends AppCompatActivity implements GoogleApiClient.OnConne
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
-        Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
+        Alerter.create(this)
+                .setTitle("Google Play")
+                .setText("Google Play Services error")
+                .setBackgroundColorRes(android.R.color.holo_red_dark) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+    }
+
+    public void authenticationErrorNotification() {
+        Alerter.create(this)
+                .setTitle("Authentication")
+                .setText("Authentication failed. Check your Internet")
+                .setBackgroundColorRes(android.R.color.holo_red_dark) // or setBackgroundColorInt(Color.CYAN)
+                .show();
+    }
+
+    public void googleSignInErrorNotification() {
+        Alerter.create(this)
+                .setTitle("Google Signin")
+                .setText("Google Sign In failed")
+                .setBackgroundColorRes(android.R.color.holo_red_dark) // or setBackgroundColorInt(Color.CYAN)
+                .show();
     }
 }
