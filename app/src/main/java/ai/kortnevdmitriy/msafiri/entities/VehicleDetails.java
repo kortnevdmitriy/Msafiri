@@ -8,14 +8,20 @@ public class VehicleDetails {
     private String vehicleType;
     private String registrationDetails;
     private String companyName;
-    private Integer numberOfSeats;
+    private String numberOfSeats;
     private String travelRoute;
-    private Integer priceOfTravel;
+    private String priceOfTravel;
 
     public VehicleDetails() {
     }
 
-    public VehicleDetails(String vehicleType, String registrationDetails, String companyName, Integer numberOfSeats, String travelRoute, Integer priceOfTravel) {
+    public VehicleDetails(String vehicleType, String registrationDetails, String companyName) {
+        this.vehicleType = vehicleType;
+        this.registrationDetails = registrationDetails;
+        this.companyName = companyName;
+    }
+
+    public VehicleDetails(String vehicleType, String registrationDetails, String companyName, String numberOfSeats, String travelRoute, String priceOfTravel) {
         this.vehicleType = vehicleType;
         this.registrationDetails = registrationDetails;
         this.companyName = companyName;
@@ -48,11 +54,11 @@ public class VehicleDetails {
         this.companyName = companyName;
     }
 
-    public Integer getNumberOfSeats() {
+    public String getNumberOfSeats() {
         return numberOfSeats;
     }
 
-    public void setNumberOfSeats(Integer numberOfSeats) {
+    public void setNumberOfSeats(String numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
@@ -64,11 +70,11 @@ public class VehicleDetails {
         this.travelRoute = travelRoute;
     }
 
-    public Integer getPriceOfTravel() {
+    public String getPriceOfTravel() {
         return priceOfTravel;
     }
 
-    public void setPriceOfTravel(Integer priceOfTravel) {
+    public void setPriceOfTravel(String priceOfTravel) {
         this.priceOfTravel = priceOfTravel;
     }
 }

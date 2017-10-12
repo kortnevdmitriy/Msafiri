@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_flight"
+        id="@+id/tab_flight"
+        title="Flights" />
+    <tab
+        icon="@drawable/ic_hotel"
+        id="@+id/tab_hotels"
+        title="Hotels" />
+    <tab
+        icon="@drawable/ic_visa"
+        id="@+id/tab_visa"
+        title="Visas" />
+    <tab
+        icon="@drawable/ic_mytrip"
+        id="@+id/tab_mytrips"
+        title="My Trips" />
+</tabs>
