@@ -21,10 +21,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.VehicleRegistration"
-            android:label="@string/title_activity_vehicle_registration"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activities.Signin"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
