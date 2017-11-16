@@ -13,14 +13,6 @@
             android:icon="@drawable/ic_tickets"
             android:title="My Tickets" />
         <item
-            android:id="@+id/nav_deals"
-            android:icon="@drawable/ic_badge"
-            android:title="Deals &amp; Offers" />
-        <item
-            android:id="@+id/nav_help"
-            android:icon="@drawable/ic_help"
-            android:title="Help" />
-        <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_account"
             android:title="Account" />

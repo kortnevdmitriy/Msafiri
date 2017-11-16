@@ -86,7 +86,7 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
         });
 
         List<AbstractItem> items = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 39; i++) {
 
             if (i % COLUMNS == 0 || i % COLUMNS == 4) {
                 items.add(new EdgeItem(String.valueOf(i)));

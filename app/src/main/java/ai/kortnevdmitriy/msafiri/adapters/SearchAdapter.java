@@ -39,8 +39,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.title.setText(detailsOfVehicles.getCompanyName());
         holder.genre.setText(detailsOfVehicles.getVehicleType());
         holder.year.setText(detailsOfVehicles.getTravelRoute());
-        holder.price.setText(detailsOfVehicles.getPriceOfTravel());
-        holder.regdet.setText(detailsOfVehicles.getRegistrationDetails());
+        holder.price.setText(detailsOfVehicles.getPriceInKsh());
+        holder.regdet.setText(detailsOfVehicles.getNumberPlate());
     }
 
     @Override

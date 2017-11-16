@@ -111,12 +111,8 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.nav_view_all) {
             startActivity(new Intent(getApplicationContext(), ViewAll.class));
-        } else if (id == R.id.nav_help) {
-            startActivity(new Intent(getApplicationContext(), Help.class));
         } else if (id == R.id.nav_account) {
             startActivity(new Intent(getApplicationContext(), Account.class));
-        } else if (id == R.id.nav_deals) {
-            startActivity(new Intent(getApplicationContext(), DealOffers.class));
         } else if (id == R.id.nav_my_tickets) {
             startActivity(new Intent(getApplicationContext(), Tickets.class));
         }

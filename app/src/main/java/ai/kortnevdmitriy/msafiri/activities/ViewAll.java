@@ -1,7 +1,6 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 public class ViewAll extends AppCompatActivity {
 
     private final String TAG = "View All";
-    private FirebaseFirestore db;
+    private FirebaseDatabase db;
     private RecyclerView viewAllList;
     private VehicleRegistrationAdapter mAdapter;
     private List<VehicleDetails> vehicleList = new ArrayList<>();
@@ -46,24 +45,46 @@ public class ViewAll extends AppCompatActivity {
 
     // Access Database to retrieve data
     private void readAllBookableVehicles() {
-        // Access a Cloud Firestore instance from your Activity
-        db = FirebaseFirestore.getInstance();
-        db.collection("vehicles")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot document : task.getResult()) {
-                                details = document.toObject(VehicleDetails.class);
-                                prepareAllVehicleData();
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+        // Access a Firebase Real Database instance from your Activity
+        db = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = db.getReference().child("notes");
+
+        // Read from the database
+        myRef.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                details = dataSnapshot.getValue(VehicleDetails.class);
+                Log.d(TAG, "Value is: " + details);
+                if (details != null) {
+                    details.setKey(dataSnapshot.getKey());
+                    prepareAllVehicleData();
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     // This method prepares and loads data from the database.

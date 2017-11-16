@@ -5,45 +5,41 @@ package ai.kortnevdmitriy.msafiri.entities;
  */
 
 public class VehicleDetails {
-    private String vehicleType;
-    private String registrationDetails;
+    private String key;
     private String companyName;
-    private String numberOfSeats;
+    private String numberPlate;
     private String travelRoute;
-    private String priceOfTravel;
+    private String pickupLocation;
+    private String departureTime;
+    private String priceInKsh;
+    private String vehicleType;
+    private String numberOfSeats;
+    private String optionalDescription;
+    private String imageUrl;
 
     public VehicleDetails() {
     }
 
-    public VehicleDetails(String vehicleType, String registrationDetails, String companyName) {
-        this.vehicleType = vehicleType;
-        this.registrationDetails = registrationDetails;
+    public VehicleDetails(String key, String companyName, String numberPlate, String travelRoute, String pickupLocation, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String imageUrl) {
+        this.key = key;
         this.companyName = companyName;
-    }
-
-    public VehicleDetails(String vehicleType, String registrationDetails, String companyName, String numberOfSeats, String travelRoute, String priceOfTravel) {
-        this.vehicleType = vehicleType;
-        this.registrationDetails = registrationDetails;
-        this.companyName = companyName;
-        this.numberOfSeats = numberOfSeats;
+        this.numberPlate = numberPlate;
         this.travelRoute = travelRoute;
-        this.priceOfTravel = priceOfTravel;
-    }
-
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(String vehicleType) {
+        this.pickupLocation = pickupLocation;
+        this.departureTime = departureTime;
+        this.priceInKsh = priceInKsh;
         this.vehicleType = vehicleType;
+        this.numberOfSeats = numberOfSeats;
+        this.optionalDescription = optionalDescription;
+        this.imageUrl = imageUrl;
     }
 
-    public String getRegistrationDetails() {
-        return registrationDetails;
+    public String getKey() {
+        return key;
     }
 
-    public void setRegistrationDetails(String registrationDetails) {
-        this.registrationDetails = registrationDetails;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getCompanyName() {
@@ -54,12 +50,12 @@ public class VehicleDetails {
         this.companyName = companyName;
     }
 
-    public String getNumberOfSeats() {
-        return numberOfSeats;
+    public String getNumberPlate() {
+        return numberPlate;
     }
 
-    public void setNumberOfSeats(String numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setNumberPlate(String numberPlate) {
+        this.numberPlate = numberPlate;
     }
 
     public String getTravelRoute() {
@@ -70,11 +66,59 @@ public class VehicleDetails {
         this.travelRoute = travelRoute;
     }
 
-    public String getPriceOfTravel() {
-        return priceOfTravel;
+    public String getPickupLocation() {
+        return pickupLocation;
     }
 
-    public void setPriceOfTravel(String priceOfTravel) {
-        this.priceOfTravel = priceOfTravel;
+    public void setPickupLocation(String pickupLocation) {
+        this.pickupLocation = pickupLocation;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public String getPriceInKsh() {
+        return priceInKsh;
+    }
+
+    public void setPriceInKsh(String priceInKsh) {
+        this.priceInKsh = priceInKsh;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public String getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public void setNumberOfSeats(String numberOfSeats) {
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public String getOptionalDescription() {
+        return optionalDescription;
+    }
+
+    public void setOptionalDescription(String optionalDescription) {
+        this.optionalDescription = optionalDescription;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
