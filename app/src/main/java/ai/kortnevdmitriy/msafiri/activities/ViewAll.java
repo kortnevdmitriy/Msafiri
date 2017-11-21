@@ -25,10 +25,10 @@ public class ViewAll extends AppCompatActivity {
 
     private final String TAG = "View All";
     private FirebaseDatabase db;
-    private RecyclerView viewAllList;
-    private ViewAllAdapter mAdapter;
-    private List<VehicleDetails> vehicleList = new ArrayList<>();
-    private VehicleDetails details;
+    private RecyclerView viewAllRecyclerView;
+    private ViewAllAdapter viewAllAdapter;
+    private List<VehicleDetails> listOfAllBookableVehicles = new ArrayList<>();
+    private VehicleDetails vehicleDetails;
 
 
     @Override
@@ -56,27 +56,27 @@ public class ViewAll extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                details = dataSnapshot.getValue(VehicleDetails.class);
-                Log.d(TAG, "Value is: " + details);
-                if (details != null) {
-                    details.setKey(dataSnapshot.getKey());
+                vehicleDetails = dataSnapshot.getValue(VehicleDetails.class);
+                Log.d(TAG, "Value is: " + vehicleDetails);
+                if (vehicleDetails != null) {
+                    vehicleDetails.setKey(dataSnapshot.getKey());
                     prepareAllVehicleData();
                 }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                mAdapter.notifyDataSetChanged();
+                viewAllAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                mAdapter.notifyDataSetChanged();
+                viewAllAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                mAdapter.notifyDataSetChanged();
+                viewAllAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -90,14 +90,14 @@ public class ViewAll extends AppCompatActivity {
     // This method prepares and loads data from the database.
     private void prepareAllVehicleData() {
         // Create a RecyclerView & find it's view by id to populate it with news articles
-        viewAllList = findViewById(R.id.listView_ViewAll);
-        mAdapter = new ViewAllAdapter(vehicleList);
+        viewAllRecyclerView = findViewById(R.id.listView_ViewAll);
+        viewAllAdapter = new ViewAllAdapter(listOfAllBookableVehicles);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        viewAllList.setLayoutManager(mLayoutManager);
-        viewAllList.setItemAnimator(new DefaultItemAnimator());
-        viewAllList.setAdapter(mAdapter);
-        vehicleList.add(details);
-        mAdapter.notifyDataSetChanged();
+        viewAllRecyclerView.setLayoutManager(mLayoutManager);
+        viewAllRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        viewAllRecyclerView.setAdapter(viewAllAdapter);
+        listOfAllBookableVehicles.add(vehicleDetails);
+        viewAllAdapter.notifyDataSetChanged();
     }
 
 }
