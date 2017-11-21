@@ -1,6 +1,5 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,10 +25,10 @@ public class Search extends AppCompatActivity {
 
     private final String TAG = "Search";
     private FirebaseDatabase db;
-    private RecyclerView searchList;
-    private SearchAdapter mAdapter;
-    private List<VehicleDetails> vehicleSearchList = new ArrayList<>();
-    private VehicleDetails details;
+    private RecyclerView searchRecyclerView;
+    private SearchAdapter searchAdapter;
+    private List<VehicleDetails> listOfSearchedVehicles = new ArrayList<>();
+    private VehicleDetails vehicleDetails;
     private String data;
 
     @Override
@@ -58,27 +56,27 @@ public class Search extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                details = dataSnapshot.getValue(VehicleDetails.class);
-                Log.d(TAG, "Value is: " + details);
-                if (details != null) {
-                    details.setKey(dataSnapshot.getKey());
+                vehicleDetails = dataSnapshot.getValue(VehicleDetails.class);
+                Log.d(TAG, "Value is: " + vehicleDetails);
+                if (vehicleDetails != null) {
+                    vehicleDetails.setKey(dataSnapshot.getKey());
                     prepareAllVehicleData();
                 }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                mAdapter.notifyDataSetChanged();
+                searchAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                mAdapter.notifyDataSetChanged();
+                searchAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                mAdapter.notifyDataSetChanged();
+                searchAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -92,18 +90,14 @@ public class Search extends AppCompatActivity {
     // This method prepares and loads data from the database.
     private void prepareAllVehicleData() {
         // Create a RecyclerView & find it's view by id to populate it with news articles
-        searchList = findViewById(R.id.listView_Search);
-        mAdapter = new SearchAdapter(vehicleSearchList);
+        searchRecyclerView = findViewById(R.id.listView_Search);
+        searchAdapter = new SearchAdapter(listOfSearchedVehicles);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        searchList.setLayoutManager(mLayoutManager);
-        searchList.setItemAnimator(new DefaultItemAnimator());
-        searchList.setAdapter(mAdapter);
-        vehicleSearchList.add(details);
-        mAdapter.notifyDataSetChanged();
-    }
-
-    public void onClick(View view) {
-        startActivity(new Intent(getApplicationContext(), DirectBook.class));
+        searchRecyclerView.setLayoutManager(mLayoutManager);
+        searchRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        searchRecyclerView.setAdapter(searchAdapter);
+        listOfSearchedVehicles.add(vehicleDetails);
+        searchAdapter.notifyDataSetChanged();
     }
 
 }
