@@ -8,19 +8,21 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -31,40 +33,52 @@ import com.tapadoo.alerter.Alerter;
 import junit.framework.Assert;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import ai.kortnevdmitriy.msafiri.R;
+import ai.kortnevdmitriy.msafiri.adapters.SeatSelectionAdapter;
 import ai.kortnevdmitriy.msafiri.mpesa.api.ApiUtils;
 import ai.kortnevdmitriy.msafiri.mpesa.api.STKPush;
 import ai.kortnevdmitriy.msafiri.mpesa.api.StoreKey;
 import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
+import ai.kortnevdmitriy.msafiri.utilities.Item;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DirectBook extends AppCompatActivity {
+public class DirectBook extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private static final int COLUMNS = 5;
     private static final String TAG = Home.class.getSimpleName();
+    public Bitmap seatIcon;
+    public Bitmap seatSelect;
     STKPushService stkPushService;
-    private TextView txtSeatSelected;
-    private Editable editable;
+    GridView gridView;
+    ArrayList<Item> gridArray = new ArrayList<Item>();
+    SeatSelectionAdapter seatSelectionAdapter;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private String token = null;
     private String phone_number = "";
     private String regId;
-
+    private String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_direct_book);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        data = getIntent().getStringExtra("keyNumberOfSeats");
+
+        seatIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_avl);
+        seatSelect = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_std);
+        totalSeat(Integer.parseInt(data));
+
+        gridView = findViewById(R.id.gridView1);
+        seatSelectionAdapter = new SeatSelectionAdapter(this, R.layout.seatrow_grid, gridArray);
+        gridView.setAdapter(seatSelectionAdapter);
+        gridView.setOnItemClickListener(this);
 
 
         //        Use credentials from your Lipa na MPESA Online(MPesa Express) App from the developer portal
@@ -279,5 +293,41 @@ public class DirectBook extends AppCompatActivity {
     protected void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
         super.onPause();
+    }
+
+    public void totalSeat(int n) {
+        for (int i = 1; i <= n; ++i) {
+            gridArray.add(new Item(seatIcon, "seat " + i));
+
+        }
+    }
+
+
+    public void seatSelected(int pos) {
+        gridArray.remove(pos);
+        gridArray.add(pos, new Item(seatSelect, "Selected "));
+        seatSelectionAdapter.notifyDataSetChanged();
+    }
+
+    public void seatDeselected(int pos) {
+
+        gridArray.remove(pos);
+        int i = pos + 1;
+        gridArray.add(pos, new Item(seatIcon, "Seat " + i));
+        seatSelectionAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Item item = gridArray.get(position);
+        Bitmap seatcompare = item.getImage();
+        if (seatcompare == seatIcon) {
+            seatSelected(position);
+        } else {
+            seatDeselected(position);
+
+        }
+
     }
 }

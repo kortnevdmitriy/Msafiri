@@ -1,5 +1,6 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -7,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +30,7 @@ public class ViewAll extends AppCompatActivity {
     private ViewAllAdapter viewAllAdapter;
     private List<VehicleDetails> listOfAllBookableVehicles = new ArrayList<>();
     private VehicleDetails vehicleDetails;
+    private String numberOfSeats;
 
 
     @Override
@@ -98,7 +99,10 @@ public class ViewAll extends AppCompatActivity {
         viewAllAdapter = new ViewAllAdapter(listOfAllBookableVehicles, new ViewAllAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VehicleDetails item) {
-                Toast.makeText(getApplicationContext(), item.getNumberOfSeats(), Toast.LENGTH_SHORT).show();
+                numberOfSeats = item.getNumberOfSeats();
+                Intent intent = new Intent(getApplicationContext(), DirectBook.class);
+                intent.putExtra("keyNumberOfSeats", numberOfSeats);
+                startActivity(intent);
             }
         });
         viewAllRecyclerView.setAdapter(viewAllAdapter);

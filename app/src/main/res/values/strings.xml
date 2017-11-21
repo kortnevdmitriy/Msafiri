@@ -34,6 +34,57 @@
     <string name="textViewAppName">Msafiri</string>
     <!-- End of TextViews -->
 
+    <!-- Bus Ticketing Strings -->
+    <string name="select">Select your route</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="doj">Date of journey</string>
+    <string name="search_bus">Search buses</string>
+    <string name="touch_to_enter_city_name">Touch to enter a city name</string>
+    <string name="autocomplete_city_hint">Enter a city name</string>
+    <string name="recent_search">Recent searches</string>
+    <string name="top_search">Top searches</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="done">DONE</string>
+    <string name="cancel">Cancel</string>
+    <string name="departure_address">Depature Adrress:</string>
+    <string name="bus_service">Bus Service:</string>
+    <string name="telephone">Telephone: </string>
+    <string name="teleprefix">+95</string>
+    <string name="price">Price:</string>
+    <string name="total_seat">Total Seat:</string>
+    <string name="call">CALL</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="send_sms">Send Sms</string>
+    <string name="bus_fare">Bus fare</string>
+    <string name="bus_time">Time</string>
+    <string name="ratings">Ratings</string>
+    <string name="select_a_bus">Select a Bus</string>
+    <string name="rupees">₹</string>
+    <string name="lower">Lower</string>
+    <string name="upper">Upper</string>
+    <string name="seats_selected">Selected seats:</string>
+    <string name="available">Available</string>
+    <string name="booked">Booked</string>
+    <string name="selected">Selected</string>
+    <string name="ladies">Ladies</string>
+    <string name="goBack">Go back</string>
+    <string name="instruction">Tap below to select seats</string>
+    <string name="total_fare_text">Total fare</string>
+    <string name="agent_info">Send Sms for Further process!   </string>
+    <string name="boardingPointText">Boarding from</string>
+    <string name="boardingPointSelectionHeader">Select your boarding point</string>
+    <string name="rtc_caveat">Please Note: The price is exclusive of reservation fee and other charges as per KSRTC T&amp;C</string>
+    <string name="continue_booking_text">Continue booking</string>
+    <string name="Please_fill_mpin">Please fill the M-pin</string>
+    <string name="atlrt_sending_this_amount">Your Sending amount is =</string>
+    <string name="checkbalance">*669*10*</string>
+    <string name="checkProfileAPI">*669*12*1*</string>
+    <string name="loyaltyAPI">*669*5*</string>
+    <string name="DiscountMoneyAPI">*669*5*</string>
+
+
     <string-array name="destinations">
         <item>Nairobi</item>
         <item>Mombasa</item>
