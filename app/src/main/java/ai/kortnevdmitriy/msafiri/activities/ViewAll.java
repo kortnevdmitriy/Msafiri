@@ -47,7 +47,7 @@ public class ViewAll extends AppCompatActivity {
     private void readAllBookableVehicles() {
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("notes");
+        DatabaseReference myRef = db.getReference().child("vehicles");
 
         // Read from the database
         myRef.addChildEventListener(new ChildEventListener() {

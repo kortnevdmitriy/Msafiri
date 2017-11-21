@@ -106,7 +106,7 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
 
 
         //        Use credentials from your Lipa na MPESA Online(MPesa Express) App from the developer portal
-        getToken("R9nbc87PceK3I2qUvj96pWA3PWs9iGev", "2HNCbcALPAWooUkU");
+        getToken("GoDmHpTEG6bvLdXzIW0oaidG9QS11I2l", "LYLmSXBMyk5W5CUC");
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -214,13 +214,13 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
 
     public void performSTKPush(String phone_number) {
         Log.e("Checkout button clicked", "Button Clicked");
-        STKPush stkPush = new STKPush("174379",
+        STKPush stkPush = new STKPush("651130",
                 "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTYwMjE2MTY1NjI3",
                 "20160216165627",
                 "CustomerPayBillOnline",
                 "1",
                 phone_number,
-                "174379",
+                "651130",
                 phone_number,
                 "https://spurquoteapp.ga/pusher/pusher.php?title=stk_push&message=result&push_type=individual&regId=" + regId,
                 "test",
@@ -268,9 +268,12 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
     }
 
     public void createNotification(String content) {
-        Notification noti = new Notification.Builder(this)
-                .setContentTitle(content)
-                .setContentText("Subject").setSmallIcon(R.mipmap.ic_launcher).build();
+        Notification noti = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            noti = new Notification.Builder(this)
+                    .setContentTitle(content)
+                    .setContentText("Subject").setSmallIcon(R.mipmap.ic_launcher).build();
+        }
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         // hide the notification after its selected
         noti.flags |= Notification.FLAG_AUTO_CANCEL;

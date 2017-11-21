@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "599619563510-3i8h7cmaa2nehk03qd99nrko5hgtaldn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortnevdmitriy.msafiri",
+            "certificate_hash": "6383c41248635cba14e7d0729a18f5abfacc6ec2"
+          }
+        },
+        {
           "client_id": "599619563510-qvoti1dgvlc69fhdc0j7cnl08bbk2ttc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

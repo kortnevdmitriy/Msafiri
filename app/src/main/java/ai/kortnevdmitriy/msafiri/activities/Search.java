@@ -49,7 +49,7 @@ public class Search extends AppCompatActivity {
     private void searchBookableVehicles() {
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("notes");
+        DatabaseReference myRef = db.getReference().child("vehicles");
 
         // Read from the database by searching through the travel route children
         myRef.orderByChild("travelRoute").equalTo(data).addChildEventListener(new ChildEventListener() {
