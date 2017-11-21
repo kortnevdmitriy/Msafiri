@@ -9,7 +9,7 @@ public class VehicleDetails {
     private String companyName;
     private String numberPlate;
     private String travelRoute;
-    private String pickupLocation;
+    private String boardingPoint;
     private String departureTime;
     private String priceInKsh;
     private String vehicleType;
@@ -20,12 +20,12 @@ public class VehicleDetails {
     public VehicleDetails() {
     }
 
-    public VehicleDetails(String key, String companyName, String numberPlate, String travelRoute, String pickupLocation, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String imageUrl) {
+    public VehicleDetails(String key, String companyName, String numberPlate, String travelRoute, String boardingPoint, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String imageUrl) {
         this.key = key;
         this.companyName = companyName;
         this.numberPlate = numberPlate;
         this.travelRoute = travelRoute;
-        this.pickupLocation = pickupLocation;
+        this.boardingPoint = boardingPoint;
         this.departureTime = departureTime;
         this.priceInKsh = priceInKsh;
         this.vehicleType = vehicleType;
@@ -66,12 +66,12 @@ public class VehicleDetails {
         this.travelRoute = travelRoute;
     }
 
-    public String getPickupLocation() {
-        return pickupLocation;
+    public String getBoardingPoint() {
+        return boardingPoint;
     }
 
-    public void setPickupLocation(String pickupLocation) {
-        this.pickupLocation = pickupLocation;
+    public void setBoardingPoint(String boardingPoint) {
+        this.boardingPoint = boardingPoint;
     }
 
     public String getDepartureTime() {

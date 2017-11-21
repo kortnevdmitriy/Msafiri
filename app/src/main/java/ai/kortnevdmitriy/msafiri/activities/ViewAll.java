@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.adapters.VehicleRegistrationAdapter;
+import ai.kortnevdmitriy.msafiri.adapters.ViewAllAdapter;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 
 public class ViewAll extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class ViewAll extends AppCompatActivity {
     private final String TAG = "View All";
     private FirebaseDatabase db;
     private RecyclerView viewAllList;
-    private VehicleRegistrationAdapter mAdapter;
+    private ViewAllAdapter mAdapter;
     private List<VehicleDetails> vehicleList = new ArrayList<>();
     private VehicleDetails details;
 
@@ -91,7 +91,7 @@ public class ViewAll extends AppCompatActivity {
     private void prepareAllVehicleData() {
         // Create a RecyclerView & find it's view by id to populate it with news articles
         viewAllList = findViewById(R.id.listView_ViewAll);
-        mAdapter = new VehicleRegistrationAdapter(vehicleList);
+        mAdapter = new ViewAllAdapter(vehicleList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         viewAllList.setLayoutManager(mLayoutManager);
         viewAllList.setItemAnimator(new DefaultItemAnimator());

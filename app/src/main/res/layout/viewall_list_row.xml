@@ -82,17 +82,6 @@
         android:layout_toRightOf="@id/imageViewRegPlate"
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center" />
-
-    <Button
-        android:id="@+id/buttonBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/year"
-        android:background="@drawable/bookbuttonshape"
-        android:fontFamily="@font/quattrocento_sans_bold"
-        android:gravity="center"
-        android:text="Info"
-        android:textColor="@color/white" />
+    
 
 </RelativeLayout>
