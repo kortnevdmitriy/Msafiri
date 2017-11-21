@@ -30,7 +30,7 @@ public class ViewAll extends AppCompatActivity {
     private ViewAllAdapter viewAllAdapter;
     private List<VehicleDetails> listOfAllBookableVehicles = new ArrayList<>();
     private VehicleDetails vehicleDetails;
-    private String numberOfSeats;
+    private String recordsByKey;
 
 
     @Override
@@ -99,9 +99,9 @@ public class ViewAll extends AppCompatActivity {
         viewAllAdapter = new ViewAllAdapter(listOfAllBookableVehicles, new ViewAllAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VehicleDetails item) {
-                numberOfSeats = item.getNumberOfSeats();
-                Intent intent = new Intent(getApplicationContext(), DirectBook.class);
-                intent.putExtra("keyNumberOfSeats", numberOfSeats);
+                recordsByKey = item.getKey();
+                Intent intent = new Intent(getApplicationContext(), Booking.class);
+                intent.putExtra("recordsByKey", recordsByKey);
                 startActivity(intent);
             }
         });

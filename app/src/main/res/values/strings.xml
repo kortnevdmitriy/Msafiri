@@ -177,4 +177,5 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_search">Search</string>
+    <string name="title_activity_booking">Booking</string>
 </resources>

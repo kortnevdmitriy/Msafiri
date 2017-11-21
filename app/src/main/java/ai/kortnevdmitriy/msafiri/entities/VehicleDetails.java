@@ -15,12 +15,12 @@ public class VehicleDetails {
     private String vehicleType;
     private String numberOfSeats;
     private String optionalDescription;
-    private String imageUrl;
+    private String img_url;
 
     public VehicleDetails() {
     }
 
-    public VehicleDetails(String key, String companyName, String numberPlate, String travelRoute, String boardingPoint, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String imageUrl) {
+    public VehicleDetails(String key, String companyName, String numberPlate, String travelRoute, String boardingPoint, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String img_url) {
         this.key = key;
         this.companyName = companyName;
         this.numberPlate = numberPlate;
@@ -31,7 +31,7 @@ public class VehicleDetails {
         this.vehicleType = vehicleType;
         this.numberOfSeats = numberOfSeats;
         this.optionalDescription = optionalDescription;
-        this.imageUrl = imageUrl;
+        this.img_url = img_url;
     }
 
     public String getKey() {
@@ -114,11 +114,11 @@ public class VehicleDetails {
         this.optionalDescription = optionalDescription;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImg_url() {
+        return img_url;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
     }
 }

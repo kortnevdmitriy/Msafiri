@@ -64,15 +64,6 @@
                 android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
         </activity>
         <activity
-            android:name=".activities.VehicleDetails"
-            android:label="@string/title_activity_vehicle_details"
-            android:parentActivityName=".activities.ViewAll"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ai.kortnevdmitriy.msafiri.activities.ViewAll" />
-        </activity>
-        <activity
             android:name=".activities.DealOffers"
             android:label="@string/title_activity_deal_offers"
             android:parentActivityName=".activities.Home"
@@ -114,6 +105,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ai.kortnevdmitriy.msafiri.activities.Home" />
+        </activity>
+        <activity
+            android:name=".activities.Booking"
+            android:label="@string/title_activity_booking"
+            android:parentActivityName=".activities.ViewAll"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.ViewAll" />
         </activity>
     </application>
 
