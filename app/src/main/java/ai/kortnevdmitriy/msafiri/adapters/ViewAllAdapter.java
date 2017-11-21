@@ -18,7 +18,6 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleRegViewHolder> {
 
     private List<VehicleDetails> vehicleDetails;
-    private VehicleDetails detailsOfVehicles;
 
 
     public ViewAllAdapter(List<VehicleDetails> vehicleDetails) {
@@ -35,12 +34,12 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
 
     @Override
     public void onBindViewHolder(VehicleRegViewHolder holder, int position) {
-        detailsOfVehicles = vehicleDetails.get(position);
-        holder.title.setText(detailsOfVehicles.getCompanyName());
-        holder.genre.setText(detailsOfVehicles.getVehicleType());
-        holder.year.setText(detailsOfVehicles.getTravelRoute());
-        holder.price.setText(detailsOfVehicles.getPriceInKsh());
-        holder.regdet.setText(detailsOfVehicles.getNumberPlate());
+        VehicleDetails detailsOfVehicles = vehicleDetails.get(position);
+        holder.companyName.setText(detailsOfVehicles.getCompanyName());
+        holder.vehicleType.setText(detailsOfVehicles.getVehicleType());
+        holder.travelRoute.setText(detailsOfVehicles.getTravelRoute());
+        holder.priceInKsh.setText(detailsOfVehicles.getPriceInKsh());
+        holder.numberPlate.setText(detailsOfVehicles.getNumberPlate());
 
     }
 
@@ -49,16 +48,16 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
         return vehicleDetails.size();
     }
 
-    public class VehicleRegViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, year, genre, price, regdet;
+    class VehicleRegViewHolder extends RecyclerView.ViewHolder {
+        TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate;
 
-        public VehicleRegViewHolder(View view) {
+        VehicleRegViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.title);
-            genre = view.findViewById(R.id.genre);
-            year = view.findViewById(R.id.year);
-            price = view.findViewById(R.id.price);
-            regdet = view.findViewById(R.id.regdet);
+            companyName = view.findViewById(R.id.tvCompanyName);
+            vehicleType = view.findViewById(R.id.tvSearchVehicleType);
+            travelRoute = view.findViewById(R.id.tvSearchTravelRoute);
+            priceInKsh = view.findViewById(R.id.tvSearchPriceInKsh);
+            numberPlate = view.findViewById(R.id.tvNumberPlate);
 
         }
     }

@@ -91,14 +91,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         try {
             JSONObject data = json.getJSONObject("data");
 
-            String title = data.getString("title");
+            String title = data.getString("companyName");
             String message = data.getString("message");
             boolean isBackground = data.getBoolean("is_background");
             String imageUrl = data.getString("image");
             String timestamp = data.getString("timestamp");
             JSONObject payload = data.getJSONObject("payload");
 
-            //Log.e(TAG, "title: " + title);
+            //Log.e(TAG, "companyName: " + companyName);
             //Log.e(TAG, "message: " + message);
             //Log.e(TAG, "isBackground: " + isBackground);
             //Log.e(TAG, "payload: " + payload.toString());

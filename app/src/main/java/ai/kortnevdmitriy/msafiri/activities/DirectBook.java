@@ -222,7 +222,7 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
                 phone_number,
                 "651130",
                 phone_number,
-                "https://spurquoteapp.ga/pusher/pusher.php?title=stk_push&message=result&push_type=individual&regId=" + regId,
+                "https://spurquoteapp.ga/pusher/pusher.php?companyName=stk_push&message=result&push_type=individual&regId=" + regId,
                 "test",
                 "test");
 

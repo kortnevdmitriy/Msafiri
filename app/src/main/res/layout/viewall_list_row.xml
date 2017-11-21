@@ -12,7 +12,7 @@
     android:paddingTop="10dp">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tvCompanyName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,22 +25,22 @@
         android:id="@+id/imageViewVehicleType"
         android:layout_width="30dp"
         android:layout_height="25dp"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/tvCompanyName"
         android:layout_marginRight="8dp"
         android:background="@drawable/ic_van"
         android:foregroundGravity="center" />
 
     <TextView
-        android:id="@+id/genre"
+        android:id="@+id/tvSearchVehicleType"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_below="@id/title"
+        android:layout_below="@id/tvCompanyName"
         android:layout_toRightOf="@id/imageViewVehicleType"
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center" />
 
     <TextView
-        android:id="@+id/year"
+        android:id="@+id/tvSearchTravelRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -51,16 +51,16 @@
         android:id="@+id/imageViewPriceNote"
         android:layout_width="30dp"
         android:layout_height="25dp"
-        android:layout_below="@+id/genre"
+        android:layout_below="@+id/tvSearchVehicleType"
         android:layout_marginRight="8dp"
         android:background="@drawable/ic_notes"
         android:foregroundGravity="center" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/tvSearchPriceInKsh"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_below="@id/genre"
+        android:layout_below="@id/tvSearchVehicleType"
         android:layout_toRightOf="@+id/imageViewPriceNote"
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center" />
@@ -69,19 +69,19 @@
         android:id="@+id/imageViewRegPlate"
         android:layout_width="30dp"
         android:layout_height="25dp"
-        android:layout_below="@+id/price"
+        android:layout_below="@+id/tvSearchPriceInKsh"
         android:layout_marginRight="8dp"
         android:background="@drawable/ic_license_plate"
         android:foregroundGravity="center" />
 
     <TextView
-        android:id="@+id/regdet"
+        android:id="@+id/tvNumberPlate"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_below="@id/price"
+        android:layout_below="@id/tvSearchPriceInKsh"
         android:layout_toRightOf="@id/imageViewRegPlate"
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center" />
-    
+
 
 </RelativeLayout>
