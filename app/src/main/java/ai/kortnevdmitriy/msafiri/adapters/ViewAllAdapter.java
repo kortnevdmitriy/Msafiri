@@ -18,10 +18,11 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleRegViewHolder> {
 
     private List<VehicleDetails> vehicleDetails;
+    private OnItemClickListener listener;
 
-
-    public ViewAllAdapter(List<VehicleDetails> vehicleDetails) {
+    public ViewAllAdapter(List<VehicleDetails> vehicleDetails, OnItemClickListener listener) {
         this.vehicleDetails = vehicleDetails;
+        this.listener = listener;
     }
 
     @Override
@@ -40,7 +41,8 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
         holder.travelRoute.setText(detailsOfVehicles.getTravelRoute());
         holder.priceInKsh.setText(detailsOfVehicles.getPriceInKsh());
         holder.numberPlate.setText(detailsOfVehicles.getNumberPlate());
-
+        holder.key = detailsOfVehicles.getKey();
+        holder.bind(detailsOfVehicles, listener);
     }
 
     @Override
@@ -48,8 +50,13 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
         return vehicleDetails.size();
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(VehicleDetails item);
+    }
+
     class VehicleRegViewHolder extends RecyclerView.ViewHolder {
         TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate;
+        String key;
 
         VehicleRegViewHolder(View view) {
             super(view);
@@ -59,6 +66,15 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
             priceInKsh = view.findViewById(R.id.tvSearchPriceInKsh);
             numberPlate = view.findViewById(R.id.tvNumberPlate);
 
+        }
+
+        public void bind(final VehicleDetails item, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 

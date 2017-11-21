@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -91,10 +92,15 @@ public class ViewAll extends AppCompatActivity {
     private void prepareAllVehicleData() {
         // Create a RecyclerView & find it's view by id to populate it with news articles
         viewAllRecyclerView = findViewById(R.id.listView_ViewAll);
-        viewAllAdapter = new ViewAllAdapter(listOfAllBookableVehicles);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         viewAllRecyclerView.setLayoutManager(mLayoutManager);
         viewAllRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        viewAllAdapter = new ViewAllAdapter(listOfAllBookableVehicles, new ViewAllAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(VehicleDetails item) {
+                Toast.makeText(getApplicationContext(), item.getNumberOfSeats(), Toast.LENGTH_SHORT).show();
+            }
+        });
         viewAllRecyclerView.setAdapter(viewAllAdapter);
         listOfAllBookableVehicles.add(vehicleDetails);
         viewAllAdapter.notifyDataSetChanged();

@@ -13,15 +13,12 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +31,6 @@ import com.tapadoo.alerter.Alerter;
 import junit.framework.Assert;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.mpesa.api.ApiUtils;
@@ -44,19 +39,13 @@ import ai.kortnevdmitriy.msafiri.mpesa.api.StoreKey;
 import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
-import ai.kortnevdmitriy.msafiri.seatbooking.AbstractItem;
-import ai.kortnevdmitriy.msafiri.seatbooking.AirplaneAdapter;
-import ai.kortnevdmitriy.msafiri.seatbooking.CenterItem;
-import ai.kortnevdmitriy.msafiri.seatbooking.EdgeItem;
-import ai.kortnevdmitriy.msafiri.seatbooking.EmptyItem;
-import ai.kortnevdmitriy.msafiri.seatbooking.OnSeatSelected;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DirectBook extends AppCompatActivity implements OnSeatSelected {
+public class DirectBook extends AppCompatActivity {
 
     private static final int COLUMNS = 5;
     private static final String TAG = Home.class.getSimpleName();
@@ -76,33 +65,6 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        txtSeatSelected = findViewById(R.id.txt_seat_selected);
-        txtSeatSelected.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getPhoneNumber();
-            }
-        });
-
-        List<AbstractItem> items = new ArrayList<>();
-        for (int i = 0; i < 39; i++) {
-
-            if (i % COLUMNS == 0 || i % COLUMNS == 4) {
-                items.add(new EdgeItem(String.valueOf(i)));
-            } else if (i % COLUMNS == 1 || i % COLUMNS == 3) {
-                items.add(new CenterItem(String.valueOf(i)));
-            } else {
-                items.add(new EmptyItem(String.valueOf(i)));
-            }
-        }
-
-        GridLayoutManager manager = new GridLayoutManager(this, COLUMNS);
-        RecyclerView recyclerView = findViewById(R.id.lst_items);
-        recyclerView.setLayoutManager(manager);
-
-        AirplaneAdapter adapter = new AirplaneAdapter(this, items);
-        recyclerView.setAdapter(adapter);
 
 
         //        Use credentials from your Lipa na MPESA Online(MPesa Express) App from the developer portal
@@ -235,7 +197,6 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
                 try {
                     //Log.e("Response SUccess", response.toString());
                     if (response.isSuccessful()) {
-                        paymentAlert();
                         Log.e(TAG, "post submitted to API." + response.body().toString());
                     } else {
                         Log.e("Response", response.errorBody().string());
@@ -319,20 +280,4 @@ public class DirectBook extends AppCompatActivity implements OnSeatSelected {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
         super.onPause();
     }
-
-
-    @Override
-    public void onSeatSelected(int count) {
-
-        txtSeatSelected.setText("Book " + count + " seats");
-    }
-
-    public void paymentAlert() {
-        Alerter.create(this)
-                .setTitle("Payment")
-                .setText("Paid successfully")
-                .setBackgroundColorRes(R.color.colorAccent) // or setBackgroundColorInt(Color.CYAN)
-                .show();
-    }
-
 }
