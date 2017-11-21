@@ -43,7 +43,7 @@ public class Search extends AppCompatActivity {
         searchBookableVehicles();
     }
 
-    // Access Database to retrieve data
+    // Access Database to retrieve data using a Search Algorithm
     private void searchBookableVehicles() {
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
