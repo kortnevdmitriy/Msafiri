@@ -9,7 +9,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginRight="10.0dp"
-        android:src="@drawable/seat_layout_screen_nor_avl"></ImageView>
+        android:src="@drawable/seat_layout_screen_nor_avl" />
 
     <TextView
         android:id="@+id/item_text"
@@ -18,6 +18,6 @@
         android:layout_below="@+id/item_image"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="5dp"
-        android:textSize="15sp"></TextView>
+        android:textSize="15sp" />
 
 </RelativeLayout>

@@ -112,6 +112,19 @@
             android:parentActivityName=".activities.ViewAll"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <service
+            android:name=".mpesa.service.MyFirebaseInstanceIDService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".mpesa.service.MyFirebaseMessagingService"
+            android:exported="true">
+
+        </service>
     </application>
 
 </manifest>
