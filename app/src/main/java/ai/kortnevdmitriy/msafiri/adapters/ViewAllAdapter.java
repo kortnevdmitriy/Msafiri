@@ -68,7 +68,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
 
         }
 
-        public void bind(final VehicleDetails item, final OnItemClickListener listener) {
+        void bind(final VehicleDetails item, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

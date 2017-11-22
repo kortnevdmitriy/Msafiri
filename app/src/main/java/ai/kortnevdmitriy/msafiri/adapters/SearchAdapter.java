@@ -18,9 +18,11 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private List<VehicleDetails> vehicleDetails;
+    private OnItemClickListener listener;
 
-    public SearchAdapter(List<VehicleDetails> vehicleDetails) {
+    public SearchAdapter(List<VehicleDetails> vehicleDetails, OnItemClickListener listener) {
         this.vehicleDetails = vehicleDetails;
+        this.listener = listener;
     }
 
     @Override
@@ -39,11 +41,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.searchTravelRoute.setText(detailsOfVehicles.getTravelRoute());
         holder.searchPriceInKsh.setText(detailsOfVehicles.getPriceInKsh());
         holder.searchNumberPlate.setText(detailsOfVehicles.getNumberPlate());
+        holder.bind(detailsOfVehicles, listener);
     }
 
     @Override
     public int getItemCount() {
         return vehicleDetails.size();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(VehicleDetails item);
     }
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
@@ -57,6 +64,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             searchPriceInKsh = view.findViewById(R.id.tvSearchPriceInKsh);
             searchNumberPlate = view.findViewById(R.id.tvSearchNumberPlate);
 
+        }
+
+        void bind(final VehicleDetails item, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }

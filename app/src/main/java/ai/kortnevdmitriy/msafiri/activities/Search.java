@@ -1,5 +1,6 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -30,6 +31,7 @@ public class Search extends AppCompatActivity {
     private List<VehicleDetails> listOfSearchedVehicles = new ArrayList<>();
     private VehicleDetails vehicleDetails;
     private String data;
+    private String recordsByKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,10 +93,19 @@ public class Search extends AppCompatActivity {
     private void prepareAllVehicleData() {
         // Create a RecyclerView & find it's view by id to populate it with news articles
         searchRecyclerView = findViewById(R.id.listView_Search);
-        searchAdapter = new SearchAdapter(listOfSearchedVehicles);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         searchRecyclerView.setLayoutManager(mLayoutManager);
         searchRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        searchAdapter = new SearchAdapter(listOfSearchedVehicles, new SearchAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(VehicleDetails item) {
+//                Log.d("Clickable items",item.getCompanyName());
+                recordsByKey = item.getKey();
+                Intent intent = new Intent(getApplicationContext(), Booking.class);
+                intent.putExtra("recordsByKey", recordsByKey);
+                startActivity(intent);
+            }
+        });
         searchRecyclerView.setAdapter(searchAdapter);
         listOfSearchedVehicles.add(vehicleDetails);
         searchAdapter.notifyDataSetChanged();

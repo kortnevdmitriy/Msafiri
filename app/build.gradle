@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:11.6.0'
     implementation 'com.google.firebase:firebase-storage:11.6.0'
     implementation 'com.google.firebase:firebase-config:11.6.0'
-    implementation 'com.google.firebase:firebase-crash:11.6.0'
+//    implementation 'com.google.firebase:firebase-crash:11.6.0'
     implementation 'com.google.firebase:firebase-appindexing:11.6.0'
     implementation 'com.google.firebase:firebase-invites:11.6.0'
     implementation 'de.hdodenhof:circleimageview:1.3.0'
