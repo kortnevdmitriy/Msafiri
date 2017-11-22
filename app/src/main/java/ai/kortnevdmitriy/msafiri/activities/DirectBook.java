@@ -63,17 +63,18 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
     private String token = null;
     private String phone_number = "";
     private String regId;
-    private String data;
+    private String recordByNumberOfSeats, recordByPriceInKsh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_direct_book);
-        data = getIntent().getStringExtra("keyNumberOfSeats");
+        recordByNumberOfSeats = getIntent().getStringExtra("recordByNumberOfSeats");
+        recordByPriceInKsh = getIntent().getStringExtra("recordByPriceInKsh");
 
         seatIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_avl);
         seatSelect = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_std);
-        totalSeat(Integer.parseInt(data));
+        totalSeat(Integer.parseInt(recordByNumberOfSeats));
 
         gridView = findViewById(R.id.gridView1);
         seatSelectionAdapter = new SeatSelectionAdapter(this, R.layout.seatrow_grid, gridArray);

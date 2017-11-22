@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:contentDescription=""
             android:scaleType="centerCrop" />
 
@@ -32,7 +32,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/quattrocento_sans_bold"
-                android:text="Hon Mike Sonko"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -46,9 +45,32 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/quattrocento_sans_bold"
                 android:gravity="center"
-                android:text="@string/short_bio"
                 android:textColor="#fff"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/vehicleNumberPlate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vehicleTravelRoute"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/quattrocento_sans_bold"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/vehicleDepatureTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vehicleNumberPlate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/quattrocento_sans_bold"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="15sp" />
         </RelativeLayout>
 
 
@@ -60,19 +82,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/user_profile_email"
+                android:id="@+id/vehicleBoardingPoint"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#fff"
                 android:clickable="true"
                 android:elevation="4dp"
+                android:fontFamily="@font/quattrocento_sans_bold"
                 android:gravity="center"
                 android:padding="20dp"
                 android:text="" />
 
             <TextView
-                android:id="@+id/user_profile_phone"
+                android:id="@+id/vehicleOptionalDescription"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -81,101 +104,11 @@
                 android:background="#fff"
                 android:clickable="true"
                 android:elevation="4dp"
+                android:fontFamily="@font/quattrocento_sans_bold"
                 android:gravity="center"
                 android:padding="20dp"
                 android:text="" />
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="" />
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

@@ -19,9 +19,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.utilities.Constants;
@@ -133,7 +133,7 @@ public class Home extends AppCompatActivity
         FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         nameView.setText(mFirebaseUser.getDisplayName());
         emailView.setText(mFirebaseUser.getEmail());
-        Glide.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
+        Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
     }
 
     public void searchUI() {

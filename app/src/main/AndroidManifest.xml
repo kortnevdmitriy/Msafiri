@@ -111,9 +111,6 @@
             android:label="@string/title_activity_booking"
             android:parentActivityName=".activities.ViewAll"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ai.kortnevdmitriy.msafiri.activities.ViewAll" />
         </activity>
     </application>
 

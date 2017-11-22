@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -36,7 +36,7 @@ public class Account extends AppCompatActivity {
         TextView tvDisplayPhone = findViewById(R.id.user_profile_phone);
         CircleImageView avatarImageView = findViewById(R.id.user_profile_photo);
 
-        Glide.with(getApplicationContext())
+        Picasso.with(getApplicationContext())
                 .load(photoUrl)
                 .into(avatarImageView);
         tvDisplayName.setText(displayName);

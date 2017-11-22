@@ -1,8 +1,8 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -10,12 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
@@ -23,8 +23,8 @@ import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 public class Booking extends AppCompatActivity {
 
     private final String TAG = Booking.class.getName();
-    private TextView vehicleCompanyName, vehicleTravelRoute, vehicleNumberPlate, vehicleVehicleType, vehicledepartureTime;
-    private TextView vehicleNumberOfSeats, vehiclePriceInKsh, vehicleBoardingPoint, vehicleOptionalDescription;
+    private TextView vehicleCompanyName, vehicleTravelRoute, vehicleNumberPlate, vehicleDepartureTime;
+    private TextView vehicleNumberOfSeats, vehicleBoardingPoint, vehicleOptionalDescription;
     private ImageView header_cover_image;
     private String data;
     private FirebaseDatabase db;
@@ -35,46 +35,56 @@ public class Booking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), DirectBook.class);
+                intent.putExtra("recordByNumberOfSeats", vehicleDetails.getNumberOfSeats());
+                intent.putExtra("recordByPriceInKsh", vehicleDetails.getPriceInKsh());
+                startActivity(intent);
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
         data = getIntent().getStringExtra("recordsByKey");
 
         // find views by id
         vehicleCompanyName = findViewById(R.id.vehicleCompanyName);
         vehicleTravelRoute = findViewById(R.id.vehicleTravelRoute);
+        vehicleNumberPlate = findViewById(R.id.vehicleNumberPlate);
+        vehicleDepartureTime = findViewById(R.id.vehicleDepatureTime);
+        vehicleOptionalDescription = findViewById(R.id.vehicleOptionalDescription);
+        vehicleBoardingPoint = findViewById(R.id.vehicleBoardingPoint);
         header_cover_image = findViewById(R.id.header_cover_image);
         viewVehicleInformation();
-        Glide.with(this).load("https://firebasestorage.googleapis.com/v0/b/msafiri-80193.appspot.com/o/vehicles%2Fhorizon.jpg?alt=media&token=77c33523-bf66-48e6-857d-e98f5d3726b6").into(header_cover_image);
+
+        Picasso.with(this).load("https://firebasestorage.googleapis.com/v0/b/msafiri-80193.appspot.com/o/vehicles%2Fhorizon.jpg?alt=media&token=77c33523-bf66-48e6-857d-e98f5d3726b6").into(header_cover_image);
     }
 
-    // Access Database to retrieve data using a Search Algorithm
+    // Access Database to retrieve the full vehicle information
     private void viewVehicleInformation() {
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("vehicles");
+        DatabaseReference myRef = db.getReference().child("vehicles"); // Database child name
 
-        // Read from the database by searching through the travel route children
+        // Read from the database by querying using the orderByKey to return values by key.
         myRef.orderByKey().equalTo(data).addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                vehicleDetails = dataSnapshot.getValue(ai.kortnevdmitriy.msafiri.entities.VehicleDetails.class);
+                vehicleDetails = dataSnapshot.getValue(VehicleDetails.class);
                 Log.d(TAG, "Value is: " + vehicleDetails);
                 if (vehicleDetails != null) {
                     vehicleDetails.setKey(dataSnapshot.getKey());
                     vehicleCompanyName.setText(vehicleDetails.getCompanyName());
                     vehicleTravelRoute.setText(vehicleDetails.getTravelRoute());
+                    vehicleNumberPlate.setText(vehicleDetails.getNumberPlate());
+                    vehicleDepartureTime.setText(vehicleDetails.getDepartureTime());
+                    vehicleOptionalDescription.setText(vehicleDetails.getOptionalDescription());
+                    vehicleBoardingPoint.setText(vehicleDetails.getBoardingPoint());
                 }
             }
 
