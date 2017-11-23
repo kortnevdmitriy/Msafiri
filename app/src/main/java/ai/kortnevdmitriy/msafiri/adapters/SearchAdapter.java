@@ -41,6 +41,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.searchTravelRoute.setText(detailsOfVehicles.getTravelRoute());
         holder.searchPriceInKsh.setText(detailsOfVehicles.getPriceInKsh());
         holder.searchNumberPlate.setText(detailsOfVehicles.getNumberPlate());
+        holder.searchDepartureTime.setText(detailsOfVehicles.getDepartureTime());
         holder.bind(detailsOfVehicles, listener);
     }
 
@@ -54,7 +55,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
-        TextView searchCompanyName, searchTravelRoute, searchVehicleType, searchPriceInKsh, searchNumberPlate;
+        TextView searchCompanyName, searchTravelRoute, searchVehicleType, searchPriceInKsh, searchNumberPlate, searchDepartureTime;
 
         SearchViewHolder(View view) {
             super(view);
@@ -63,6 +64,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             searchTravelRoute = view.findViewById(R.id.tvSearchTravelRoute);
             searchPriceInKsh = view.findViewById(R.id.tvSearchPriceInKsh);
             searchNumberPlate = view.findViewById(R.id.tvSearchNumberPlate);
+            searchDepartureTime = view.findViewById(R.id.tvSearchDepartureTime);
 
         }
 

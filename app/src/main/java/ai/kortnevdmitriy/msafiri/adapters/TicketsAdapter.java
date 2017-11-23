@@ -40,6 +40,7 @@ public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsV
         holder.travelRoute.setText(detailsOfTickets.getTravelRoute());
         holder.priceInKsh.setText(detailsOfTickets.getPriceInKsh());
         holder.numberPlate.setText(detailsOfTickets.getNumberPlate());
+        holder.seatNumber.setText(detailsOfTickets.getSeatNumber());
         holder.bind(detailsOfTickets, listener);
     }
 
@@ -53,7 +54,7 @@ public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsV
     }
 
     public class TicketsViewHolder extends RecyclerView.ViewHolder {
-        TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate;
+        TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate, seatNumber;
         String key;
 
         public TicketsViewHolder(View view) {
@@ -63,6 +64,7 @@ public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsV
             travelRoute = view.findViewById(R.id.ticketsTravelRoute);
             priceInKsh = view.findViewById(R.id.ticketsPriceInKsh);
             numberPlate = view.findViewById(R.id.ticketsNumberPlate);
+            seatNumber = view.findViewById(R.id.ticketsSeatNumber);
         }
 
         void bind(final TicketDetails item, final OnItemClickListener listener) {

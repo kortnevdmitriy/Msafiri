@@ -41,6 +41,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
         holder.travelRoute.setText(detailsOfVehicles.getTravelRoute());
         holder.priceInKsh.setText(detailsOfVehicles.getPriceInKsh());
         holder.numberPlate.setText(detailsOfVehicles.getNumberPlate());
+        holder.departureTime.setText(detailsOfVehicles.getDepartureTime());
         holder.key = detailsOfVehicles.getKey();
         holder.bind(detailsOfVehicles, listener);
     }
@@ -55,7 +56,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
     }
 
     class VehicleRegViewHolder extends RecyclerView.ViewHolder {
-        TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate;
+        TextView companyName, travelRoute, vehicleType, priceInKsh, numberPlate, departureTime;
         String key;
 
         VehicleRegViewHolder(View view) {
@@ -65,6 +66,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.VehicleR
             travelRoute = view.findViewById(R.id.tvSearchTravelRoute);
             priceInKsh = view.findViewById(R.id.tvSearchPriceInKsh);
             numberPlate = view.findViewById(R.id.tvNumberPlate);
+            departureTime = view.findViewById(R.id.tvDepartureTime);
 
         }
 

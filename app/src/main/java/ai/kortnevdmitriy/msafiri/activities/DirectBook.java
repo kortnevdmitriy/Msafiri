@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.tapadoo.alerter.Alerter;
 
 import junit.framework.Assert;
 
@@ -319,6 +320,11 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
     public void seatSelected(int pos) {
         gridArray.remove(pos);
         gridArray.add(pos, new Item(seatBooked, "Booked"));
+        Alerter.create(this)
+                .setTitle("Seat Booked")
+                .setText("Thank you for booking a seat")
+                .setBackgroundColorRes(R.color.colorAccent)
+                .show();
         seatSelectionAdapter.notifyDataSetChanged();
     }
 
@@ -391,7 +397,7 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
                     ticketDetails.setMpesaTransactionCode("LKN5C8FNUH");
                 }
                 String uid = FirebaseAuth.getInstance().getUid();
-                db.getReference().child("tickets").child(uid).setValue(ticketDetails);
+                db.getReference().child("tickets").push().setValue(ticketDetails);
             }
 
             @Override
@@ -426,7 +432,7 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
         Log.d("Clicked Grid Item: ", seatNumber);
         Bitmap seatcompare = item.getImage();
         if (seatcompare == seatIcon) {
-            getPhoneNumber();
+            //getPhoneNumber();
             seatSelected(position);
             postTicketReceipt();
         } else {

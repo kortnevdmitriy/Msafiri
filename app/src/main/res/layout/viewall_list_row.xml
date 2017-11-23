@@ -80,11 +80,30 @@
         android:fontFamily="@font/quattrocento_sans_bold"
         android:gravity="center" />
 
+    <ImageView
+        android:id="@+id/imageViewDepartureTime"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tvNumberPlate"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ic_meeting_deadlines"
+        android:foregroundGravity="center" />
+
+    <TextView
+        android:id="@+id/tvDepartureTime"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@id/tvNumberPlate"
+        android:layout_toRightOf="@id/imageViewDepartureTime"
+        android:fontFamily="@font/quattrocento_sans_bold"
+        android:gravity="center" />
+
+
     <View
         android:id="@+id/busDeckSelectionMargin"
         android:layout_width="match_parent"
         android:layout_height="1.0dip"
-        android:layout_below="@id/tvNumberPlate"
+        android:layout_below="@id/tvDepartureTime"
         android:background="@color/colorAccent" />
 
 

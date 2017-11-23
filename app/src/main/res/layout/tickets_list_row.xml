@@ -25,7 +25,7 @@
         android:layout_height="25dp"
         android:layout_below="@+id/ticketsCompanyName"
         android:layout_marginRight="8dp"
-        android:background="@drawable/ic_van"
+        android:background="@drawable/ic_boarding_point"
         android:foregroundGravity="center" />
 
     <TextView
@@ -82,17 +82,36 @@
         android:gravity="center" />
 
     <ImageView
+        android:id="@+id/imageViewSeatNumber"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/ticketsNumberPlate"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ic_seat_car"
+        android:foregroundGravity="center" />
+
+    <TextView
+        android:id="@+id/ticketsSeatNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@id/ticketsNumberPlate"
+        android:layout_toRightOf="@id/imageViewRegPlate"
+        android:fontFamily="@font/quattrocento_sans_bold"
+        android:gravity="center" />
+
+    <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentRight="true"
         android:layout_below="@id/ticketsTravelRoute"
         app:srcCompat="@drawable/ic_ticket" />
 
+
     <View
         android:id="@+id/busDeckSelectionMargin"
         android:layout_width="match_parent"
         android:layout_height="1.0dip"
-        android:layout_below="@id/ticketsNumberPlate"
+        android:layout_below="@id/ticketsSeatNumber"
         android:background="@color/colorAccent" />
 
 </RelativeLayout>
