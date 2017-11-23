@@ -110,8 +110,7 @@
             android:name=".activities.Booking"
             android:label="@string/title_activity_booking"
             android:parentActivityName=".activities.ViewAll"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <service
             android:name=".mpesa.service.MyFirebaseInstanceIDService"
@@ -122,9 +121,17 @@
         </service>
         <service
             android:name=".mpesa.service.MyFirebaseMessagingService"
-            android:exported="true">
+            android:exported="true"></service>
 
-        </service>
+        <activity
+            android:name=".activities.QRCode"
+            android:label="@string/title_activity_qrcode"
+            android:parentActivityName=".activities.Tickets"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.kortnevdmitriy.msafiri.activities.Tickets" />
+        </activity>
     </application>
 
 </manifest>

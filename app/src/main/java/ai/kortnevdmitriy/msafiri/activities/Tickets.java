@@ -1,5 +1,6 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,15 +20,15 @@ import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.adapters.TicketsAdapter;
-import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
+import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
 
 public class Tickets extends AppCompatActivity {
 
     private final String TAG = Tickets.class.getName();
     private RecyclerView ticketsRecyclerView;
     private TicketsAdapter ticketsAdapter;
-    private List<VehicleDetails> listOfAllTickets = new ArrayList<>();
-    private VehicleDetails vehicleDetails;
+    private List<TicketDetails> listOfAllTickets = new ArrayList<>();
+    private TicketDetails ticketsDetails;
     private FirebaseDatabase db;
 
     @Override
@@ -45,7 +46,7 @@ public class Tickets extends AppCompatActivity {
     private void readAllTickets() {
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("vehicles");
+        DatabaseReference myRef = db.getReference().child("tickets");
 
         // Read from the database
         myRef.addChildEventListener(new ChildEventListener() {
@@ -54,10 +55,10 @@ public class Tickets extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                vehicleDetails = dataSnapshot.getValue(VehicleDetails.class);
-                Log.d(TAG, "Value is: " + vehicleDetails);
-                if (vehicleDetails != null) {
-                    vehicleDetails.setKey(dataSnapshot.getKey());
+                ticketsDetails = dataSnapshot.getValue(TicketDetails.class);
+                Log.d(TAG, "Value is: " + ticketsDetails);
+                if (ticketsDetails != null) {
+                    ticketsDetails.setKey(dataSnapshot.getKey());
                     prepareAllTicketsData();
                 }
             }
@@ -94,13 +95,16 @@ public class Tickets extends AppCompatActivity {
         ticketsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         ticketsAdapter = new TicketsAdapter(listOfAllTickets, new TicketsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(VehicleDetails item) {
-
+            public void onItemClick(TicketDetails item) {
+                String ticketKey = item.getKey();
+                Intent intent = new Intent(getApplicationContext(), QRCode.class);
+                intent.putExtra("ticketKeyValue", ticketKey);
+                startActivity(intent);
             }
         });
         ticketsRecyclerView.setAdapter(ticketsAdapter);
-        listOfAllTickets.add(vehicleDetails);
-        Log.d(TAG, vehicleDetails.getCompanyName());
+        listOfAllTickets.add(ticketsDetails);
+        Log.d(TAG, ticketsDetails.getCompanyName());
         ticketsAdapter.notifyDataSetChanged();
     }
 

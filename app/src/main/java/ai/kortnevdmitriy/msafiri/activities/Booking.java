@@ -42,6 +42,7 @@ public class Booking extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DirectBook.class);
                 intent.putExtra("recordByNumberOfSeats", vehicleDetails.getNumberOfSeats());
                 intent.putExtra("recordByPriceInKsh", vehicleDetails.getPriceInKsh());
+                intent.putExtra("recordByKeyValue", vehicleDetails.getKey());
                 startActivity(intent);
             }
         });

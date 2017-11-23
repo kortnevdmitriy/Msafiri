@@ -9,18 +9,18 @@ import android.widget.TextView;
 import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
+import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
 
 /**
  * Created by kortn on 11/22/2017.
  */
 
 public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsViewHolder> {
-    private List<VehicleDetails> vehicleDetails;
+    private List<TicketDetails> ticketDetails;
     private OnItemClickListener listener;
 
-    public TicketsAdapter(List<VehicleDetails> vehicleDetails, OnItemClickListener listener) {
-        this.vehicleDetails = vehicleDetails;
+    public TicketsAdapter(List<TicketDetails> ticketDetails, OnItemClickListener listener) {
+        this.ticketDetails = ticketDetails;
         this.listener = listener;
     }
 
@@ -34,23 +34,22 @@ public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsV
 
     @Override
     public void onBindViewHolder(TicketsViewHolder holder, int position) {
-        VehicleDetails detailsOfVehicles = vehicleDetails.get(position);
-        holder.companyName.setText(detailsOfVehicles.getCompanyName());
-        holder.vehicleType.setText(detailsOfVehicles.getVehicleType());
-        holder.travelRoute.setText(detailsOfVehicles.getTravelRoute());
-        holder.priceInKsh.setText(detailsOfVehicles.getPriceInKsh());
-        holder.numberPlate.setText(detailsOfVehicles.getNumberPlate());
-        holder.key = detailsOfVehicles.getKey();
-        holder.bind(detailsOfVehicles, listener);
+        TicketDetails detailsOfTickets = ticketDetails.get(position);
+        holder.companyName.setText(detailsOfTickets.getCompanyName());
+        holder.vehicleType.setText(detailsOfTickets.getBoardingPoint());
+        holder.travelRoute.setText(detailsOfTickets.getTravelRoute());
+        holder.priceInKsh.setText(detailsOfTickets.getPriceInKsh());
+        holder.numberPlate.setText(detailsOfTickets.getNumberPlate());
+        holder.bind(detailsOfTickets, listener);
     }
 
     @Override
     public int getItemCount() {
-        return vehicleDetails.size();
+        return ticketDetails.size();
     }
 
     public interface OnItemClickListener {
-        void onItemClick(VehicleDetails item);
+        void onItemClick(TicketDetails item);
     }
 
     public class TicketsViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +65,7 @@ public class TicketsAdapter extends RecyclerView.Adapter<TicketsAdapter.TicketsV
             numberPlate = view.findViewById(R.id.ticketsNumberPlate);
         }
 
-        void bind(final VehicleDetails item, final OnItemClickListener listener) {
+        void bind(final TicketDetails item, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

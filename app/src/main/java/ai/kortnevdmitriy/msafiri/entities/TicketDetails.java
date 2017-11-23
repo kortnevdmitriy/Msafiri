@@ -5,6 +5,7 @@ package ai.kortnevdmitriy.msafiri.entities;
  */
 
 public class TicketDetails {
+    private String key;
     private String companyName;
     private String numberPlate;
     private String travelRoute;
@@ -12,14 +13,15 @@ public class TicketDetails {
     private String departureTime;
     private String priceInKsh;
     private String vehicleType;
-    private String numberOfSeats;
+    private String seatNumber;
     private String optionalDescription;
     private String mpesaTransactionCode;
 
     public TicketDetails() {
     }
 
-    public TicketDetails(String companyName, String numberPlate, String travelRoute, String boardingPoint, String departureTime, String priceInKsh, String vehicleType, String numberOfSeats, String optionalDescription, String mpesaTransactionCode) {
+    public TicketDetails(String key, String companyName, String numberPlate, String travelRoute, String boardingPoint, String departureTime, String priceInKsh, String vehicleType, String seatNumber, String optionalDescription, String mpesaTransactionCode) {
+        this.key = key;
         this.companyName = companyName;
         this.numberPlate = numberPlate;
         this.travelRoute = travelRoute;
@@ -27,9 +29,17 @@ public class TicketDetails {
         this.departureTime = departureTime;
         this.priceInKsh = priceInKsh;
         this.vehicleType = vehicleType;
-        this.numberOfSeats = numberOfSeats;
+        this.seatNumber = seatNumber;
         this.optionalDescription = optionalDescription;
         this.mpesaTransactionCode = mpesaTransactionCode;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getCompanyName() {
@@ -88,12 +98,12 @@ public class TicketDetails {
         this.vehicleType = vehicleType;
     }
 
-    public String getNumberOfSeats() {
-        return numberOfSeats;
+    public String getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setNumberOfSeats(String numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     public String getOptionalDescription() {

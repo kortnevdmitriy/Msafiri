@@ -67,25 +67,6 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/availableImageLayout">
 
-                    <ImageView
-                        android:id="@+id/bookedImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10.0dip"
-                        android:rotation="90.0"
-                        android:src="@drawable/seat_layout_tab_nor_bkd" />
-
-                    <TextView
-                        android:id="@+id/bookedText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5.0dip"
-                        android:layout_toRightOf="@+id/bookedImage"
-                        android:text="@string/booked"
-                        android:textSize="12.0sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -109,7 +90,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5.0dip"
                         android:layout_toRightOf="@+id/selectedImage"
-                        android:text="@string/selected"
+                        android:text="Booked"
                         android:textSize="12.0sp" />
                 </RelativeLayout>
 
@@ -159,24 +140,6 @@
                 android:background="@layout/seat_layout_border"
                 android:visibility="invisible" />
         </RelativeLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/bottomBarSeatSelection"
-        android:layout_width="fill_parent"
-        android:layout_height="49.0dip"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white">
-
-        <Button
-            android:id="@+id/doneButton"
-            android:layout_width="match_parent"
-            android:layout_height="48.0dip"
-            android:layout_marginTop="1.0dip"
-            android:background="@drawable/buttonshape"
-            android:text="@string/done"
-            android:textColor="@color/white"
-            android:textSize="18.0sp" />
     </RelativeLayout>
 
 </RelativeLayout>
