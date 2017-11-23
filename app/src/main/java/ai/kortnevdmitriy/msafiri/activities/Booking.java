@@ -1,6 +1,7 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -59,7 +60,7 @@ public class Booking extends AppCompatActivity {
         header_cover_image = findViewById(R.id.header_cover_image);
         viewVehicleInformation();
 
-        Picasso.with(this).load("https://firebasestorage.googleapis.com/v0/b/msafiri-80193.appspot.com/o/vehicles%2Fhorizon.jpg?alt=media&token=77c33523-bf66-48e6-857d-e98f5d3726b6").into(header_cover_image);
+
     }
 
     // Access Database to retrieve the full vehicle information
@@ -85,6 +86,7 @@ public class Booking extends AppCompatActivity {
                     vehicleDepartureTime.setText(vehicleDetails.getDepartureTime());
                     vehicleOptionalDescription.setText(vehicleDetails.getOptionalDescription());
                     vehicleBoardingPoint.setText(vehicleDetails.getBoardingPoint());
+                    Picasso.with(getApplicationContext()).load(Uri.parse(vehicleDetails.getImg_url())).into(header_cover_image);
                 }
             }
 

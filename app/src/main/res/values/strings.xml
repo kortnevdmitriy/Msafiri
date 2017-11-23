@@ -85,6 +85,12 @@
     <string name="DiscountMoneyAPI">*669*5*</string>
 
 
+    <string name="invitation_title">Msafiri</string>
+    <string name="invitation_message">Msafiri is your best travel ticket manager</string>
+    <string name="invitation_deep_link">msafiri-80193.firebaseapp.com/</string>
+    <string name="invitation_cta">Download</string>
+
+
     <string-array name="destinations">
         <item>Nairobi</item>
         <item>Mombasa</item>

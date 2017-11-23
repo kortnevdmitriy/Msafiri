@@ -1,6 +1,7 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -19,6 +20,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
@@ -30,11 +32,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int REQUEST_INVITE = 0;
+    private static final String TAG = Home.class.getSimpleName();
     public String extractedTravelRoute;
     private NavigationView navigationView;
     private AutoCompleteTextView destinationFrom, destinationTo;
     private ArrayAdapter<String> adapter;
-    private String separator = " - ";
+    private String separator = "-";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +119,8 @@ public class Home extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), Account.class));
         } else if (id == R.id.nav_my_tickets) {
             startActivity(new Intent(getApplicationContext(), Tickets.class));
+        } else if (id == R.id.nav_share) {
+            onInviteClicked();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -164,4 +170,67 @@ public class Home extends AppCompatActivity
         intent.putExtra("keyName", extractedTravelRoute);
         startActivity(intent);
     }
+
+    // [START on_invite_clicked]
+
+    private void onInviteClicked() {
+
+        Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
+                .setMessage(getString(R.string.invitation_message))
+
+                .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+
+                .setCallToActionText(getString(R.string.invitation_cta))
+
+                .build();
+
+        startActivityForResult(intent, REQUEST_INVITE);
+
+    }
+
+    // [END on_invite_clicked]
+
+
+    // [START on_activity_result]
+
+    @Override
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.d(TAG, "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
+
+
+        if (requestCode == REQUEST_INVITE) {
+
+            if (resultCode == RESULT_OK) {
+
+                // Get the invitation IDs of all sent messages
+
+                String[] ids = AppInviteInvitation.getInvitationIds(resultCode, data);
+
+                for (String id : ids) {
+
+                    Log.d(TAG, "onActivityResult: sent invitation " + id);
+
+                }
+
+            } else {
+
+                // Sending failed or it was canceled, show failure message to the user
+
+                // [START_EXCLUDE]
+
+
+                // [END_EXCLUDE]
+
+            }
+
+        }
+
+    }
+
+
+    // [END on_activity_result]
 }
