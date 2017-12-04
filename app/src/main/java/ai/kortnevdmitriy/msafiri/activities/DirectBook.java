@@ -34,15 +34,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.tapadoo.alerter.Alerter;
 
 import junit.framework.Assert;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.adapters.SeatSelectionAdapter;
+import ai.kortnevdmitriy.msafiri.entities.BookedVehicles;
 import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
 import ai.kortnevdmitriy.msafiri.mpesa.api.ApiUtils;
@@ -75,9 +76,11 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
     private String recordByNumberOfSeats, recordByPriceInKsh, recordByKeyValue;
     private String seatNumber;
     private Item item;
+    private List<BookedVehicles> listOfBookedVehicles = new ArrayList<>();
     private boolean paidCash;
     private FirebaseDatabase db;
     private VehicleDetails vehicleDetails;
+    private BookedVehicles bookedVehicles;
     private TicketDetails ticketDetails;
 
     @Override
@@ -95,12 +98,13 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
         gridView = findViewById(R.id.gridView1);
         seatSelectionAdapter = new SeatSelectionAdapter(this, R.layout.seatrow_grid, gridArray);
         gridView.setAdapter(seatSelectionAdapter);
+        gridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);
         gridView.setOnItemClickListener(this);
 
-
-
-        //        Use credentials from your Lipa na MPESA Online(MPesa Express) App from the developer portal
+        //Use credentials from your Lipa na MPESA Online(MPesa Express) App from the developer portal
         getToken("GoDmHpTEG6bvLdXzIW0oaidG9QS11I2l", "LYLmSXBMyk5W5CUC");
+
+
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -311,20 +315,60 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
 
     public void totalSeat(int n) {
         for (int i = 1; i <= n; ++i) {
-            gridArray.add(new Item(seatIcon, "seat " + i));
+            gridArray.add(new Item(seatIcon, "seat" + i));
 
         }
     }
 
 
     public void seatSelected(int pos) {
-        gridArray.remove(pos);
+       /* gridArray.remove(pos);
         gridArray.add(pos, new Item(seatBooked, "Booked"));
         Alerter.create(this)
                 .setTitle("Seat Booked")
                 .setText("Thank you for booking a seat")
                 .setBackgroundColorRes(R.color.colorAccent)
-                .show();
+                .show();*/
+        // Access a Firebase Real Database instance from your Activity
+        db = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = db.getReference().child("vehicles"); // Database child name
+
+        // Read from the database by querying using the orderByKey to return values by key.
+        myRef.orderByKey().equalTo(recordByKeyValue).addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                vehicleDetails = dataSnapshot.getValue(VehicleDetails.class);
+                Log.d(TAG, "Value is: " + vehicleDetails);
+                if (vehicleDetails != null) {
+                    vehicleDetails.setKey(dataSnapshot.getKey());
+                }
+                db.getReference().child("bookedVehicles").child(dataSnapshot.getKey()).child(seatNumber).setValue("booked");
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
         seatSelectionAdapter.notifyDataSetChanged();
     }
 
@@ -425,14 +469,55 @@ public class DirectBook extends AppCompatActivity implements AdapterView.OnItemC
 
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
         item = gridArray.get(position);
         seatNumber = item.getTitle();
         Log.d("Clicked Grid Item: ", seatNumber);
+
+
+        // Access a Firebase Real Database instance from your Activity
+        db = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = db.getReference().child("bookedVehicles");
+
+        // Read from the database by searching through the travel route children
+        myRef.orderByChild(seatNumber).equalTo("booked").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                bookedVehicles = dataSnapshot.getValue(BookedVehicles.class);
+                if (bookedVehicles != null) {
+                    Log.d(TAG, "Value is: " + bookedVehicles);
+                    bookedVehicles.setKey(dataSnapshot.getKey());
+                    listOfBookedVehicles.add(bookedVehicles);
+
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         Bitmap seatcompare = item.getImage();
         if (seatcompare == seatIcon) {
-            //getPhoneNumber();
             seatSelected(position);
             postTicketReceipt();
         } else {
