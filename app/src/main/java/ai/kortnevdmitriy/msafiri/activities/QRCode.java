@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,11 +31,12 @@ public class QRCode extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        String uid = FirebaseAuth.getInstance().getUid();
+        assert uid != null;
         data = getIntent().getStringExtra("ticketKeyValue");
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("tickets");
+        DatabaseReference myRef = db.getReference().child("tickets").child(uid);
 
         // Read from the database by querying using the orderByKey to return values by key.
         myRef.orderByKey().equalTo(data).addChildEventListener(new ChildEventListener() {

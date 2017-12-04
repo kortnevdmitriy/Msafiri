@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,8 +46,10 @@ public class Tickets extends AppCompatActivity {
     // Access Database to retrieve data
     private void readAllTickets() {
         // Access a Firebase Real Database instance from your Activity
+        String uid = FirebaseAuth.getInstance().getUid();
         db = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = db.getReference().child("tickets");
+        assert uid != null;
+        DatabaseReference myRef = db.getReference().child("tickets").child(uid);
 
         // Read from the database
         myRef.addChildEventListener(new ChildEventListener() {
