@@ -41,7 +41,7 @@ public class Account extends AppCompatActivity {
                 .into(avatarImageView);
         tvDisplayName.setText(displayName);
         tvDisplayEmail.setText(userEmail);
-        tvDisplayPhone.setText("0706025924");
+        tvDisplayPhone.setText("+254722972233");
     }
 
 }

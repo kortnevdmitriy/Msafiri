@@ -383,11 +383,558 @@ public class DirectBook extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                bookedVehicles = dataSnapshot.getValue(BookedVehicles.class);
+                if (bookedVehicles != null) {
+                    bookedVehicles.setKey(dataSnapshot.getKey());
+                    if (!"booked".equals(bookedVehicles.getSeat1())) {
+                        seatIsUnbooked(0);
+                    } else seatIsBooked(0);
+                    if (!"booked".equals(bookedVehicles.getSeat2())) {
+                        seatIsUnbooked(1);
+                    } else seatIsBooked(1);
+                    if (!"booked".equals(bookedVehicles.getSeat3())) {
+                        seatIsUnbooked(2);
+                    } else seatIsBooked(2);
+                    if (!"booked".equals(bookedVehicles.getSeat4())) {
+                        seatIsUnbooked(3);
+                    } else seatIsBooked(3);
+                    if (!"booked".equals(bookedVehicles.getSeat5())) {
+                        seatIsUnbooked(4);
+                    } else seatIsBooked(4);
+                    if (!"booked".equals(bookedVehicles.getSeat6())) {
+                        seatIsUnbooked(5);
+                    } else seatIsBooked(5);
+                    if (!"booked".equals(bookedVehicles.getSeat7())) {
+                        seatIsUnbooked(6);
+                    } else seatIsBooked(6);
+                    if (!"booked".equals(bookedVehicles.getSeat8())) {
+                        seatIsUnbooked(7);
+                    } else seatIsBooked(7);
+                    if (!"booked".equals(bookedVehicles.getSeat9())) {
+                        seatIsUnbooked(8);
+                    } else seatIsBooked(8);
+                    if (!"booked".equals(bookedVehicles.getSeat10())) {
+                        seatIsUnbooked(9);
+                    } else seatIsBooked(9);
+                    if (!"booked".equals(bookedVehicles.getSeat11())) {
+                        seatIsUnbooked(10);
+                    } else seatIsBooked(10);
+                    if (!"booked".equals(bookedVehicles.getSeat12())) {
+                        seatIsUnbooked(11);
+                    } else seatIsBooked(11);
+                    if (!"booked".equals(bookedVehicles.getSeat13())) {
+                        seatIsUnbooked(12);
+                    } else seatIsBooked(12);
+                    if (!"booked".equals(bookedVehicles.getSeat14())) {
+                        seatIsUnbooked(13);
+                    } else seatIsBooked(13);
+                    if (!"booked".equals(bookedVehicles.getSeat15())) {
+                        seatIsUnbooked(14);
+                    } else seatIsBooked(14);
+                    if (!"booked".equals(bookedVehicles.getSeat16())) {
+                        seatIsUnbooked(15);
+                    } else seatIsBooked(15);
+                    if (!"booked".equals(bookedVehicles.getSeat17())) {
+                        seatIsUnbooked(16);
+                    } else seatIsBooked(16);
+                    if (!"booked".equals(bookedVehicles.getSeat18())) {
+                        seatIsUnbooked(17);
+                    } else seatIsBooked(17);
+                    if (!"booked".equals(bookedVehicles.getSeat19())) {
+                        seatIsUnbooked(18);
+                    } else seatIsBooked(18);
+                    if (!"booked".equals(bookedVehicles.getSeat20())) {
+                        seatIsUnbooked(19);
+                    } else seatIsBooked(19);
+                    if (!"booked".equals(bookedVehicles.getSeat21())) {
+                        seatIsUnbooked(20);
+                    } else seatIsBooked(20);
+                    if (!"booked".equals(bookedVehicles.getSeat22())) {
+                        seatIsUnbooked(21);
+                    } else seatIsBooked(21);
+                    if (!"booked".equals(bookedVehicles.getSeat23())) {
+                        seatIsUnbooked(22);
+                    } else seatIsBooked(22);
+                    if (!"booked".equals(bookedVehicles.getSeat24())) {
+                        seatIsUnbooked(23);
+                    } else seatIsBooked(23);
+                    if (!"booked".equals(bookedVehicles.getSeat25())) {
+                        seatIsUnbooked(24);
+                    } else seatIsBooked(24);
+                    if (!"booked".equals(bookedVehicles.getSeat26())) {
+                        seatIsUnbooked(25);
+                    } else seatIsBooked(25);
+                    if (!"booked".equals(bookedVehicles.getSeat27())) {
+                        seatIsUnbooked(26);
+                    } else seatIsBooked(26);
+                    if (!"booked".equals(bookedVehicles.getSeat28())) {
+                        seatIsUnbooked(27);
+                    } else seatIsBooked(27);
+                    if (!"booked".equals(bookedVehicles.getSeat29())) {
+                        seatIsUnbooked(28);
+                    } else seatIsBooked(28);
+                    if (!"booked".equals(bookedVehicles.getSeat30())) {
+                        seatIsUnbooked(29);
+                    } else seatIsBooked(29);
+                    if (!"booked".equals(bookedVehicles.getSeat31())) {
+                        seatIsUnbooked(30);
+                    } else seatIsBooked(30);
+                    if (!"booked".equals(bookedVehicles.getSeat32())) {
+                        seatIsUnbooked(31);
+                    } else seatIsBooked(31);
+                    if (!"booked".equals(bookedVehicles.getSeat33())) {
+                        seatIsUnbooked(32);
+                    } else seatIsBooked(32);
+                    if (!"booked".equals(bookedVehicles.getSeat34())) {
+                        seatIsUnbooked(33);
+                    } else seatIsBooked(33);
+                    if (!"booked".equals(bookedVehicles.getSeat35())) {
+                        seatIsUnbooked(34);
+                    } else seatIsBooked(34);
+                    if (!"booked".equals(bookedVehicles.getSeat36())) {
+                        seatIsUnbooked(35);
+                    } else seatIsBooked(35);
+                    if (!"booked".equals(bookedVehicles.getSeat37())) {
+                        seatIsUnbooked(36);
+                    } else seatIsBooked(36);
+                    if (!"booked".equals(bookedVehicles.getSeat38())) {
+                        seatIsUnbooked(37);
+                    } else seatIsBooked(37);
+                    if (!"booked".equals(bookedVehicles.getSeat39())) {
+                        seatIsUnbooked(38);
+                    } else seatIsBooked(38);
+                    if (!"booked".equals(bookedVehicles.getSeat40())) {
+                        seatIsUnbooked(39);
+                    } else seatIsBooked(39);
+                    if (!"booked".equals(bookedVehicles.getSeat41())) {
+                        seatIsUnbooked(40);
+                    } else seatIsBooked(40);
+                    if (!"booked".equals(bookedVehicles.getSeat42())) {
+                        seatIsUnbooked(41);
+                    } else seatIsBooked(41);
+                    if (!"booked".equals(bookedVehicles.getSeat43())) {
+                        seatIsUnbooked(42);
+                    } else seatIsBooked(42);
+                    if (!"booked".equals(bookedVehicles.getSeat44())) {
+                        seatIsUnbooked(43);
+                    } else seatIsBooked(43);
+                    if (!"booked".equals(bookedVehicles.getSeat45())) {
+                        seatIsUnbooked(44);
+                    } else seatIsBooked(44);
+                    if (!"booked".equals(bookedVehicles.getSeat46())) {
+                        seatIsUnbooked(45);
+                    } else seatIsBooked(45);
+                    if (!"booked".equals(bookedVehicles.getSeat47())) {
+                        seatIsUnbooked(46);
+                    } else seatIsBooked(46);
+                    if (!"booked".equals(bookedVehicles.getSeat48())) {
+                        seatIsUnbooked(47);
+                    } else seatIsBooked(47);
+                    if (!"booked".equals(bookedVehicles.getSeat49())) {
+                        seatIsUnbooked(48);
+                    } else seatIsBooked(48);
+                    if (!"booked".equals(bookedVehicles.getSeat50())) {
+                        seatIsUnbooked(49);
+                    } else seatIsBooked(49);
+                    if (!"booked".equals(bookedVehicles.getSeat51())) {
+                        seatIsUnbooked(50);
+                    } else seatIsBooked(50);
+                    if (!"booked".equals(bookedVehicles.getSeat52())) {
+                        seatIsUnbooked(51);
+                    } else seatIsBooked(51);
+                    if (!"booked".equals(bookedVehicles.getSeat53())) {
+                        seatIsUnbooked(52);
+                    } else seatIsBooked(52);
+                    if (!"booked".equals(bookedVehicles.getSeat54())) {
+                        seatIsUnbooked(53);
+                    } else seatIsBooked(53);
+                    if (!"booked".equals(bookedVehicles.getSeat55())) {
+                        seatIsUnbooked(54);
+                    } else seatIsBooked(54);
+                    if (!"booked".equals(bookedVehicles.getSeat56())) {
+                        seatIsUnbooked(55);
+                    } else seatIsBooked(55);
+                    if (!"booked".equals(bookedVehicles.getSeat57())) {
+                        seatIsUnbooked(56);
+                    } else seatIsBooked(56);
+                    if (!"booked".equals(bookedVehicles.getSeat58())) {
+                        seatIsUnbooked(57);
+                    } else seatIsBooked(57);
+                    if (!"booked".equals(bookedVehicles.getSeat59())) {
+                        seatIsUnbooked(58);
+                    } else seatIsBooked(58);
+                    if (!"booked".equals(bookedVehicles.getSeat60())) {
+                        seatIsUnbooked(59);
+                    } else seatIsBooked(59);
+                    if (!"booked".equals(bookedVehicles.getSeat61())) {
+                        seatIsUnbooked(60);
+                    } else seatIsBooked(60);
+                    if (!"booked".equals(bookedVehicles.getSeat62())) {
+                        seatIsUnbooked(61);
+                    } else seatIsBooked(61);
+                    if (!"booked".equals(bookedVehicles.getSeat63())) {
+                        seatIsUnbooked(62);
+                    } else seatIsBooked(62);
+                    if (!"booked".equals(bookedVehicles.getSeat64())) {
+                        seatIsUnbooked(63);
+                    } else seatIsBooked(63);
+                    if (!"booked".equals(bookedVehicles.getSeat65())) {
+                        seatIsUnbooked(64);
+                    } else seatIsBooked(64);
+                    if (!"booked".equals(bookedVehicles.getSeat66())) {
+                        seatIsUnbooked(65);
+                    } else seatIsBooked(65);
+                    if (!"booked".equals(bookedVehicles.getSeat67())) {
+                        seatIsUnbooked(66);
+                    } else seatIsBooked(66);
+                    if (!"booked".equals(bookedVehicles.getSeat68())) {
+                        seatIsUnbooked(67);
+                    } else seatIsBooked(67);
+                    if (!"booked".equals(bookedVehicles.getSeat69())) {
+                        seatIsUnbooked(68);
+                    } else seatIsBooked(68);
+                    if (!"booked".equals(bookedVehicles.getSeat70())) {
+                        seatIsUnbooked(69);
+                    } else seatIsBooked(69);
+                    if (!"booked".equals(bookedVehicles.getSeat71())) {
+                        seatIsUnbooked(70);
+                    } else seatIsBooked(70);
+                    if (!"booked".equals(bookedVehicles.getSeat72())) {
+                        seatIsUnbooked(71);
+                    } else seatIsBooked(71);
+                    if (!"booked".equals(bookedVehicles.getSeat73())) {
+                        seatIsUnbooked(72);
+                    } else seatIsBooked(72);
+                    if (!"booked".equals(bookedVehicles.getSeat74())) {
+                        seatIsUnbooked(73);
+                    } else seatIsBooked(73);
+                    if (!"booked".equals(bookedVehicles.getSeat75())) {
+                        seatIsUnbooked(74);
+                    } else seatIsBooked(74);
+                    if (!"booked".equals(bookedVehicles.getSeat76())) {
+                        seatIsUnbooked(75);
+                    } else seatIsBooked(75);
+                    if (!"booked".equals(bookedVehicles.getSeat77())) {
+                        seatIsUnbooked(76);
+                    } else seatIsBooked(76);
+                    if (!"booked".equals(bookedVehicles.getSeat78())) {
+                        seatIsUnbooked(77);
+                    } else seatIsBooked(77);
+                    if (!"booked".equals(bookedVehicles.getSeat79())) {
+                        seatIsUnbooked(78);
+                    } else seatIsBooked(78);
+                    if (!"booked".equals(bookedVehicles.getSeat80())) {
+                        seatIsUnbooked(79);
+                    } else seatIsBooked(79);
+                    if (!"booked".equals(bookedVehicles.getSeat81())) {
+                        seatIsUnbooked(80);
+                    } else seatIsBooked(80);
+                    if (!"booked".equals(bookedVehicles.getSeat82())) {
+                        seatIsUnbooked(81);
+                    } else seatIsBooked(81);
+                    if (!"booked".equals(bookedVehicles.getSeat83())) {
+                        seatIsUnbooked(82);
+                    } else seatIsBooked(82);
+                    if (!"booked".equals(bookedVehicles.getSeat84())) {
+                        seatIsUnbooked(83);
+                    } else seatIsBooked(3);
+                    if (!"booked".equals(bookedVehicles.getSeat85())) {
+                        seatIsUnbooked(84);
+                    } else seatIsBooked(84);
+                    if (!"booked".equals(bookedVehicles.getSeat86())) {
+                        seatIsUnbooked(85);
+                    } else seatIsBooked(85);
+                    if (!"booked".equals(bookedVehicles.getSeat87())) {
+                        seatIsUnbooked(86);
+                    } else seatIsBooked(86);
+                    if (!"booked".equals(bookedVehicles.getSeat88())) {
+                        seatIsUnbooked(87);
+                    } else seatIsBooked(87);
+                    if (!"booked".equals(bookedVehicles.getSeat89())) {
+                        seatIsUnbooked(88);
+                    } else seatIsBooked(88);
+                    if (!"booked".equals(bookedVehicles.getSeat90())) {
+                        seatIsUnbooked(89);
+                    } else seatIsBooked(89);
+                }
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                bookedVehicles = dataSnapshot.getValue(BookedVehicles.class);
+                if (bookedVehicles != null) {
+                    bookedVehicles.setKey(dataSnapshot.getKey());
+                    if (!"booked".equals(bookedVehicles.getSeat1())) {
+                        seatIsUnbooked(0);
+                    } else seatIsBooked(0);
+                    if (!"booked".equals(bookedVehicles.getSeat2())) {
+                        seatIsUnbooked(1);
+                    } else seatIsBooked(1);
+                    if (!"booked".equals(bookedVehicles.getSeat3())) {
+                        seatIsUnbooked(2);
+                    } else seatIsBooked(2);
+                    if (!"booked".equals(bookedVehicles.getSeat4())) {
+                        seatIsUnbooked(3);
+                    } else seatIsBooked(3);
+                    if (!"booked".equals(bookedVehicles.getSeat5())) {
+                        seatIsUnbooked(4);
+                    } else seatIsBooked(4);
+                    if (!"booked".equals(bookedVehicles.getSeat6())) {
+                        seatIsUnbooked(5);
+                    } else seatIsBooked(5);
+                    if (!"booked".equals(bookedVehicles.getSeat7())) {
+                        seatIsUnbooked(6);
+                    } else seatIsBooked(6);
+                    if (!"booked".equals(bookedVehicles.getSeat8())) {
+                        seatIsUnbooked(7);
+                    } else seatIsBooked(7);
+                    if (!"booked".equals(bookedVehicles.getSeat9())) {
+                        seatIsUnbooked(8);
+                    } else seatIsBooked(8);
+                    if (!"booked".equals(bookedVehicles.getSeat10())) {
+                        seatIsUnbooked(9);
+                    } else seatIsBooked(9);
+                    if (!"booked".equals(bookedVehicles.getSeat11())) {
+                        seatIsUnbooked(10);
+                    } else seatIsBooked(10);
+                    if (!"booked".equals(bookedVehicles.getSeat12())) {
+                        seatIsUnbooked(11);
+                    } else seatIsBooked(11);
+                    if (!"booked".equals(bookedVehicles.getSeat13())) {
+                        seatIsUnbooked(12);
+                    } else seatIsBooked(12);
+                    if (!"booked".equals(bookedVehicles.getSeat14())) {
+                        seatIsUnbooked(13);
+                    } else seatIsBooked(13);
+                    if (!"booked".equals(bookedVehicles.getSeat15())) {
+                        seatIsUnbooked(14);
+                    } else seatIsBooked(14);
+                    if (!"booked".equals(bookedVehicles.getSeat16())) {
+                        seatIsUnbooked(15);
+                    } else seatIsBooked(15);
+                    if (!"booked".equals(bookedVehicles.getSeat17())) {
+                        seatIsUnbooked(16);
+                    } else seatIsBooked(16);
+                    if (!"booked".equals(bookedVehicles.getSeat18())) {
+                        seatIsUnbooked(17);
+                    } else seatIsBooked(17);
+                    if (!"booked".equals(bookedVehicles.getSeat19())) {
+                        seatIsUnbooked(18);
+                    } else seatIsBooked(18);
+                    if (!"booked".equals(bookedVehicles.getSeat20())) {
+                        seatIsUnbooked(19);
+                    } else seatIsBooked(19);
+                    if (!"booked".equals(bookedVehicles.getSeat21())) {
+                        seatIsUnbooked(20);
+                    } else seatIsBooked(20);
+                    if (!"booked".equals(bookedVehicles.getSeat22())) {
+                        seatIsUnbooked(21);
+                    } else seatIsBooked(21);
+                    if (!"booked".equals(bookedVehicles.getSeat23())) {
+                        seatIsUnbooked(22);
+                    } else seatIsBooked(22);
+                    if (!"booked".equals(bookedVehicles.getSeat24())) {
+                        seatIsUnbooked(23);
+                    } else seatIsBooked(23);
+                    if (!"booked".equals(bookedVehicles.getSeat25())) {
+                        seatIsUnbooked(24);
+                    } else seatIsBooked(24);
+                    if (!"booked".equals(bookedVehicles.getSeat26())) {
+                        seatIsUnbooked(25);
+                    } else seatIsBooked(25);
+                    if (!"booked".equals(bookedVehicles.getSeat27())) {
+                        seatIsUnbooked(26);
+                    } else seatIsBooked(26);
+                    if (!"booked".equals(bookedVehicles.getSeat28())) {
+                        seatIsUnbooked(27);
+                    } else seatIsBooked(27);
+                    if (!"booked".equals(bookedVehicles.getSeat29())) {
+                        seatIsUnbooked(28);
+                    } else seatIsBooked(28);
+                    if (!"booked".equals(bookedVehicles.getSeat30())) {
+                        seatIsUnbooked(29);
+                    } else seatIsBooked(29);
+                    if (!"booked".equals(bookedVehicles.getSeat31())) {
+                        seatIsUnbooked(30);
+                    } else seatIsBooked(30);
+                    if (!"booked".equals(bookedVehicles.getSeat32())) {
+                        seatIsUnbooked(31);
+                    } else seatIsBooked(31);
+                    if (!"booked".equals(bookedVehicles.getSeat33())) {
+                        seatIsUnbooked(32);
+                    } else seatIsBooked(32);
+                    if (!"booked".equals(bookedVehicles.getSeat34())) {
+                        seatIsUnbooked(33);
+                    } else seatIsBooked(33);
+                    if (!"booked".equals(bookedVehicles.getSeat35())) {
+                        seatIsUnbooked(34);
+                    } else seatIsBooked(34);
+                    if (!"booked".equals(bookedVehicles.getSeat36())) {
+                        seatIsUnbooked(35);
+                    } else seatIsBooked(35);
+                    if (!"booked".equals(bookedVehicles.getSeat37())) {
+                        seatIsUnbooked(36);
+                    } else seatIsBooked(36);
+                    if (!"booked".equals(bookedVehicles.getSeat38())) {
+                        seatIsUnbooked(37);
+                    } else seatIsBooked(37);
+                    if (!"booked".equals(bookedVehicles.getSeat39())) {
+                        seatIsUnbooked(38);
+                    } else seatIsBooked(38);
+                    if (!"booked".equals(bookedVehicles.getSeat40())) {
+                        seatIsUnbooked(39);
+                    } else seatIsBooked(39);
+                    if (!"booked".equals(bookedVehicles.getSeat41())) {
+                        seatIsUnbooked(40);
+                    } else seatIsBooked(40);
+                    if (!"booked".equals(bookedVehicles.getSeat42())) {
+                        seatIsUnbooked(41);
+                    } else seatIsBooked(41);
+                    if (!"booked".equals(bookedVehicles.getSeat43())) {
+                        seatIsUnbooked(42);
+                    } else seatIsBooked(42);
+                    if (!"booked".equals(bookedVehicles.getSeat44())) {
+                        seatIsUnbooked(43);
+                    } else seatIsBooked(43);
+                    if (!"booked".equals(bookedVehicles.getSeat45())) {
+                        seatIsUnbooked(44);
+                    } else seatIsBooked(44);
+                    if (!"booked".equals(bookedVehicles.getSeat46())) {
+                        seatIsUnbooked(45);
+                    } else seatIsBooked(45);
+                    if (!"booked".equals(bookedVehicles.getSeat47())) {
+                        seatIsUnbooked(46);
+                    } else seatIsBooked(46);
+                    if (!"booked".equals(bookedVehicles.getSeat48())) {
+                        seatIsUnbooked(47);
+                    } else seatIsBooked(47);
+                    if (!"booked".equals(bookedVehicles.getSeat49())) {
+                        seatIsUnbooked(48);
+                    } else seatIsBooked(48);
+                    if (!"booked".equals(bookedVehicles.getSeat50())) {
+                        seatIsUnbooked(49);
+                    } else seatIsBooked(49);
+                    if (!"booked".equals(bookedVehicles.getSeat51())) {
+                        seatIsUnbooked(50);
+                    } else seatIsBooked(50);
+                    if (!"booked".equals(bookedVehicles.getSeat52())) {
+                        seatIsUnbooked(51);
+                    } else seatIsBooked(51);
+                    if (!"booked".equals(bookedVehicles.getSeat53())) {
+                        seatIsUnbooked(52);
+                    } else seatIsBooked(52);
+                    if (!"booked".equals(bookedVehicles.getSeat54())) {
+                        seatIsUnbooked(53);
+                    } else seatIsBooked(53);
+                    if (!"booked".equals(bookedVehicles.getSeat55())) {
+                        seatIsUnbooked(54);
+                    } else seatIsBooked(54);
+                    if (!"booked".equals(bookedVehicles.getSeat56())) {
+                        seatIsUnbooked(55);
+                    } else seatIsBooked(55);
+                    if (!"booked".equals(bookedVehicles.getSeat57())) {
+                        seatIsUnbooked(56);
+                    } else seatIsBooked(56);
+                    if (!"booked".equals(bookedVehicles.getSeat58())) {
+                        seatIsUnbooked(57);
+                    } else seatIsBooked(57);
+                    if (!"booked".equals(bookedVehicles.getSeat59())) {
+                        seatIsUnbooked(58);
+                    } else seatIsBooked(58);
+                    if (!"booked".equals(bookedVehicles.getSeat60())) {
+                        seatIsUnbooked(59);
+                    } else seatIsBooked(59);
+                    if (!"booked".equals(bookedVehicles.getSeat61())) {
+                        seatIsUnbooked(60);
+                    } else seatIsBooked(60);
+                    if (!"booked".equals(bookedVehicles.getSeat62())) {
+                        seatIsUnbooked(61);
+                    } else seatIsBooked(61);
+                    if (!"booked".equals(bookedVehicles.getSeat63())) {
+                        seatIsUnbooked(62);
+                    } else seatIsBooked(62);
+                    if (!"booked".equals(bookedVehicles.getSeat64())) {
+                        seatIsUnbooked(63);
+                    } else seatIsBooked(63);
+                    if (!"booked".equals(bookedVehicles.getSeat65())) {
+                        seatIsUnbooked(64);
+                    } else seatIsBooked(64);
+                    if (!"booked".equals(bookedVehicles.getSeat66())) {
+                        seatIsUnbooked(65);
+                    } else seatIsBooked(65);
+                    if (!"booked".equals(bookedVehicles.getSeat67())) {
+                        seatIsUnbooked(66);
+                    } else seatIsBooked(66);
+                    if (!"booked".equals(bookedVehicles.getSeat68())) {
+                        seatIsUnbooked(67);
+                    } else seatIsBooked(67);
+                    if (!"booked".equals(bookedVehicles.getSeat69())) {
+                        seatIsUnbooked(68);
+                    } else seatIsBooked(68);
+                    if (!"booked".equals(bookedVehicles.getSeat70())) {
+                        seatIsUnbooked(69);
+                    } else seatIsBooked(69);
+                    if (!"booked".equals(bookedVehicles.getSeat71())) {
+                        seatIsUnbooked(70);
+                    } else seatIsBooked(70);
+                    if (!"booked".equals(bookedVehicles.getSeat72())) {
+                        seatIsUnbooked(71);
+                    } else seatIsBooked(71);
+                    if (!"booked".equals(bookedVehicles.getSeat73())) {
+                        seatIsUnbooked(72);
+                    } else seatIsBooked(72);
+                    if (!"booked".equals(bookedVehicles.getSeat74())) {
+                        seatIsUnbooked(73);
+                    } else seatIsBooked(73);
+                    if (!"booked".equals(bookedVehicles.getSeat75())) {
+                        seatIsUnbooked(74);
+                    } else seatIsBooked(74);
+                    if (!"booked".equals(bookedVehicles.getSeat76())) {
+                        seatIsUnbooked(75);
+                    } else seatIsBooked(75);
+                    if (!"booked".equals(bookedVehicles.getSeat77())) {
+                        seatIsUnbooked(76);
+                    } else seatIsBooked(76);
+                    if (!"booked".equals(bookedVehicles.getSeat78())) {
+                        seatIsUnbooked(77);
+                    } else seatIsBooked(77);
+                    if (!"booked".equals(bookedVehicles.getSeat79())) {
+                        seatIsUnbooked(78);
+                    } else seatIsBooked(78);
+                    if (!"booked".equals(bookedVehicles.getSeat80())) {
+                        seatIsUnbooked(79);
+                    } else seatIsBooked(79);
+                    if (!"booked".equals(bookedVehicles.getSeat81())) {
+                        seatIsUnbooked(80);
+                    } else seatIsBooked(80);
+                    if (!"booked".equals(bookedVehicles.getSeat82())) {
+                        seatIsUnbooked(81);
+                    } else seatIsBooked(81);
+                    if (!"booked".equals(bookedVehicles.getSeat83())) {
+                        seatIsUnbooked(82);
+                    } else seatIsBooked(82);
+                    if (!"booked".equals(bookedVehicles.getSeat84())) {
+                        seatIsUnbooked(83);
+                    } else seatIsBooked(3);
+                    if (!"booked".equals(bookedVehicles.getSeat85())) {
+                        seatIsUnbooked(84);
+                    } else seatIsBooked(84);
+                    if (!"booked".equals(bookedVehicles.getSeat86())) {
+                        seatIsUnbooked(85);
+                    } else seatIsBooked(85);
+                    if (!"booked".equals(bookedVehicles.getSeat87())) {
+                        seatIsUnbooked(86);
+                    } else seatIsBooked(86);
+                    if (!"booked".equals(bookedVehicles.getSeat88())) {
+                        seatIsUnbooked(87);
+                    } else seatIsBooked(87);
+                    if (!"booked".equals(bookedVehicles.getSeat89())) {
+                        seatIsUnbooked(88);
+                    } else seatIsBooked(88);
+                    if (!"booked".equals(bookedVehicles.getSeat90())) {
+                        seatIsUnbooked(89);
+                    } else seatIsBooked(89);
+                }
 
             }
 

@@ -48,7 +48,18 @@ public class QRCode extends AppCompatActivity {
                 ticketsDetails = dataSnapshot.getValue(TicketDetails.class);
                 Log.d(TAG, "Value is: " + ticketsDetails);
                 if (ticketsDetails != null) {
-                    Bitmap myBitmap = net.glxn.qrgen.android.QRCode.from(String.valueOf(ticketsDetails)).bitmap();
+                    TicketDetails ticketDetails = new TicketDetails();
+                    ticketDetails.setCompanyName(ticketsDetails.getCompanyName());
+                    ticketDetails.setTravelRoute(ticketsDetails.getTravelRoute());
+                    ticketDetails.setNumberPlate(ticketsDetails.getNumberPlate());
+                    ticketDetails.setMpesaTransactionCode(ticketsDetails.getMpesaTransactionCode());
+                    ticketDetails.setBoardingPoint(ticketsDetails.getBoardingPoint());
+                    ticketDetails.setCompanyName(ticketsDetails.getDepartureTime());
+                    ticketDetails.setSeatNumber(ticketsDetails.getSeatNumber());
+                    ticketDetails.setVehicleType(ticketsDetails.getVehicleType());
+                    ticketDetails.setPriceInKsh(ticketsDetails.getPriceInKsh());
+                    Log.d(TAG, "onChildAdded: " + ticketDetails);
+                    Bitmap myBitmap = net.glxn.qrgen.android.QRCode.from(String.valueOf(ticketDetails)).bitmap();
                     ImageView myImage = findViewById(R.id.imageViewQR);
                     myImage.setImageBitmap(myBitmap);
                 }

@@ -19,7 +19,7 @@ public class Onboarding extends AhoyOnboarderActivity {
 
         /* Activity lacks a setContentView() method because of using the AhoyOnboarderActivity
         * This is achieved by creating AhoyOnboarderCard and adding them to pages */
-        AhoyOnboarderCard ahoyOnboarderCard1 = new AhoyOnboarderCard("Buy Tickets", "The easiest way to buy bus tickets. Reliable and cost effective ", R.drawable.ic_ticket);
+        AhoyOnboarderCard ahoyOnboarderCard1 = new AhoyOnboarderCard("Buy Tickets", "The easiest way to buy bus tickets. Reliable and cost effective ", R.drawable.ic_bus_ticket);
         ahoyOnboarderCard1.setBackgroundColor(R.color.black_transparent);
         ahoyOnboarderCard1.setTitleColor(R.color.white);
         ahoyOnboarderCard1.setDescriptionColor(R.color.grey_200);
@@ -27,7 +27,7 @@ public class Onboarding extends AhoyOnboarderActivity {
         ahoyOnboarderCard1.setDescriptionTextSize(dpToPixels(8, this));
         ahoyOnboarderCard1.setIconLayoutParams(300, 300, 130, 8, 8, 8);
 
-        AhoyOnboarderCard ahoyOnboarderCard2 = new AhoyOnboarderCard("Book Trips", "Book all your tickets for bus trips in Kenya", R.drawable.ic_trip);
+        AhoyOnboarderCard ahoyOnboarderCard2 = new AhoyOnboarderCard("Book Trips", "Book all your tickets for bus trips", R.drawable.ic_trip);
         ahoyOnboarderCard2.setBackgroundColor(R.color.black_transparent);
         ahoyOnboarderCard2.setTitleColor(R.color.white);
         ahoyOnboarderCard2.setDescriptionColor(R.color.grey_200);
