@@ -1051,8 +1051,7 @@ public class DirectBook extends AppCompatActivity {
 
                         @Override
                         public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
-                            String res = response.body().string();
-                            token = res;
+                            token = response.body().string();
 
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jo = jsonParser.parse(token).getAsJsonObject();
@@ -1252,14 +1251,12 @@ public class DirectBook extends AppCompatActivity {
         super.onPause();
     }
 
-
     // displays the total number of seats for a vehicle
     public void totalSeat(int n) {
         for (int i = 1; i <= n; ++i) {
             gridArray.add(new Item(seatIcon, "seat" + i));
         }
     }
-
 
     // handles the seat selections
     public void seatSelected(int pos) {
