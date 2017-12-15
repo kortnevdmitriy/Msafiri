@@ -36,7 +36,7 @@ public class RetrofitClient {
     private static Retrofit retrofit = null;
     private static OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
 
-    public static Retrofit getClient(String baseUrl, final String token) {
+    static Retrofit getClient(String baseUrl, final String token) {
         if (retrofit == null) {
             OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
                 @Override

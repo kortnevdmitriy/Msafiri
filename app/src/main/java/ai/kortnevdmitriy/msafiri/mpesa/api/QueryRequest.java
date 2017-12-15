@@ -22,4 +22,36 @@ public class QueryRequest {
         this.timestamp = timestamp;
         this.checkoutRequestID = checkoutRequestID;
     }
+
+    public String getBusinessShortCode() {
+        return businessShortCode;
+    }
+
+    public void setBusinessShortCode(String businessShortCode) {
+        this.businessShortCode = businessShortCode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getCheckoutRequestID() {
+        return checkoutRequestID;
+    }
+
+    public void setCheckoutRequestID(String checkoutRequestID) {
+        this.checkoutRequestID = checkoutRequestID;
+    }
 }

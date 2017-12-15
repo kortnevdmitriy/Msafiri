@@ -11,11 +11,16 @@ import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 
+//import com.crashlytics.android.Crashlytics;
+//import com.crashlytics.android.core.CrashlyticsCore;
+//import io.fabric.sdk.android.Fabric;
+
 public class Onboarding extends AhoyOnboarderActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Fabric.with(this, new Crashlytics());
 
         /* Activity lacks a setContentView() method because of using the AhoyOnboarderActivity
         * This is achieved by creating AhoyOnboarderCard and adding them to pages */

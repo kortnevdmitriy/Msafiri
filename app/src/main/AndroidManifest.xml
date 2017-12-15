@@ -132,6 +132,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ai.kortnevdmitriy.msafiri.activities.Tickets" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c023698d440db1ba5e7b8b2d450066c4a32f57f4" />
     </application>
 
 </manifest>
