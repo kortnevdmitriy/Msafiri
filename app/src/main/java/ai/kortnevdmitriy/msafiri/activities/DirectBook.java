@@ -4,7 +4,6 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -14,15 +13,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -35,7 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.tapadoo.alerter.Alerter;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
+import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
 import junit.framework.Assert;
 
@@ -1048,11 +1045,9 @@ public class DirectBook extends AppCompatActivity {
                             });
                         }
 
-
                         @Override
                         public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
                             token = response.body().string();
-
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jo = jsonParser.parse(token).getAsJsonObject();
                             Assert.assertNotNull(jo);
@@ -1062,7 +1057,6 @@ public class DirectBook extends AppCompatActivity {
                             Log.e("expires_in", jo.get("expires_in").getAsString());
                             stkPushService = ApiUtils.getTasksService(token);
                         }
-
                     });
         } catch (Exception e) {
             //e.printStackTrace();
@@ -1072,76 +1066,58 @@ public class DirectBook extends AppCompatActivity {
     }
 
     public void getPhoneNumber() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter Customer's Safaricom phone number (254XXX) to checkout Kshs " + "1");
-
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_PHONE);
-        input.setText("2547");
-        builder.setView(input);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                phone_number = input.getText().toString();
-                try {
-                    performSTKPush(phone_number);
-                } catch (Exception e) {
-                    Toast.makeText(DirectBook.this, "Error fetchng token", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        builder.show();
+        new LovelyTextInputDialog(this, R.style.AppTheme_NoActionBar)
+                .setTopColorRes(R.color.colorPrimary)
+                .setTitle("Lipa Na MPESA Online")
+                .setMessage("You are about to pay for your Bus Ticket using MPESA. Ensure you enter your number in the correct format (254XXX)")
+                .setIcon(R.drawable.ic_mpesa)
+                .setInputFilter("Please Enter Number", new LovelyTextInputDialog.TextFilter() {
+                    @Override
+                    public boolean check(String text) {
+                        return text.matches("\\w+");
+                    }
+                })
+                .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
+                    @Override
+                    public void onTextInputConfirmed(String text) {
+                        phone_number = text;
+                        try {
+                            performSTKPush(phone_number);
+                        } catch (Exception e) {
+                            Toast.makeText(DirectBook.this, "Error fetchng token", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .show();
     }
 
     public void mpesaTransactionCode() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter the MPESA Transaction Code Received");
-
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
-        //input.setText("2547");
-        builder.setView(input);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mpesa_code = input.getText().toString();
-                if (TextUtils.isEmpty(mpesa_code)) {
-                    Alerter.create(DirectBook.this)
-                            .setTitle("MPESA Transaction Code")
-                            .setText("Please Enter Transaction Code Recieved")
-                            .setBackgroundColorRes(android.R.color.holo_red_dark) // or setBackgroundColorInt(Color.CYAN)
-                            .show();
-                    mpesaTransactionCode();
-                } else {
-                    try {
-                        // Access a Firebase Real Database instance from your Activity
-                        db = FirebaseDatabase.getInstance();
-                        db.getReference().child("bookedVehicles").child(recordByKeyValue).child(seatNumber).setValue("booked");
-                        postTicketReceipt();
-                    } catch (Exception e) {
-                        Toast.makeText(DirectBook.this, "Error fetchng token", Toast.LENGTH_SHORT).show();
+        new LovelyTextInputDialog(this, R.style.AppTheme_NoActionBar)
+                .setTopColorRes(R.color.colorPrimary)
+                .setTitle("MPESA Transaction Code")
+                .setMessage("Please Enter Transaction Code Received. To find this code, Please find your ticket payment message from MPESA & copy/paste the Transaction code (LLC8NL8FOC)")
+                .setIcon(R.drawable.ic_smartphone)
+                .setInputFilter("Please correct transaction code", new LovelyTextInputDialog.TextFilter() {
+                    @Override
+                    public boolean check(String text) {
+                        return text.matches("\\w+");
                     }
-                }
-
-            }
-        });
-      /*  builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });*/
-
-        builder.show();
+                })
+                .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
+                    @Override
+                    public void onTextInputConfirmed(String text) {
+                        try {
+                            // Access a Firebase Real Database instance from your Activity
+                            db = FirebaseDatabase.getInstance();
+                            db.getReference().child("bookedVehicles").child(recordByKeyValue).child(seatNumber).setValue("booked");
+                            postTicketReceipt();
+                            congratulations();
+                        } catch (Exception e) {
+                            Toast.makeText(DirectBook.this, "Error fetchng token", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .show();
     }
 
     public void performSTKPush(String phone_number) {
@@ -1157,9 +1133,7 @@ public class DirectBook extends AppCompatActivity {
                 "https://spurquoteapp.ga/pusher/pusher.php?companyName=stk_push&message=result&push_type=individual&regId=" + regId,
                 "test",
                 "test");
-
         Log.e("Party B", phone_number);
-
         Call<STKPush> call = stkPushService.sendPush(stkPush);
         call.enqueue(new Callback<STKPush>() {
             @Override
@@ -1168,9 +1142,7 @@ public class DirectBook extends AppCompatActivity {
                     //Log.e("Response SUccess", response.toString());
                     if (response.isSuccessful()) {
                         Log.e(TAG, "post submitted to API." + response.message());
-
                         mpesaTransactionCode();
-
                     } else {
                         Log.e("Response", response.errorBody().string());
                     }
@@ -1186,7 +1158,6 @@ public class DirectBook extends AppCompatActivity {
                 Log.e("Error message", t.getLocalizedMessage());
             }
         });
-        //Log.e("Method end", "method end");
     }
 
     private void getFirebaseRegId() {
@@ -1374,5 +1345,16 @@ public class DirectBook extends AppCompatActivity {
         });
     }
 
-
+    // print the congratulations message for paying and getting a ticket
+    public void congratulations() {
+        new LovelyInfoDialog(this)
+                .setTopColorRes(R.color.colorPrimary)
+                .setIcon(R.drawable.ic_confetti)
+                //This will add Don't show again checkbox to the dialog. You can pass any ID as argument
+//                .setNotShowAgainOptionEnabled(0)
+//                .setNotShowAgainOptionChecked(true)
+                .setTitle("Congratulations")
+                .setMessage("Thank you " + FirebaseAuth.getInstance().getCurrentUser().getDisplayName() + " for paying. Your Ticket is now available under My Tickets. Happy Travelling")
+                .show();
+    }
 }
