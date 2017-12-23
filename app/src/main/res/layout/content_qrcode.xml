@@ -92,7 +92,6 @@
                 android:layout_below="@+id/pnr"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="32dp"
-                android:src="@drawable/ic_qr_code"
                 android:textAppearance="?android:textAppearanceLarge" />
 
         </RelativeLayout>
