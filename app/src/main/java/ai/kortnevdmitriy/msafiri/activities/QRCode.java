@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -13,6 +14,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import net.glxn.qrgen.core.scheme.VCard;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
@@ -33,6 +36,7 @@ public class QRCode extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         String uid = FirebaseAuth.getInstance().getUid();
         assert uid != null;
+
         data = getIntent().getStringExtra("ticketKeyValue");
         // Access a Firebase Real Database instance from your Activity
         db = FirebaseDatabase.getInstance();
@@ -59,9 +63,32 @@ public class QRCode extends AppCompatActivity {
                     ticketDetails.setVehicleType(ticketsDetails.getVehicleType());
                     ticketDetails.setPriceInKsh(ticketsDetails.getPriceInKsh());
                     Log.d(TAG, "onChildAdded: " + ticketDetails);
-                    Bitmap myBitmap = net.glxn.qrgen.android.QRCode.from(String.valueOf(ticketDetails)).bitmap();
-                    ImageView myImage = findViewById(R.id.imageViewQR);
-                    myImage.setImageBitmap(myBitmap);
+
+                    TextView passenger = findViewById(R.id.passenger);
+                    TextView seat = findViewById(R.id.seat);
+                    TextView dateTime = findViewById(R.id.dateTime);
+                    TextView bei = findViewById(R.id.bei);
+                    TextView route = findViewById(R.id.route);
+                    TextView pnr = findViewById(R.id.pnr);
+                    ImageView qr_code = findViewById(R.id.qr_code);
+
+                    VCard vCard = new VCard();
+                    vCard.setName(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                    vCard.setAddress(ticketDetails.getMpesaTransactionCode());
+                    vCard.setNote(ticketDetails.getCompanyName());
+                    vCard.setTitle(ticketDetails.getTravelRoute());
+                    Bitmap myBitmap = net.glxn.qrgen.android.QRCode.from(vCard).bitmap();
+
+                    passenger.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                    seat.setText(ticketDetails.getSeatNumber());
+                    dateTime.setText(ticketDetails.getCompanyName());
+                    bei.setText(ticketDetails.getPriceInKsh());
+                    route.setText(ticketDetails.getTravelRoute());
+                    pnr.setText(ticketDetails.getMpesaTransactionCode());
+                    qr_code.setImageBitmap(myBitmap);
+
+
+
                 }
             }
 
