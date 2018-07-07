@@ -2,8 +2,6 @@ package ai.kortnevdmitriy.msafiri.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +25,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.tapadoo.alerter.Alerter;
 
 import ai.kortnevdmitriy.msafiri.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Signin extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     private static final String TAG = "SignInActivity";
