@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "599619563510-gr610n6nbmfokt74qdm3tqv3qtj6intn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortnevdmitriy.msafiri",
+            "certificate_hash": "6383c41248635cba14e7d0729a18f5abfacc6ec2"
+          }
+        },
+        {
+          "client_id": "599619563510-bjgb435puraql9bipfchsgajpjg89qnr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortnevdmitriy.msafiri",
+            "certificate_hash": "7bc67081110a7ca83f32f6257b1a261e0edeb8ec"
+          }
+        },
+        {
+          "client_id": "599619563510-s34fkus0ce7fos5j887db831b384b9hh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortnevdmitriy.msafiri",
+            "certificate_hash": "c962b46a5445ef0ba4c01953411927d6b9a1812d"
+          }
+        },
+        {
           "client_id": "599619563510-vsigcl6ibg28ml4g1nbgpv6esiu3n5u5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -28,6 +52,14 @@
           "android_info": {
             "package_name": "ai.kortnevdmitriy.msafiri",
             "certificate_hash": "d1cbca0be4c7f1fe6e2a21abb3b500fe744d8a5e"
+          }
+        },
+        {
+          "client_id": "599619563510-m0tl86sqr4efps5ej7cp9p1clpk288t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortnevdmitriy.msafiri",
+            "certificate_hash": "a2ef6801f23f4a481eeea576f0b35cc21b1a59e7"
           }
         },
         {
