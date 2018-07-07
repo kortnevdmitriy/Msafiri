@@ -33,7 +33,6 @@ import android.media.RingtoneManager;
 import android.net.ParseException;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -48,6 +47,7 @@ import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
+import androidx.core.app.NotificationCompat;
 
 /**
  * Created  on 6/30/2017.
