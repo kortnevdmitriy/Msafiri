@@ -11,9 +11,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -34,8 +31,6 @@ import com.google.gson.JsonParser;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
-import junit.framework.Assert;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +48,9 @@ import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
 import ai.kortnevdmitriy.msafiri.utilities.Item;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
@@ -1050,7 +1048,6 @@ public class DirectBook extends AppCompatActivity {
                             token = response.body().string();
                             JsonParser jsonParser = new JsonParser();
                             JsonObject jo = jsonParser.parse(token).getAsJsonObject();
-                            Assert.assertNotNull(jo);
                             //Log.e("Token", token + jo.get("access_token"));
                             token = jo.get("access_token").getAsString();
                             Log.e("access_token", token);
