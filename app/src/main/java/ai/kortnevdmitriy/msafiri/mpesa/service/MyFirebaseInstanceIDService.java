@@ -20,12 +20,12 @@ package ai.kortnevdmitriy.msafiri.mpesa.service;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.content.LocalBroadcastManager;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 /**
  * Created  on 6/30/2017.
