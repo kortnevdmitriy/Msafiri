@@ -2,8 +2,6 @@ package ai.kortnevdmitriy.msafiri.activities;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +17,8 @@ import net.glxn.qrgen.core.scheme.VCard;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class QRCode extends AppCompatActivity {
     private final String TAG = QRCode.class.getName();
