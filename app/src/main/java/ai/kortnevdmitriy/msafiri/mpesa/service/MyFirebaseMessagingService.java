@@ -20,7 +20,6 @@ package ai.kortnevdmitriy.msafiri.mpesa.service;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -32,6 +31,7 @@ import org.json.JSONObject;
 import ai.kortnevdmitriy.msafiri.activities.Home;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
