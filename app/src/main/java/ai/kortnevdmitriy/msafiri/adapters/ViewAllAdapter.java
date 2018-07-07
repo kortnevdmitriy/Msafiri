@@ -1,6 +1,5 @@
 package ai.kortnevdmitriy.msafiri.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by kortn on 10/4/2017.
