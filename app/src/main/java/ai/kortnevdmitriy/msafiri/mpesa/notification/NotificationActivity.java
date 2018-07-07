@@ -24,8 +24,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +35,8 @@ import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.activities.Home;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class NotificationActivity extends AppCompatActivity {
 
