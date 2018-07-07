@@ -1,13 +1,13 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jetradar.desertplaceholder.DesertPlaceholder;
 
 import ai.kortnevdmitriy.msafiri.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class DealOffers extends AppCompatActivity {
 
