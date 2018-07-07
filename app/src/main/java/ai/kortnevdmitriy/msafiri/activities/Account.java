@@ -2,8 +2,6 @@ package ai.kortnevdmitriy.msafiri.activities;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -11,6 +9,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Account extends AppCompatActivity {
