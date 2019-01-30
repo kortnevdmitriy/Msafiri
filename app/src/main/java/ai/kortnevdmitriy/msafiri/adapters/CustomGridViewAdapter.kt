@@ -38,8 +38,8 @@ class CustomGridViewAdapter(
 			}
 			
 			val item = data[position]
-			holder.txtTitle?.text = item.getTitle()
-			holder.imageItem?.setImageBitmap(item.getImage())
+			holder.txtTitle?.text = item.title
+			holder.imageItem?.setImageBitmap(item.image)
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}
