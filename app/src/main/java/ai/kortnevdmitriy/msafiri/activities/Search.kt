@@ -33,7 +33,7 @@ class Search : AppCompatActivity() {
 		setContentView(R.layout.activity_search)
 		val toolbar = findViewById<Toolbar>(R.id.toolbar)
 		setSupportActionBar(toolbar)
-		supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 		data = intent.getStringExtra("keyName")
 		
 		searchBookableVehicles()
@@ -88,7 +88,6 @@ class Search : AppCompatActivity() {
 		searchRecyclerView?.itemAnimator = DefaultItemAnimator()
 		searchAdapter =
 			SearchAdapter(listOfSearchedVehicles, SearchAdapter.OnItemClickListener { item ->
-				//                Log.d("Clickable items",item.getCompanyName());
 				recordsByKey = item.key
 				val intent = Intent(applicationContext, Booking::class.java)
 				intent.putExtra("recordsByKey", recordsByKey)
