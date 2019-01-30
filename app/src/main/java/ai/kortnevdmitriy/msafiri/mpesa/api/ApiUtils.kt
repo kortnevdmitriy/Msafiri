@@ -16,19 +16,16 @@
  *
  */
 
-package ai.kortnevdmitriy.msafiri.mpesa.api;
+package ai.kortnevdmitriy.msafiri.mpesa.api
 
 
-import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService;
+import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService
 
-/**
- * Created  on 5/28/2017.
- */
 
-public class ApiUtils {
-    public static final String BASE_URL = "https://sandbox.safaricom.co.ke/";
-
-    public static STKPushService getTasksService(String token) {
-        return RetrofitClient.getClient(BASE_URL, token).create(STKPushService.class);
-    }
+object ApiUtils {
+	private const val BASE_URL = "https://sandbox.safaricom.co.ke/"
+	
+	fun getTasksService(token: String): STKPushService {
+		return RetrofitClient.getClient(BASE_URL, token).create(STKPushService::class.java)
+	}
 }

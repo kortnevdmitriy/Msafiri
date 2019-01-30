@@ -16,38 +16,22 @@
  *
  */
 
-package ai.kortnevdmitriy.msafiri.mpesa.api;
+package ai.kortnevdmitriy.msafiri.mpesa.api
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created  on 7/13/2017.
  */
 
-public class Oauth {
-
-    @SerializedName("access_token")
-    @Expose
-    private String accessToken;
-    @SerializedName("expires_in")
-    @Expose
-    private String expiresIn;
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public String getExpiresIn() {
-        return expiresIn;
-    }
-
-    public void setExpiresIn(String expiresIn) {
-        this.expiresIn = expiresIn;
-    }
+class Oauth {
+	
+	@SerializedName("access_token")
+	@Expose
+	var accessToken: String? = null
+	@SerializedName("expires_in")
+	@Expose
+	var expiresIn: String? = null
 
 }
