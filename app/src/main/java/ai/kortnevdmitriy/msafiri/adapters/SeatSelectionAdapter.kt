@@ -36,7 +36,7 @@ class SeatSelectionAdapter(
 				row = inflater.inflate(layoutResourceId, parent, false)
 				
 				holder = RecordHolder()
-				holder.txtTitle = row!!.findViewById(R.id.item_text)
+				holder.txtTitle = row?.findViewById(R.id.item_text)
 				holder.imageItem = row.findViewById(R.id.item_image)
 				row.tag = holder
 			} else {
@@ -44,8 +44,8 @@ class SeatSelectionAdapter(
 			}
 			
 			val item = data[position]
-			holder.txtTitle!!.text = item.getTitle()
-			holder.imageItem!!.setImageBitmap(item.getImage())
+			holder.txtTitle?.text = item.title
+			holder.imageItem?.setImageBitmap(item.image)
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}
