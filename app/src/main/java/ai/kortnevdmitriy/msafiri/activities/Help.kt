@@ -13,7 +13,7 @@ class Help : AppCompatActivity() {
 		val toolbar = findViewById<Toolbar>(R.id.toolbar)
 		setSupportActionBar(toolbar)
 		
-		supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 	}
 	
 }
