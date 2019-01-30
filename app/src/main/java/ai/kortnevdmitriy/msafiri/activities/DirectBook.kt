@@ -81,315 +81,315 @@ class DirectBook : AppCompatActivity() {
 		
 		// Access a Firebase Real Database instance from your Activity
 		db = FirebaseDatabase.getInstance()
-		val myRef = db!!.reference.child("bookedVehicles")
+		val myRef = db?.reference?.child("bookedVehicles")
 		
 		// Read from the database by searching through the travel route children
-		myRef.orderByKey().equalTo(recordByKeyValue)
-			.addChildEventListener(object : ChildEventListener {
+		myRef?.orderByKey()?.equalTo(recordByKeyValue)
+			?.addChildEventListener(object : ChildEventListener {
 				override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
 					// This method is called once with the initial value and again
 					// whenever data at this location is updated.
 					bookedVehicles = dataSnapshot.getValue(BookedVehicles::class.java)
 					if (bookedVehicles != null) {
-						bookedVehicles!!.key = dataSnapshot.key
+						bookedVehicles?.key = dataSnapshot.key
 						try {
-							if ("booked" != bookedVehicles!!.seat1) {
+							if ("booked" != bookedVehicles?.seat1) {
 								seatIsUnbooked(0)
 							} else
 								seatIsBooked(0)
-							if ("booked" != bookedVehicles!!.seat2) {
+							if ("booked" != bookedVehicles?.seat2) {
 								seatIsUnbooked(1)
 							} else
 								seatIsBooked(1)
-							if ("booked" != bookedVehicles!!.seat3) {
+							if ("booked" != bookedVehicles?.seat3) {
 								seatIsUnbooked(2)
 							} else
 								seatIsBooked(2)
-							if ("booked" != bookedVehicles!!.seat4) {
+							if ("booked" != bookedVehicles?.seat4) {
 								seatIsUnbooked(3)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat5) {
+							if ("booked" != bookedVehicles?.seat5) {
 								seatIsUnbooked(4)
 							} else
 								seatIsBooked(4)
-							if ("booked" != bookedVehicles!!.seat6) {
+							if ("booked" != bookedVehicles?.seat6) {
 								seatIsUnbooked(5)
 							} else
 								seatIsBooked(5)
-							if ("booked" != bookedVehicles!!.seat7) {
+							if ("booked" != bookedVehicles?.seat7) {
 								seatIsUnbooked(6)
 							} else
 								seatIsBooked(6)
-							if ("booked" != bookedVehicles!!.seat8) {
+							if ("booked" != bookedVehicles?.seat8) {
 								seatIsUnbooked(7)
 							} else
 								seatIsBooked(7)
-							if ("booked" != bookedVehicles!!.seat9) {
+							if ("booked" != bookedVehicles?.seat9) {
 								seatIsUnbooked(8)
 							} else
 								seatIsBooked(8)
-							if ("booked" != bookedVehicles!!.seat10) {
+							if ("booked" != bookedVehicles?.seat10) {
 								seatIsUnbooked(9)
 							} else
 								seatIsBooked(9)
-							if ("booked" != bookedVehicles!!.seat11) {
+							if ("booked" != bookedVehicles?.seat11) {
 								seatIsUnbooked(10)
 							} else
 								seatIsBooked(10)
-							if ("booked" != bookedVehicles!!.seat12) {
+							if ("booked" != bookedVehicles?.seat12) {
 								seatIsUnbooked(11)
 							} else
 								seatIsBooked(11)
-							if ("booked" != bookedVehicles!!.seat13) {
+							if ("booked" != bookedVehicles?.seat13) {
 								seatIsUnbooked(12)
 							} else
 								seatIsBooked(12)
-							if ("booked" != bookedVehicles!!.seat14) {
+							if ("booked" != bookedVehicles?.seat14) {
 								seatIsUnbooked(13)
 							} else
 								seatIsBooked(13)
-							if ("booked" != bookedVehicles!!.seat15) {
+							if ("booked" != bookedVehicles?.seat15) {
 								seatIsUnbooked(14)
 							} else
 								seatIsBooked(14)
-							if ("booked" != bookedVehicles!!.seat16) {
+							if ("booked" != bookedVehicles?.seat16) {
 								seatIsUnbooked(15)
 							} else
 								seatIsBooked(15)
-							if ("booked" != bookedVehicles!!.seat17) {
+							if ("booked" != bookedVehicles?.seat17) {
 								seatIsUnbooked(16)
 							} else
 								seatIsBooked(16)
-							if ("booked" != bookedVehicles!!.seat18) {
+							if ("booked" != bookedVehicles?.seat18) {
 								seatIsUnbooked(17)
 							} else
 								seatIsBooked(17)
-							if ("booked" != bookedVehicles!!.seat19) {
+							if ("booked" != bookedVehicles?.seat19) {
 								seatIsUnbooked(18)
 							} else
 								seatIsBooked(18)
-							if ("booked" != bookedVehicles!!.seat20) {
+							if ("booked" != bookedVehicles?.seat20) {
 								seatIsUnbooked(19)
 							} else
 								seatIsBooked(19)
-							if ("booked" != bookedVehicles!!.seat21) {
+							if ("booked" != bookedVehicles?.seat21) {
 								seatIsUnbooked(20)
 							} else
 								seatIsBooked(20)
-							if ("booked" != bookedVehicles!!.seat22) {
+							if ("booked" != bookedVehicles?.seat22) {
 								seatIsUnbooked(21)
 							} else
 								seatIsBooked(21)
-							if ("booked" != bookedVehicles!!.seat23) {
+							if ("booked" != bookedVehicles?.seat23) {
 								seatIsUnbooked(22)
 							} else
 								seatIsBooked(22)
-							if ("booked" != bookedVehicles!!.seat24) {
+							if ("booked" != bookedVehicles?.seat24) {
 								seatIsUnbooked(23)
 							} else
 								seatIsBooked(23)
-							if ("booked" != bookedVehicles!!.seat25) {
+							if ("booked" != bookedVehicles?.seat25) {
 								seatIsUnbooked(24)
 							} else
 								seatIsBooked(24)
-							if ("booked" != bookedVehicles!!.seat26) {
+							if ("booked" != bookedVehicles?.seat26) {
 								seatIsUnbooked(25)
 							} else
 								seatIsBooked(25)
-							if ("booked" != bookedVehicles!!.seat27) {
+							if ("booked" != bookedVehicles?.seat27) {
 								seatIsUnbooked(26)
 							} else
 								seatIsBooked(26)
-							if ("booked" != bookedVehicles!!.seat28) {
+							if ("booked" != bookedVehicles?.seat28) {
 								seatIsUnbooked(27)
 							} else
 								seatIsBooked(27)
-							if ("booked" != bookedVehicles!!.seat29) {
+							if ("booked" != bookedVehicles?.seat29) {
 								seatIsUnbooked(28)
 							} else
 								seatIsBooked(28)
-							if ("booked" != bookedVehicles!!.seat30) {
+							if ("booked" != bookedVehicles?.seat30) {
 								seatIsUnbooked(29)
 							} else
 								seatIsBooked(29)
-							if ("booked" != bookedVehicles!!.seat31) {
+							if ("booked" != bookedVehicles?.seat31) {
 								seatIsUnbooked(30)
 							} else
 								seatIsBooked(30)
-							if ("booked" != bookedVehicles!!.seat32) {
+							if ("booked" != bookedVehicles?.seat32) {
 								seatIsUnbooked(31)
 							} else
 								seatIsBooked(31)
-							if ("booked" != bookedVehicles!!.seat33) {
+							if ("booked" != bookedVehicles?.seat33) {
 								seatIsUnbooked(32)
 							} else
 								seatIsBooked(32)
-							if ("booked" != bookedVehicles!!.seat34) {
+							if ("booked" != bookedVehicles?.seat34) {
 								seatIsUnbooked(33)
 							} else
 								seatIsBooked(33)
-							if ("booked" != bookedVehicles!!.seat35) {
+							if ("booked" != bookedVehicles?.seat35) {
 								seatIsUnbooked(34)
 							} else
 								seatIsBooked(34)
-							if ("booked" != bookedVehicles!!.seat36) {
+							if ("booked" != bookedVehicles?.seat36) {
 								seatIsUnbooked(35)
 							} else
 								seatIsBooked(35)
-							if ("booked" != bookedVehicles!!.seat37) {
+							if ("booked" != bookedVehicles?.seat37) {
 								seatIsUnbooked(36)
 							} else
 								seatIsBooked(36)
-							if ("booked" != bookedVehicles!!.seat38) {
+							if ("booked" != bookedVehicles?.seat38) {
 								seatIsUnbooked(37)
 							} else
 								seatIsBooked(37)
-							if ("booked" != bookedVehicles!!.seat39) {
+							if ("booked" != bookedVehicles?.seat39) {
 								seatIsUnbooked(38)
 							} else
 								seatIsBooked(38)
-							if ("booked" != bookedVehicles!!.seat40) {
+							if ("booked" != bookedVehicles?.seat40) {
 								seatIsUnbooked(39)
 							} else
 								seatIsBooked(39)
-							if ("booked" != bookedVehicles!!.seat41) {
+							if ("booked" != bookedVehicles?.seat41) {
 								seatIsUnbooked(40)
 							} else
 								seatIsBooked(40)
-							if ("booked" != bookedVehicles!!.seat42) {
+							if ("booked" != bookedVehicles?.seat42) {
 								seatIsUnbooked(41)
 							} else
 								seatIsBooked(41)
-							if ("booked" != bookedVehicles!!.seat43) {
+							if ("booked" != bookedVehicles?.seat43) {
 								seatIsUnbooked(42)
 							} else
 								seatIsBooked(42)
-							if ("booked" != bookedVehicles!!.seat44) {
+							if ("booked" != bookedVehicles?.seat44) {
 								seatIsUnbooked(43)
 							} else
 								seatIsBooked(43)
-							if ("booked" != bookedVehicles!!.seat45) {
+							if ("booked" != bookedVehicles?.seat45) {
 								seatIsUnbooked(44)
 							} else
 								seatIsBooked(44)
-							if ("booked" != bookedVehicles!!.seat46) {
+							if ("booked" != bookedVehicles?.seat46) {
 								seatIsUnbooked(45)
 							} else
 								seatIsBooked(45)
-							if ("booked" != bookedVehicles!!.seat47) {
+							if ("booked" != bookedVehicles?.seat47) {
 								seatIsUnbooked(46)
 							} else
 								seatIsBooked(46)
-							if ("booked" != bookedVehicles!!.seat48) {
+							if ("booked" != bookedVehicles?.seat48) {
 								seatIsUnbooked(47)
 							} else
 								seatIsBooked(47)
-							if ("booked" != bookedVehicles!!.seat49) {
+							if ("booked" != bookedVehicles?.seat49) {
 								seatIsUnbooked(48)
 							} else
 								seatIsBooked(48)
-							if ("booked" != bookedVehicles!!.seat50) {
+							if ("booked" != bookedVehicles?.seat50) {
 								seatIsUnbooked(49)
 							} else
 								seatIsBooked(49)
-							if ("booked" != bookedVehicles!!.seat51) {
+							if ("booked" != bookedVehicles?.seat51) {
 								seatIsUnbooked(50)
 							} else
 								seatIsBooked(50)
-							if ("booked" != bookedVehicles!!.seat52) {
+							if ("booked" != bookedVehicles?.seat52) {
 								seatIsUnbooked(51)
 							} else
 								seatIsBooked(51)
-							if ("booked" != bookedVehicles!!.seat53) {
+							if ("booked" != bookedVehicles?.seat53) {
 								seatIsUnbooked(52)
 							} else
 								seatIsBooked(52)
-							if ("booked" != bookedVehicles!!.seat54) {
+							if ("booked" != bookedVehicles?.seat54) {
 								seatIsUnbooked(53)
 							} else
 								seatIsBooked(53)
-							if ("booked" != bookedVehicles!!.seat55) {
+							if ("booked" != bookedVehicles?.seat55) {
 								seatIsUnbooked(54)
 							} else
 								seatIsBooked(54)
-							if ("booked" != bookedVehicles!!.seat56) {
+							if ("booked" != bookedVehicles?.seat56) {
 								seatIsUnbooked(55)
 							} else
 								seatIsBooked(55)
-							if ("booked" != bookedVehicles!!.seat57) {
+							if ("booked" != bookedVehicles?.seat57) {
 								seatIsUnbooked(56)
 							} else
 								seatIsBooked(56)
-							if ("booked" != bookedVehicles!!.seat58) {
+							if ("booked" != bookedVehicles?.seat58) {
 								seatIsUnbooked(57)
 							} else
 								seatIsBooked(57)
-							if ("booked" != bookedVehicles!!.seat59) {
+							if ("booked" != bookedVehicles?.seat59) {
 								seatIsUnbooked(58)
 							} else
 								seatIsBooked(58)
-							if ("booked" != bookedVehicles!!.seat60) {
+							if ("booked" != bookedVehicles?.seat60) {
 								seatIsUnbooked(59)
 							} else
 								seatIsBooked(59)
-							if ("booked" != bookedVehicles!!.seat61) {
+							if ("booked" != bookedVehicles?.seat61) {
 								seatIsUnbooked(60)
 							} else
 								seatIsBooked(60)
-							if ("booked" != bookedVehicles!!.seat62) {
+							if ("booked" != bookedVehicles?.seat62) {
 								seatIsUnbooked(61)
 							} else
 								seatIsBooked(61)
-							if ("booked" != bookedVehicles!!.seat63) {
+							if ("booked" != bookedVehicles?.seat63) {
 								seatIsUnbooked(62)
 							} else
 								seatIsBooked(62)
-							if ("booked" != bookedVehicles!!.seat64) {
+							if ("booked" != bookedVehicles?.seat64) {
 								seatIsUnbooked(63)
 							} else
 								seatIsBooked(63)
-							if ("booked" != bookedVehicles!!.seat65) {
+							if ("booked" != bookedVehicles?.seat65) {
 								seatIsUnbooked(64)
 							} else
 								seatIsBooked(64)
-							if ("booked" != bookedVehicles!!.seat66) {
+							if ("booked" != bookedVehicles?.seat66) {
 								seatIsUnbooked(65)
 							} else
 								seatIsBooked(65)
-							if ("booked" != bookedVehicles!!.seat67) {
+							if ("booked" != bookedVehicles?.seat67) {
 								seatIsUnbooked(66)
 							} else
 								seatIsBooked(66)
-							if ("booked" != bookedVehicles!!.seat68) {
+							if ("booked" != bookedVehicles?.seat68) {
 								seatIsUnbooked(67)
 							} else
 								seatIsBooked(67)
-							if ("booked" != bookedVehicles!!.seat69) {
+							if ("booked" != bookedVehicles?.seat69) {
 								seatIsUnbooked(68)
 							} else
 								seatIsBooked(68)
-							if ("booked" != bookedVehicles!!.seat70) {
+							if ("booked" != bookedVehicles?.seat70) {
 								seatIsUnbooked(69)
 							} else
 								seatIsBooked(69)
-							if ("booked" != bookedVehicles!!.seat71) {
+							if ("booked" != bookedVehicles?.seat71) {
 								seatIsUnbooked(70)
 							} else
 								seatIsBooked(70)
-							if ("booked" != bookedVehicles!!.seat72) {
+							if ("booked" != bookedVehicles?.seat72) {
 								seatIsUnbooked(71)
 							} else
 								seatIsBooked(71)
-							if ("booked" != bookedVehicles!!.seat73) {
+							if ("booked" != bookedVehicles?.seat73) {
 								seatIsUnbooked(72)
 							} else
 								seatIsBooked(72)
-							if ("booked" != bookedVehicles!!.seat74) {
+							if ("booked" != bookedVehicles?.seat74) {
 								seatIsUnbooked(73)
 							} else
 								seatIsBooked(73)
-							if ("booked" != bookedVehicles!!.seat75) {
+							if ("booked" != bookedVehicles?.seat75) {
 								seatIsUnbooked(74)
 							} else
 								seatIsBooked(74)
@@ -397,59 +397,59 @@ class DirectBook : AppCompatActivity() {
 								seatIsUnbooked(75)
 							} else
 								seatIsBooked(75)
-							if ("booked" != bookedVehicles!!.seat77) {
+							if ("booked" != bookedVehicles?.seat77) {
 								seatIsUnbooked(76)
 							} else
 								seatIsBooked(76)
-							if ("booked" != bookedVehicles!!.seat78) {
+							if ("booked" != bookedVehicles?.seat78) {
 								seatIsUnbooked(77)
 							} else
 								seatIsBooked(77)
-							if ("booked" != bookedVehicles!!.seat79) {
+							if ("booked" != bookedVehicles?.seat79) {
 								seatIsUnbooked(78)
 							} else
 								seatIsBooked(78)
-							if ("booked" != bookedVehicles!!.seat80) {
+							if ("booked" != bookedVehicles?.seat80) {
 								seatIsUnbooked(79)
 							} else
 								seatIsBooked(79)
-							if ("booked" != bookedVehicles!!.seat81) {
+							if ("booked" != bookedVehicles?.seat81) {
 								seatIsUnbooked(80)
 							} else
 								seatIsBooked(80)
-							if ("booked" != bookedVehicles!!.seat82) {
+							if ("booked" != bookedVehicles?.seat82) {
 								seatIsUnbooked(81)
 							} else
 								seatIsBooked(81)
-							if ("booked" != bookedVehicles!!.seat83) {
+							if ("booked" != bookedVehicles?.seat83) {
 								seatIsUnbooked(82)
 							} else
 								seatIsBooked(82)
-							if ("booked" != bookedVehicles!!.seat84) {
+							if ("booked" != bookedVehicles?.seat84) {
 								seatIsUnbooked(83)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat85) {
+							if ("booked" != bookedVehicles?.seat85) {
 								seatIsUnbooked(84)
 							} else
 								seatIsBooked(84)
-							if ("booked" != bookedVehicles!!.seat86) {
+							if ("booked" != bookedVehicles?.seat86) {
 								seatIsUnbooked(85)
 							} else
 								seatIsBooked(85)
-							if ("booked" != bookedVehicles!!.seat87) {
+							if ("booked" != bookedVehicles?.seat87) {
 								seatIsUnbooked(86)
 							} else
 								seatIsBooked(86)
-							if ("booked" != bookedVehicles!!.seat88) {
+							if ("booked" != bookedVehicles?.seat88) {
 								seatIsUnbooked(87)
 							} else
 								seatIsBooked(87)
-							if ("booked" != bookedVehicles!!.seat89) {
+							if ("booked" != bookedVehicles?.seat89) {
 								seatIsUnbooked(88)
 							} else
 								seatIsBooked(88)
-							if ("booked" != bookedVehicles!!.seat90) {
+							if ("booked" != bookedVehicles?.seat90) {
 								seatIsUnbooked(89)
 							} else
 								seatIsBooked(89)
@@ -467,363 +467,363 @@ class DirectBook : AppCompatActivity() {
 					if (bookedVehicles != null) {
 						bookedVehicles?.key = dataSnapshot.key
 						try {
-							if ("booked" != bookedVehicles!!.seat1) {
+							if ("booked" != bookedVehicles?.seat1) {
 								seatIsUnbooked(0)
 							} else
 								seatIsBooked(0)
-							if ("booked" != bookedVehicles!!.seat2) {
+							if ("booked" != bookedVehicles?.seat2) {
 								seatIsUnbooked(1)
 							} else
 								seatIsBooked(1)
-							if ("booked" != bookedVehicles!!.seat3) {
+							if ("booked" != bookedVehicles?.seat3) {
 								seatIsUnbooked(2)
 							} else
 								seatIsBooked(2)
-							if ("booked" != bookedVehicles!!.seat4) {
+							if ("booked" != bookedVehicles?.seat4) {
 								seatIsUnbooked(3)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat5) {
+							if ("booked" != bookedVehicles?.seat5) {
 								seatIsUnbooked(4)
 							} else
 								seatIsBooked(4)
-							if ("booked" != bookedVehicles!!.seat6) {
+							if ("booked" != bookedVehicles?.seat6) {
 								seatIsUnbooked(5)
 							} else
 								seatIsBooked(5)
-							if ("booked" != bookedVehicles!!.seat7) {
+							if ("booked" != bookedVehicles?.seat7) {
 								seatIsUnbooked(6)
 							} else
 								seatIsBooked(6)
-							if ("booked" != bookedVehicles!!.seat8) {
+							if ("booked" != bookedVehicles?.seat8) {
 								seatIsUnbooked(7)
 							} else
 								seatIsBooked(7)
-							if ("booked" != bookedVehicles!!.seat9) {
+							if ("booked" != bookedVehicles?.seat9) {
 								seatIsUnbooked(8)
 							} else
 								seatIsBooked(8)
-							if ("booked" != bookedVehicles!!.seat10) {
+							if ("booked" != bookedVehicles?.seat10) {
 								seatIsUnbooked(9)
 							} else
 								seatIsBooked(9)
-							if ("booked" != bookedVehicles!!.seat11) {
+							if ("booked" != bookedVehicles?.seat11) {
 								seatIsUnbooked(10)
 							} else
 								seatIsBooked(10)
-							if ("booked" != bookedVehicles!!.seat12) {
+							if ("booked" != bookedVehicles?.seat12) {
 								seatIsUnbooked(11)
 							} else
 								seatIsBooked(11)
-							if ("booked" != bookedVehicles!!.seat13) {
+							if ("booked" != bookedVehicles?.seat13) {
 								seatIsUnbooked(12)
 							} else
 								seatIsBooked(12)
-							if ("booked" != bookedVehicles!!.seat14) {
+							if ("booked" != bookedVehicles?.seat14) {
 								seatIsUnbooked(13)
 							} else
 								seatIsBooked(13)
-							if ("booked" != bookedVehicles!!.seat15) {
+							if ("booked" != bookedVehicles?.seat15) {
 								seatIsUnbooked(14)
 							} else
 								seatIsBooked(14)
-							if ("booked" != bookedVehicles!!.seat16) {
+							if ("booked" != bookedVehicles?.seat16) {
 								seatIsUnbooked(15)
 							} else
 								seatIsBooked(15)
-							if ("booked" != bookedVehicles!!.seat17) {
+							if ("booked" != bookedVehicles?.seat17) {
 								seatIsUnbooked(16)
 							} else
 								seatIsBooked(16)
-							if ("booked" != bookedVehicles!!.seat18) {
+							if ("booked" != bookedVehicles?.seat18) {
 								seatIsUnbooked(17)
 							} else
 								seatIsBooked(17)
-							if ("booked" != bookedVehicles!!.seat19) {
+							if ("booked" != bookedVehicles?.seat19) {
 								seatIsUnbooked(18)
 							} else
 								seatIsBooked(18)
-							if ("booked" != bookedVehicles!!.seat20) {
+							if ("booked" != bookedVehicles?.seat20) {
 								seatIsUnbooked(19)
 							} else
 								seatIsBooked(19)
-							if ("booked" != bookedVehicles!!.seat21) {
+							if ("booked" != bookedVehicles?.seat21) {
 								seatIsUnbooked(20)
 							} else
 								seatIsBooked(20)
-							if ("booked" != bookedVehicles!!.seat22) {
+							if ("booked" != bookedVehicles?.seat22) {
 								seatIsUnbooked(21)
 							} else
 								seatIsBooked(21)
-							if ("booked" != bookedVehicles!!.seat23) {
+							if ("booked" != bookedVehicles?.seat23) {
 								seatIsUnbooked(22)
 							} else
 								seatIsBooked(22)
-							if ("booked" != bookedVehicles!!.seat24) {
+							if ("booked" != bookedVehicles?.seat24) {
 								seatIsUnbooked(23)
 							} else
 								seatIsBooked(23)
-							if ("booked" != bookedVehicles!!.seat25) {
+							if ("booked" != bookedVehicles?.seat25) {
 								seatIsUnbooked(24)
 							} else
 								seatIsBooked(24)
-							if ("booked" != bookedVehicles!!.seat26) {
+							if ("booked" != bookedVehicles?.seat26) {
 								seatIsUnbooked(25)
 							} else
 								seatIsBooked(25)
-							if ("booked" != bookedVehicles!!.seat27) {
+							if ("booked" != bookedVehicles?.seat27) {
 								seatIsUnbooked(26)
 							} else
 								seatIsBooked(26)
-							if ("booked" != bookedVehicles!!.seat28) {
+							if ("booked" != bookedVehicles?.seat28) {
 								seatIsUnbooked(27)
 							} else
 								seatIsBooked(27)
-							if ("booked" != bookedVehicles!!.seat29) {
+							if ("booked" != bookedVehicles?.seat29) {
 								seatIsUnbooked(28)
 							} else
 								seatIsBooked(28)
-							if ("booked" != bookedVehicles!!.seat30) {
+							if ("booked" != bookedVehicles?.seat30) {
 								seatIsUnbooked(29)
 							} else
 								seatIsBooked(29)
-							if ("booked" != bookedVehicles!!.seat31) {
+							if ("booked" != bookedVehicles?.seat31) {
 								seatIsUnbooked(30)
 							} else
 								seatIsBooked(30)
-							if ("booked" != bookedVehicles!!.seat32) {
+							if ("booked" != bookedVehicles?.seat32) {
 								seatIsUnbooked(31)
 							} else
 								seatIsBooked(31)
-							if ("booked" != bookedVehicles!!.seat33) {
+							if ("booked" != bookedVehicles?.seat33) {
 								seatIsUnbooked(32)
 							} else
 								seatIsBooked(32)
-							if ("booked" != bookedVehicles!!.seat34) {
+							if ("booked" != bookedVehicles?.seat34) {
 								seatIsUnbooked(33)
 							} else
 								seatIsBooked(33)
-							if ("booked" != bookedVehicles!!.seat35) {
+							if ("booked" != bookedVehicles?.seat35) {
 								seatIsUnbooked(34)
 							} else
 								seatIsBooked(34)
-							if ("booked" != bookedVehicles!!.seat36) {
+							if ("booked" != bookedVehicles?.seat36) {
 								seatIsUnbooked(35)
 							} else
 								seatIsBooked(35)
-							if ("booked" != bookedVehicles!!.seat37) {
+							if ("booked" != bookedVehicles?.seat37) {
 								seatIsUnbooked(36)
 							} else
 								seatIsBooked(36)
-							if ("booked" != bookedVehicles!!.seat38) {
+							if ("booked" != bookedVehicles?.seat38) {
 								seatIsUnbooked(37)
 							} else
 								seatIsBooked(37)
-							if ("booked" != bookedVehicles!!.seat39) {
+							if ("booked" != bookedVehicles?.seat39) {
 								seatIsUnbooked(38)
 							} else
 								seatIsBooked(38)
-							if ("booked" != bookedVehicles!!.seat40) {
+							if ("booked" != bookedVehicles?.seat40) {
 								seatIsUnbooked(39)
 							} else
 								seatIsBooked(39)
-							if ("booked" != bookedVehicles!!.seat41) {
+							if ("booked" != bookedVehicles?.seat41) {
 								seatIsUnbooked(40)
 							} else
 								seatIsBooked(40)
-							if ("booked" != bookedVehicles!!.seat42) {
+							if ("booked" != bookedVehicles?.seat42) {
 								seatIsUnbooked(41)
 							} else
 								seatIsBooked(41)
-							if ("booked" != bookedVehicles!!.seat43) {
+							if ("booked" != bookedVehicles?.seat43) {
 								seatIsUnbooked(42)
 							} else
 								seatIsBooked(42)
-							if ("booked" != bookedVehicles!!.seat44) {
+							if ("booked" != bookedVehicles?.seat44) {
 								seatIsUnbooked(43)
 							} else
 								seatIsBooked(43)
-							if ("booked" != bookedVehicles!!.seat45) {
+							if ("booked" != bookedVehicles?.seat45) {
 								seatIsUnbooked(44)
 							} else
 								seatIsBooked(44)
-							if ("booked" != bookedVehicles!!.seat46) {
+							if ("booked" != bookedVehicles?.seat46) {
 								seatIsUnbooked(45)
 							} else
 								seatIsBooked(45)
-							if ("booked" != bookedVehicles!!.seat47) {
+							if ("booked" != bookedVehicles?.seat47) {
 								seatIsUnbooked(46)
 							} else
 								seatIsBooked(46)
-							if ("booked" != bookedVehicles!!.seat48) {
+							if ("booked" != bookedVehicles?.seat48) {
 								seatIsUnbooked(47)
 							} else
 								seatIsBooked(47)
-							if ("booked" != bookedVehicles!!.seat49) {
+							if ("booked" != bookedVehicles?.seat49) {
 								seatIsUnbooked(48)
 							} else
 								seatIsBooked(48)
-							if ("booked" != bookedVehicles!!.seat50) {
+							if ("booked" != bookedVehicles?.seat50) {
 								seatIsUnbooked(49)
 							} else
 								seatIsBooked(49)
-							if ("booked" != bookedVehicles!!.seat51) {
+							if ("booked" != bookedVehicles?.seat51) {
 								seatIsUnbooked(50)
 							} else
 								seatIsBooked(50)
-							if ("booked" != bookedVehicles!!.seat52) {
+							if ("booked" != bookedVehicles?.seat52) {
 								seatIsUnbooked(51)
 							} else
 								seatIsBooked(51)
-							if ("booked" != bookedVehicles!!.seat53) {
+							if ("booked" != bookedVehicles?.seat53) {
 								seatIsUnbooked(52)
 							} else
 								seatIsBooked(52)
-							if ("booked" != bookedVehicles!!.seat54) {
+							if ("booked" != bookedVehicles?.seat54) {
 								seatIsUnbooked(53)
 							} else
 								seatIsBooked(53)
-							if ("booked" != bookedVehicles!!.seat55) {
+							if ("booked" != bookedVehicles?.seat55) {
 								seatIsUnbooked(54)
 							} else
 								seatIsBooked(54)
-							if ("booked" != bookedVehicles!!.seat56) {
+							if ("booked" != bookedVehicles?.seat56) {
 								seatIsUnbooked(55)
 							} else
 								seatIsBooked(55)
-							if ("booked" != bookedVehicles!!.seat57) {
+							if ("booked" != bookedVehicles?.seat57) {
 								seatIsUnbooked(56)
 							} else
 								seatIsBooked(56)
-							if ("booked" != bookedVehicles!!.seat58) {
+							if ("booked" != bookedVehicles?.seat58) {
 								seatIsUnbooked(57)
 							} else
 								seatIsBooked(57)
-							if ("booked" != bookedVehicles!!.seat59) {
+							if ("booked" != bookedVehicles?.seat59) {
 								seatIsUnbooked(58)
 							} else
 								seatIsBooked(58)
-							if ("booked" != bookedVehicles!!.seat60) {
+							if ("booked" != bookedVehicles?.seat60) {
 								seatIsUnbooked(59)
 							} else
 								seatIsBooked(59)
-							if ("booked" != bookedVehicles!!.seat61) {
+							if ("booked" != bookedVehicles?.seat61) {
 								seatIsUnbooked(60)
 							} else
 								seatIsBooked(60)
-							if ("booked" != bookedVehicles!!.seat62) {
+							if ("booked" != bookedVehicles?.seat62) {
 								seatIsUnbooked(61)
 							} else
 								seatIsBooked(61)
-							if ("booked" != bookedVehicles!!.seat63) {
+							if ("booked" != bookedVehicles?.seat63) {
 								seatIsUnbooked(62)
 							} else
 								seatIsBooked(62)
-							if ("booked" != bookedVehicles!!.seat64) {
+							if ("booked" != bookedVehicles?.seat64) {
 								seatIsUnbooked(63)
 							} else
 								seatIsBooked(63)
-							if ("booked" != bookedVehicles!!.seat65) {
+							if ("booked" != bookedVehicles?.seat65) {
 								seatIsUnbooked(64)
 							} else
 								seatIsBooked(64)
-							if ("booked" != bookedVehicles!!.seat66) {
+							if ("booked" != bookedVehicles?.seat66) {
 								seatIsUnbooked(65)
 							} else
 								seatIsBooked(65)
-							if ("booked" != bookedVehicles!!.seat67) {
+							if ("booked" != bookedVehicles?.seat67) {
 								seatIsUnbooked(66)
 							} else
 								seatIsBooked(66)
-							if ("booked" != bookedVehicles!!.seat68) {
+							if ("booked" != bookedVehicles?.seat68) {
 								seatIsUnbooked(67)
 							} else
 								seatIsBooked(67)
-							if ("booked" != bookedVehicles!!.seat69) {
+							if ("booked" != bookedVehicles?.seat69) {
 								seatIsUnbooked(68)
 							} else
 								seatIsBooked(68)
-							if ("booked" != bookedVehicles!!.seat70) {
+							if ("booked" != bookedVehicles?.seat70) {
 								seatIsUnbooked(69)
 							} else
 								seatIsBooked(69)
-							if ("booked" != bookedVehicles!!.seat71) {
+							if ("booked" != bookedVehicles?.seat71) {
 								seatIsUnbooked(70)
 							} else
 								seatIsBooked(70)
-							if ("booked" != bookedVehicles!!.seat72) {
+							if ("booked" != bookedVehicles?.seat72) {
 								seatIsUnbooked(71)
 							} else
 								seatIsBooked(71)
-							if ("booked" != bookedVehicles!!.seat73) {
+							if ("booked" != bookedVehicles?.seat73) {
 								seatIsUnbooked(72)
 							} else
 								seatIsBooked(72)
-							if ("booked" != bookedVehicles!!.seat74) {
+							if ("booked" != bookedVehicles?.seat74) {
 								seatIsUnbooked(73)
 							} else
 								seatIsBooked(73)
-							if ("booked" != bookedVehicles!!.seat75) {
+							if ("booked" != bookedVehicles?.seat75) {
 								seatIsUnbooked(74)
 							} else
 								seatIsBooked(74)
-							if ("booked" != bookedVehicles!!.seat76) {
+							if ("booked" != bookedVehicles?.seat76) {
 								seatIsUnbooked(75)
 							} else
 								seatIsBooked(75)
-							if ("booked" != bookedVehicles!!.seat77) {
+							if ("booked" != bookedVehicles?.seat77) {
 								seatIsUnbooked(76)
 							} else
 								seatIsBooked(76)
-							if ("booked" != bookedVehicles!!.seat78) {
+							if ("booked" != bookedVehicles?.seat78) {
 								seatIsUnbooked(77)
 							} else
 								seatIsBooked(77)
-							if ("booked" != bookedVehicles!!.seat79) {
+							if ("booked" != bookedVehicles?.seat79) {
 								seatIsUnbooked(78)
 							} else
 								seatIsBooked(78)
-							if ("booked" != bookedVehicles!!.seat80) {
+							if ("booked" != bookedVehicles?.seat80) {
 								seatIsUnbooked(79)
 							} else
 								seatIsBooked(79)
-							if ("booked" != bookedVehicles!!.seat81) {
+							if ("booked" != bookedVehicles?.seat81) {
 								seatIsUnbooked(80)
 							} else
 								seatIsBooked(80)
-							if ("booked" != bookedVehicles!!.seat82) {
+							if ("booked" != bookedVehicles?.seat82) {
 								seatIsUnbooked(81)
 							} else
 								seatIsBooked(81)
-							if ("booked" != bookedVehicles!!.seat83) {
+							if ("booked" != bookedVehicles?.seat83) {
 								seatIsUnbooked(82)
 							} else
 								seatIsBooked(82)
-							if ("booked" != bookedVehicles!!.seat84) {
+							if ("booked" != bookedVehicles?.seat84) {
 								seatIsUnbooked(83)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat85) {
+							if ("booked" != bookedVehicles?.seat85) {
 								seatIsUnbooked(84)
 							} else
 								seatIsBooked(84)
-							if ("booked" != bookedVehicles!!.seat86) {
+							if ("booked" != bookedVehicles?.seat86) {
 								seatIsUnbooked(85)
 							} else
 								seatIsBooked(85)
-							if ("booked" != bookedVehicles!!.seat87) {
+							if ("booked" != bookedVehicles?.seat87) {
 								seatIsUnbooked(86)
 							} else
 								seatIsBooked(86)
-							if ("booked" != bookedVehicles!!.seat88) {
+							if ("booked" != bookedVehicles?.seat88) {
 								seatIsUnbooked(87)
 							} else
 								seatIsBooked(87)
-							if ("booked" != bookedVehicles!!.seat89) {
+							if ("booked" != bookedVehicles?.seat89) {
 								seatIsUnbooked(88)
 							} else
 								seatIsBooked(88)
-							if ("booked" != bookedVehicles!!.seat90) {
+							if ("booked" != bookedVehicles?.seat90) {
 								seatIsUnbooked(89)
 							} else
 								seatIsBooked(89)
@@ -840,363 +840,363 @@ class DirectBook : AppCompatActivity() {
 					if (bookedVehicles != null) {
 						bookedVehicles!!.key = dataSnapshot.key
 						try {
-							if ("booked" != bookedVehicles!!.seat1) {
+							if ("booked" != bookedVehicles?.seat1) {
 								seatIsUnbooked(0)
 							} else
 								seatIsBooked(0)
-							if ("booked" != bookedVehicles!!.seat2) {
+							if ("booked" != bookedVehicles?.seat2) {
 								seatIsUnbooked(1)
 							} else
 								seatIsBooked(1)
-							if ("booked" != bookedVehicles!!.seat3) {
+							if ("booked" != bookedVehicles?.seat3) {
 								seatIsUnbooked(2)
 							} else
 								seatIsBooked(2)
-							if ("booked" != bookedVehicles!!.seat4) {
+							if ("booked" != bookedVehicles?.seat4) {
 								seatIsUnbooked(3)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat5) {
+							if ("booked" != bookedVehicles?.seat5) {
 								seatIsUnbooked(4)
 							} else
 								seatIsBooked(4)
-							if ("booked" != bookedVehicles!!.seat6) {
+							if ("booked" != bookedVehicles?.seat6) {
 								seatIsUnbooked(5)
 							} else
 								seatIsBooked(5)
-							if ("booked" != bookedVehicles!!.seat7) {
+							if ("booked" != bookedVehicles?.seat7) {
 								seatIsUnbooked(6)
 							} else
 								seatIsBooked(6)
-							if ("booked" != bookedVehicles!!.seat8) {
+							if ("booked" != bookedVehicles?.seat8) {
 								seatIsUnbooked(7)
 							} else
 								seatIsBooked(7)
-							if ("booked" != bookedVehicles!!.seat9) {
+							if ("booked" != bookedVehicles?.seat9) {
 								seatIsUnbooked(8)
 							} else
 								seatIsBooked(8)
-							if ("booked" != bookedVehicles!!.seat10) {
+							if ("booked" != bookedVehicles?.seat10) {
 								seatIsUnbooked(9)
 							} else
 								seatIsBooked(9)
-							if ("booked" != bookedVehicles!!.seat11) {
+							if ("booked" != bookedVehicles?.seat11) {
 								seatIsUnbooked(10)
 							} else
 								seatIsBooked(10)
-							if ("booked" != bookedVehicles!!.seat12) {
+							if ("booked" != bookedVehicles?.seat12) {
 								seatIsUnbooked(11)
 							} else
 								seatIsBooked(11)
-							if ("booked" != bookedVehicles!!.seat13) {
+							if ("booked" != bookedVehicles?.seat13) {
 								seatIsUnbooked(12)
 							} else
 								seatIsBooked(12)
-							if ("booked" != bookedVehicles!!.seat14) {
+							if ("booked" != bookedVehicles?.seat14) {
 								seatIsUnbooked(13)
 							} else
 								seatIsBooked(13)
-							if ("booked" != bookedVehicles!!.seat15) {
+							if ("booked" != bookedVehicles?.seat15) {
 								seatIsUnbooked(14)
 							} else
 								seatIsBooked(14)
-							if ("booked" != bookedVehicles!!.seat16) {
+							if ("booked" != bookedVehicles?.seat16) {
 								seatIsUnbooked(15)
 							} else
 								seatIsBooked(15)
-							if ("booked" != bookedVehicles!!.seat17) {
+							if ("booked" != bookedVehicles?.seat17) {
 								seatIsUnbooked(16)
 							} else
 								seatIsBooked(16)
-							if ("booked" != bookedVehicles!!.seat18) {
+							if ("booked" != bookedVehicles?.seat18) {
 								seatIsUnbooked(17)
 							} else
 								seatIsBooked(17)
-							if ("booked" != bookedVehicles!!.seat19) {
+							if ("booked" != bookedVehicles?.seat19) {
 								seatIsUnbooked(18)
 							} else
 								seatIsBooked(18)
-							if ("booked" != bookedVehicles!!.seat20) {
+							if ("booked" != bookedVehicles?.seat20) {
 								seatIsUnbooked(19)
 							} else
 								seatIsBooked(19)
-							if ("booked" != bookedVehicles!!.seat21) {
+							if ("booked" != bookedVehicles?.seat21) {
 								seatIsUnbooked(20)
 							} else
 								seatIsBooked(20)
-							if ("booked" != bookedVehicles!!.seat22) {
+							if ("booked" != bookedVehicles?.seat22) {
 								seatIsUnbooked(21)
 							} else
 								seatIsBooked(21)
-							if ("booked" != bookedVehicles!!.seat23) {
+							if ("booked" != bookedVehicles?.seat23) {
 								seatIsUnbooked(22)
 							} else
 								seatIsBooked(22)
-							if ("booked" != bookedVehicles!!.seat24) {
+							if ("booked" != bookedVehicles?.seat24) {
 								seatIsUnbooked(23)
 							} else
 								seatIsBooked(23)
-							if ("booked" != bookedVehicles!!.seat25) {
+							if ("booked" != bookedVehicles?.seat25) {
 								seatIsUnbooked(24)
 							} else
 								seatIsBooked(24)
-							if ("booked" != bookedVehicles!!.seat26) {
+							if ("booked" != bookedVehicles?.seat26) {
 								seatIsUnbooked(25)
 							} else
 								seatIsBooked(25)
-							if ("booked" != bookedVehicles!!.seat27) {
+							if ("booked" != bookedVehicles?.seat27) {
 								seatIsUnbooked(26)
 							} else
 								seatIsBooked(26)
-							if ("booked" != bookedVehicles!!.seat28) {
+							if ("booked" != bookedVehicles?.seat28) {
 								seatIsUnbooked(27)
 							} else
 								seatIsBooked(27)
-							if ("booked" != bookedVehicles!!.seat29) {
+							if ("booked" != bookedVehicles?.seat29) {
 								seatIsUnbooked(28)
 							} else
 								seatIsBooked(28)
-							if ("booked" != bookedVehicles!!.seat30) {
+							if ("booked" != bookedVehicles?.seat30) {
 								seatIsUnbooked(29)
 							} else
 								seatIsBooked(29)
-							if ("booked" != bookedVehicles!!.seat31) {
+							if ("booked" != bookedVehicles?.seat31) {
 								seatIsUnbooked(30)
 							} else
 								seatIsBooked(30)
-							if ("booked" != bookedVehicles!!.seat32) {
+							if ("booked" != bookedVehicles?.seat32) {
 								seatIsUnbooked(31)
 							} else
 								seatIsBooked(31)
-							if ("booked" != bookedVehicles!!.seat33) {
+							if ("booked" != bookedVehicles?.seat33) {
 								seatIsUnbooked(32)
 							} else
 								seatIsBooked(32)
-							if ("booked" != bookedVehicles!!.seat34) {
+							if ("booked" != bookedVehicles?.seat34) {
 								seatIsUnbooked(33)
 							} else
 								seatIsBooked(33)
-							if ("booked" != bookedVehicles!!.seat35) {
+							if ("booked" != bookedVehicles?.seat35) {
 								seatIsUnbooked(34)
 							} else
 								seatIsBooked(34)
-							if ("booked" != bookedVehicles!!.seat36) {
+							if ("booked" != bookedVehicles?.seat36) {
 								seatIsUnbooked(35)
 							} else
 								seatIsBooked(35)
-							if ("booked" != bookedVehicles!!.seat37) {
+							if ("booked" != bookedVehicles?.seat37) {
 								seatIsUnbooked(36)
 							} else
 								seatIsBooked(36)
-							if ("booked" != bookedVehicles!!.seat38) {
+							if ("booked" != bookedVehicles?.seat38) {
 								seatIsUnbooked(37)
 							} else
 								seatIsBooked(37)
-							if ("booked" != bookedVehicles!!.seat39) {
+							if ("booked" != bookedVehicles?.seat39) {
 								seatIsUnbooked(38)
 							} else
 								seatIsBooked(38)
-							if ("booked" != bookedVehicles!!.seat40) {
+							if ("booked" != bookedVehicles?.seat40) {
 								seatIsUnbooked(39)
 							} else
 								seatIsBooked(39)
-							if ("booked" != bookedVehicles!!.seat41) {
+							if ("booked" != bookedVehicles?.seat41) {
 								seatIsUnbooked(40)
 							} else
 								seatIsBooked(40)
-							if ("booked" != bookedVehicles!!.seat42) {
+							if ("booked" != bookedVehicles?.seat42) {
 								seatIsUnbooked(41)
 							} else
 								seatIsBooked(41)
-							if ("booked" != bookedVehicles!!.seat43) {
+							if ("booked" != bookedVehicles?.seat43) {
 								seatIsUnbooked(42)
 							} else
 								seatIsBooked(42)
-							if ("booked" != bookedVehicles!!.seat44) {
+							if ("booked" != bookedVehicles?.seat44) {
 								seatIsUnbooked(43)
 							} else
 								seatIsBooked(43)
-							if ("booked" != bookedVehicles!!.seat45) {
+							if ("booked" != bookedVehicles?.seat45) {
 								seatIsUnbooked(44)
 							} else
 								seatIsBooked(44)
-							if ("booked" != bookedVehicles!!.seat46) {
+							if ("booked" != bookedVehicles?.seat46) {
 								seatIsUnbooked(45)
 							} else
 								seatIsBooked(45)
-							if ("booked" != bookedVehicles!!.seat47) {
+							if ("booked" != bookedVehicles?.seat47) {
 								seatIsUnbooked(46)
 							} else
 								seatIsBooked(46)
-							if ("booked" != bookedVehicles!!.seat48) {
+							if ("booked" != bookedVehicles?.seat48) {
 								seatIsUnbooked(47)
 							} else
 								seatIsBooked(47)
-							if ("booked" != bookedVehicles!!.seat49) {
+							if ("booked" != bookedVehicles?.seat49) {
 								seatIsUnbooked(48)
 							} else
 								seatIsBooked(48)
-							if ("booked" != bookedVehicles!!.seat50) {
+							if ("booked" != bookedVehicles?.seat50) {
 								seatIsUnbooked(49)
 							} else
 								seatIsBooked(49)
-							if ("booked" != bookedVehicles!!.seat51) {
+							if ("booked" != bookedVehicles?.seat51) {
 								seatIsUnbooked(50)
 							} else
 								seatIsBooked(50)
-							if ("booked" != bookedVehicles!!.seat52) {
+							if ("booked" != bookedVehicles?.seat52) {
 								seatIsUnbooked(51)
 							} else
 								seatIsBooked(51)
-							if ("booked" != bookedVehicles!!.seat53) {
+							if ("booked" != bookedVehicles?.seat53) {
 								seatIsUnbooked(52)
 							} else
 								seatIsBooked(52)
-							if ("booked" != bookedVehicles!!.seat54) {
+							if ("booked" != bookedVehicles?.seat54) {
 								seatIsUnbooked(53)
 							} else
 								seatIsBooked(53)
-							if ("booked" != bookedVehicles!!.seat55) {
+							if ("booked" != bookedVehicles?.seat55) {
 								seatIsUnbooked(54)
 							} else
 								seatIsBooked(54)
-							if ("booked" != bookedVehicles!!.seat56) {
+							if ("booked" != bookedVehicles?.seat56) {
 								seatIsUnbooked(55)
 							} else
 								seatIsBooked(55)
-							if ("booked" != bookedVehicles!!.seat57) {
+							if ("booked" != bookedVehicles?.seat57) {
 								seatIsUnbooked(56)
 							} else
 								seatIsBooked(56)
-							if ("booked" != bookedVehicles!!.seat58) {
+							if ("booked" != bookedVehicles?.seat58) {
 								seatIsUnbooked(57)
 							} else
 								seatIsBooked(57)
-							if ("booked" != bookedVehicles!!.seat59) {
+							if ("booked" != bookedVehicles?.seat59) {
 								seatIsUnbooked(58)
 							} else
 								seatIsBooked(58)
-							if ("booked" != bookedVehicles!!.seat60) {
+							if ("booked" != bookedVehicles?.seat60) {
 								seatIsUnbooked(59)
 							} else
 								seatIsBooked(59)
-							if ("booked" != bookedVehicles!!.seat61) {
+							if ("booked" != bookedVehicles?.seat61) {
 								seatIsUnbooked(60)
 							} else
 								seatIsBooked(60)
-							if ("booked" != bookedVehicles!!.seat62) {
+							if ("booked" != bookedVehicles?.seat62) {
 								seatIsUnbooked(61)
 							} else
 								seatIsBooked(61)
-							if ("booked" != bookedVehicles!!.seat63) {
+							if ("booked" != bookedVehicles?.seat63) {
 								seatIsUnbooked(62)
 							} else
 								seatIsBooked(62)
-							if ("booked" != bookedVehicles!!.seat64) {
+							if ("booked" != bookedVehicles?.seat64) {
 								seatIsUnbooked(63)
 							} else
 								seatIsBooked(63)
-							if ("booked" != bookedVehicles!!.seat65) {
+							if ("booked" != bookedVehicles?.seat65) {
 								seatIsUnbooked(64)
 							} else
 								seatIsBooked(64)
-							if ("booked" != bookedVehicles!!.seat66) {
+							if ("booked" != bookedVehicles?.seat66) {
 								seatIsUnbooked(65)
 							} else
 								seatIsBooked(65)
-							if ("booked" != bookedVehicles!!.seat67) {
+							if ("booked" != bookedVehicles?.seat67) {
 								seatIsUnbooked(66)
 							} else
 								seatIsBooked(66)
-							if ("booked" != bookedVehicles!!.seat68) {
+							if ("booked" != bookedVehicles?.seat68) {
 								seatIsUnbooked(67)
 							} else
 								seatIsBooked(67)
-							if ("booked" != bookedVehicles!!.seat69) {
+							if ("booked" != bookedVehicles?.seat69) {
 								seatIsUnbooked(68)
 							} else
 								seatIsBooked(68)
-							if ("booked" != bookedVehicles!!.seat70) {
+							if ("booked" != bookedVehicles?.seat70) {
 								seatIsUnbooked(69)
 							} else
 								seatIsBooked(69)
-							if ("booked" != bookedVehicles!!.seat71) {
+							if ("booked" != bookedVehicles?.seat71) {
 								seatIsUnbooked(70)
 							} else
 								seatIsBooked(70)
-							if ("booked" != bookedVehicles!!.seat72) {
+							if ("booked" != bookedVehicles?.seat72) {
 								seatIsUnbooked(71)
 							} else
 								seatIsBooked(71)
-							if ("booked" != bookedVehicles!!.seat73) {
+							if ("booked" != bookedVehicles?.seat73) {
 								seatIsUnbooked(72)
 							} else
 								seatIsBooked(72)
-							if ("booked" != bookedVehicles!!.seat74) {
+							if ("booked" != bookedVehicles?.seat74) {
 								seatIsUnbooked(73)
 							} else
 								seatIsBooked(73)
-							if ("booked" != bookedVehicles!!.seat75) {
+							if ("booked" != bookedVehicles?.seat75) {
 								seatIsUnbooked(74)
 							} else
 								seatIsBooked(74)
-							if ("booked" != bookedVehicles!!.seat76) {
+							if ("booked" != bookedVehicles?.seat76) {
 								seatIsUnbooked(75)
 							} else
 								seatIsBooked(75)
-							if ("booked" != bookedVehicles!!.seat77) {
+							if ("booked" != bookedVehicles?.seat77) {
 								seatIsUnbooked(76)
 							} else
 								seatIsBooked(76)
-							if ("booked" != bookedVehicles!!.seat78) {
+							if ("booked" != bookedVehicles?.seat78) {
 								seatIsUnbooked(77)
 							} else
 								seatIsBooked(77)
-							if ("booked" != bookedVehicles!!.seat79) {
+							if ("booked" != bookedVehicles?.seat79) {
 								seatIsUnbooked(78)
 							} else
 								seatIsBooked(78)
-							if ("booked" != bookedVehicles!!.seat80) {
+							if ("booked" != bookedVehicles?.seat80) {
 								seatIsUnbooked(79)
 							} else
 								seatIsBooked(79)
-							if ("booked" != bookedVehicles!!.seat81) {
+							if ("booked" != bookedVehicles?.seat81) {
 								seatIsUnbooked(80)
 							} else
 								seatIsBooked(80)
-							if ("booked" != bookedVehicles!!.seat82) {
+							if ("booked" != bookedVehicles?.seat82) {
 								seatIsUnbooked(81)
 							} else
 								seatIsBooked(81)
-							if ("booked" != bookedVehicles!!.seat83) {
+							if ("booked" != bookedVehicles?.seat83) {
 								seatIsUnbooked(82)
 							} else
 								seatIsBooked(82)
-							if ("booked" != bookedVehicles!!.seat84) {
+							if ("booked" != bookedVehicles?.seat84) {
 								seatIsUnbooked(83)
 							} else
 								seatIsBooked(3)
-							if ("booked" != bookedVehicles!!.seat85) {
+							if ("booked" != bookedVehicles?.seat85) {
 								seatIsUnbooked(84)
 							} else
 								seatIsBooked(84)
-							if ("booked" != bookedVehicles!!.seat86) {
+							if ("booked" != bookedVehicles?.seat86) {
 								seatIsUnbooked(85)
 							} else
 								seatIsBooked(85)
-							if ("booked" != bookedVehicles!!.seat87) {
+							if ("booked" != bookedVehicles?.seat87) {
 								seatIsUnbooked(86)
 							} else
 								seatIsBooked(86)
-							if ("booked" != bookedVehicles!!.seat88) {
+							if ("booked" != bookedVehicles?.seat88) {
 								seatIsUnbooked(87)
 							} else
 								seatIsBooked(87)
-							if ("booked" != bookedVehicles!!.seat89) {
+							if ("booked" != bookedVehicles?.seat89) {
 								seatIsUnbooked(88)
 							} else
 								seatIsBooked(88)
-							if ("booked" != bookedVehicles!!.seat90) {
+							if ("booked" != bookedVehicles?.seat90) {
 								seatIsUnbooked(89)
 							} else
 								seatIsBooked(89)
@@ -1237,10 +1237,10 @@ class DirectBook : AppCompatActivity() {
 		gridView.onItemClickListener =
 			AdapterView.OnItemClickListener { parent, view, position, id ->
 				item = gridArray[position]
-				seatNumber = item!!.getTitle()
+				seatNumber = item!!.title
 				Log.d("Clicked Grid Item: ", seatNumber)
 				
-				val seatcompare = item!!.getImage()
+				val seatcompare = item!!.image
 				if (seatcompare == seatIcon) {
 					seatSelected(position)
 				} else {
@@ -1311,7 +1311,7 @@ class DirectBook : AppCompatActivity() {
 						token = jo.get("access_token").asString
 						Log.e("access_token", token)
 						Log.e("expires_in", jo.get("expires_in").asString)
-						stkPushService = ApiUtils.getTasksService(token)
+						stkPushService = ApiUtils.getTasksService(token.toString())
 					}
 				})
 		} catch (e: Exception) {
@@ -1414,7 +1414,7 @@ class DirectBook : AppCompatActivity() {
 		
 		if (!TextUtils.isEmpty(regId)) {
 			val storeKey = StoreKey(this@DirectBook)
-			storeKey.createKey(regId)
+			storeKey.createKey(regId.toString())
 		}
 	}
 	
