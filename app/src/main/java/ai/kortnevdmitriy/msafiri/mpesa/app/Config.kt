@@ -16,23 +16,23 @@
  *
  */
 
-package ai.kortnevdmitriy.msafiri.mpesa.app;
+package ai.kortnevdmitriy.msafiri.mpesa.app
 
 /**
  * Created  on 6/30/2017.
  */
 
-public class Config {
-    // global topic to receive app wide push notifications
-    public static final String TOPIC_GLOBAL = "global";
-
-    // broadcast receiver intent filters
-    public static final String REGISTRATION_COMPLETE = "registrationComplete";
-    public static final String PUSH_NOTIFICATION = "pushNotification";
-
-    // id to handle the notification in the notification tray
-    public static final int NOTIFICATION_ID = 100;
-    public static final int NOTIFICATION_ID_BIG_IMAGE = 101;
-
-    public static final String SHARED_PREF = "ah_firebase";
+object Config {
+	// global topic to receive app wide push notifications
+	const val TOPIC_GLOBAL = "global"
+	
+	// broadcast receiver intent filters
+	const val REGISTRATION_COMPLETE = "registrationComplete"
+	const val PUSH_NOTIFICATION = "pushNotification"
+	
+	// id to handle the notification in the notification tray
+	const val NOTIFICATION_ID = 100
+	const val NOTIFICATION_ID_BIG_IMAGE = 101
+	
+	const val SHARED_PREF = "ah_firebase"
 }
