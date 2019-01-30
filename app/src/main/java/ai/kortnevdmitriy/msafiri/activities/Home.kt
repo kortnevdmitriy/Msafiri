@@ -23,9 +23,16 @@ import com.google.android.gms.appinvite.AppInviteInvitation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+	
+	companion object {
+		private const val REQUEST_INVITE = 0
+		private val TAG = Home::class.java.simpleName
+	}
+	
 	private lateinit var extractedTravelRoute: String
 	private var navigationView: NavigationView? = null
 	private var destinationFrom: AutoCompleteTextView? = null
@@ -53,7 +60,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 		toggle.syncState()
 		
 		navigationView = findViewById(R.id.nav_view)
-		navigationView!!.setNavigationItemSelectedListener(this)
+		navigationView?.setNavigationItemSelectedListener(this)
 		
 		updateNavigationViewUI()
 		searchUI()
@@ -115,16 +122,16 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 	
 	/* This methods update the navigation views with the account owner details.
    Picture, name & email*/
-	fun updateNavigationViewUI() {
-		val header = navigationView!!.getHeaderView(0)
-		val picView = header.findViewById<CircleImageView>(R.id.picView)
-		val nameView = header.findViewById<TextView>(R.id.nameView)
-		val emailView = header.findViewById<TextView>(R.id.emailView)
+	private fun updateNavigationViewUI() {
+		val header = navigationView?.getHeaderView(0)
+		val picView = header?.findViewById<CircleImageView>(R.id.picView)
+		val nameView = header?.findViewById<TextView>(R.id.nameView)
+		val emailView = header?.findViewById<TextView>(R.id.emailView)
 		
 		val mFirebaseUser = FirebaseAuth.getInstance().currentUser
-		nameView.text = mFirebaseUser!!.displayName
-		emailView.text = mFirebaseUser.email
-		//Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
+		nameView?.text = mFirebaseUser?.displayName
+		emailView?.text = mFirebaseUser?.email
+		Picasso.get().load(mFirebaseUser?.photoUrl).into(picView)
 	}
 	
 	fun searchUI() {
@@ -132,13 +139,13 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 			ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, Constants.DESTINATIONS)
 		destinationFrom = findViewById(R.id.autoCompleteDestinationFrom)
 		destinationTo = findViewById(R.id.autoCompleteDestinationTo)
-		destinationFrom!!.setAdapter<ArrayAdapter<String>>(adapter)
-		destinationTo!!.setAdapter<ArrayAdapter<String>>(adapter)
+		destinationFrom?.setAdapter<ArrayAdapter<String>>(adapter)
+		destinationTo?.setAdapter<ArrayAdapter<String>>(adapter)
 	}
 	
-	fun extractTravelRoute() {
-		val destFrom = destinationFrom!!.text.toString().trim { it <= ' ' }
-		val destTo = destinationTo!!.text.toString().trim { it <= ' ' }
+	private fun extractTravelRoute() {
+		val destFrom = destinationFrom?.text.toString().trim { it <= ' ' }
+		val destTo = destinationTo?.text.toString().trim { it <= ' ' }
 		
 		if (TextUtils.isEmpty(destFrom)) {
 			Toast.makeText(applicationContext, "Fill Travelling From!", Toast.LENGTH_SHORT).show()
@@ -157,27 +164,15 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 		startActivity(intent)
 	}
 	
-	// [START on_invite_clicked]
-	
+	// Firebase Invite.
 	private fun onInviteClicked() {
-		
 		val intent = AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
 			.setMessage(getString(R.string.invitation_message))
-			
 			.setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
-			
 			.setCallToActionText(getString(R.string.invitation_cta))
-			
 			.build()
-		
 		startActivityForResult(intent, REQUEST_INVITE)
-		
 	}
-	
-	// [END on_invite_clicked]
-	
-	
-	// [START on_activity_result]
 	
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
@@ -198,11 +193,5 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 			
 		}
 		
-	}
-	
-	companion object {
-		
-		private val REQUEST_INVITE = 0
-		private val TAG = Home::class.java.simpleName
 	}
 }
