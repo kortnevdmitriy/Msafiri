@@ -1,7 +1,6 @@
 package ai.kortnevdmitriy.msafiri.activities;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.models.VehicleDetails;
@@ -87,7 +85,7 @@ public class Booking extends AppCompatActivity {
                     vehicleDepartureTime.setText(vehicleDetails.getDepartureTime());
                     vehicleOptionalDescription.setText(vehicleDetails.getOptionalDescription());
                     vehicleBoardingPoint.setText(vehicleDetails.getBoardingPoint());
-                    Picasso.with(getApplicationContext()).load(Uri.parse(vehicleDetails.getImg_url())).into(header_cover_image);
+                    // Picasso.(getApplicationContext()).load(Uri.parse(vehicleDetails.getImg_url())).into(header_cover_image);
                 }
             }
 

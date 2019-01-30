@@ -13,20 +13,20 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.appinvite.AppInviteInvitation;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.squareup.picasso.Picasso;
-
-import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.utilities.Constants;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.gms.appinvite.AppInviteInvitation;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import ai.kortnevdmitriy.msafiri.R;
+import ai.kortnevdmitriy.msafiri.utilities.Constants;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Home extends AppCompatActivity
@@ -139,7 +139,7 @@ public class Home extends AppCompatActivity
         FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         nameView.setText(mFirebaseUser.getDisplayName());
         emailView.setText(mFirebaseUser.getEmail());
-        Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
+        //Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(picView);
     }
 
     public void searchUI() {
@@ -196,41 +196,23 @@ public class Home extends AppCompatActivity
     @Override
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
-
         Log.d(TAG, "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
-
-
         if (requestCode == REQUEST_INVITE) {
-
             if (resultCode == RESULT_OK) {
-
                 // Get the invitation IDs of all sent messages
-
                 String[] ids = AppInviteInvitation.getInvitationIds(resultCode, data);
-
                 for (String id : ids) {
-
                     Log.d(TAG, "onActivityResult: sent invitation " + id);
-
                 }
 
             } else {
-
                 // Sending failed or it was canceled, show failure message to the user
-
                 // [START_EXCLUDE]
-
-
                 // [END_EXCLUDE]
-
             }
 
         }
 
     }
-
-
-    // [END on_activity_result]
 }
