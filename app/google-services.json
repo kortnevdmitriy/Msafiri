@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "505877212155",
+    "firebase_url": "https://msafiri-ea.firebaseio.com",
+    "project_id": "msafiri-ea",
+    "storage_bucket": "msafiri-ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505877212155:android:d0ee69c427a0e493",
+        "android_client_info": {
+          "package_name": "ai.kortriy.msafiri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505877212155-q41s7ko570d516b8fbr4qqih4lf2lc9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ai.kortriy.msafiri",
+            "certificate_hash": "5d444c4749e00c5f138babc2bdcd5d340e245655"
+          }
+        },
+        {
+          "client_id": "505877212155-sh13nfd93spjpof9rfgnetp6pkbkhfi4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKHFE00vaMeXDWg11QJypKXhObe14xBF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505877212155-sh13nfd93spjpof9rfgnetp6pkbkhfi4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
