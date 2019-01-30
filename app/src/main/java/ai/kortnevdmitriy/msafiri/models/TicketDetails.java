@@ -1,4 +1,4 @@
-package ai.kortnevdmitriy.msafiri.entities;
+package ai.kortnevdmitriy.msafiri.models;
 
 /**
  * Created by kortn on 11/22/2017.

@@ -1,4 +1,4 @@
-package ai.kortnevdmitriy.msafiri.entities;
+package ai.kortnevdmitriy.msafiri.models;
 
 import android.graphics.Bitmap;
 

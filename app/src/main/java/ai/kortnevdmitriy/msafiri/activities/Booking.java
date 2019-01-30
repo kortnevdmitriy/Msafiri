@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -17,8 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
-import androidx.appcompat.app.AppCompatActivity;
+import ai.kortnevdmitriy.msafiri.models.VehicleDetails;
 
 public class Booking extends AppCompatActivity {
 

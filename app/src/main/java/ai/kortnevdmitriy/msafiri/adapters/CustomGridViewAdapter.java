@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.entities.Item;
+import ai.kortnevdmitriy.msafiri.models.Item;
 
 /**
  * @author Saurabh Tomar

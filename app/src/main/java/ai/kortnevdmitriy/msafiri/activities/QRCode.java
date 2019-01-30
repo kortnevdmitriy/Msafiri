@@ -6,6 +6,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -16,9 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import net.glxn.qrgen.core.scheme.VCard;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import ai.kortnevdmitriy.msafiri.models.TicketDetails;
 
 public class QRCode extends AppCompatActivity {
     private final String TAG = QRCode.class.getName();

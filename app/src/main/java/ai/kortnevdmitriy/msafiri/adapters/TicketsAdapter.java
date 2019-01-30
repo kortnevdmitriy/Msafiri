@@ -5,11 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
-import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
-import androidx.recyclerview.widget.RecyclerView;
+import ai.kortnevdmitriy.msafiri.models.TicketDetails;
 
 /**
  * Created by kortn on 11/22/2017.

@@ -19,6 +19,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -37,9 +41,9 @@ import java.util.List;
 
 import ai.kortnevdmitriy.msafiri.R;
 import ai.kortnevdmitriy.msafiri.adapters.SeatSelectionAdapter;
-import ai.kortnevdmitriy.msafiri.entities.BookedVehicles;
-import ai.kortnevdmitriy.msafiri.entities.TicketDetails;
-import ai.kortnevdmitriy.msafiri.entities.VehicleDetails;
+import ai.kortnevdmitriy.msafiri.models.BookedVehicles;
+import ai.kortnevdmitriy.msafiri.models.TicketDetails;
+import ai.kortnevdmitriy.msafiri.models.VehicleDetails;
 import ai.kortnevdmitriy.msafiri.mpesa.api.ApiUtils;
 import ai.kortnevdmitriy.msafiri.mpesa.api.QueryRequest;
 import ai.kortnevdmitriy.msafiri.mpesa.api.STKPush;
@@ -48,9 +52,6 @@ import ai.kortnevdmitriy.msafiri.mpesa.api.services.STKPushService;
 import ai.kortnevdmitriy.msafiri.mpesa.app.Config;
 import ai.kortnevdmitriy.msafiri.mpesa.utils.NotificationUtils;
 import ai.kortnevdmitriy.msafiri.utilities.Item;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
