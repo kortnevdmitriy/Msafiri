@@ -47,7 +47,7 @@ class Signin : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener,
 		mSignInButton?.setSize(SignInButton.SIZE_WIDE)
 		mSignInButton?.setOnClickListener(this)
 		val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-			.requestIdToken(getString(R.string.default_web_client_id))
+			//.requestIdToken(getString(R.string.default_web_client_id))
 			.requestEmail()
 			.build()
 		mGoogleApiClient = GoogleApiClient.Builder(this)
@@ -132,7 +132,7 @@ class Signin : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener,
 			.show()
 	}
 	
-	fun authenticationErrorNotification() {
+	private fun authenticationErrorNotification() {
 		Alerter.create(this)
 			.setTitle("Authentication")
 			.setText("Authentication failed. Check your Internet")
@@ -140,7 +140,7 @@ class Signin : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener,
 			.show()
 	}
 	
-	fun googleSignInErrorNotification() {
+	private fun googleSignInErrorNotification() {
 		Alerter.create(this)
 			.setTitle("Google Signin")
 			.setText("Google Sign In failed")
@@ -149,7 +149,7 @@ class Signin : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener,
 	}
 	
 	companion object {
-		private val TAG = "SignInActivity"
-		private val RC_SIGN_IN = 9001
+		private const val TAG = "SignInActivity"
+		private const val RC_SIGN_IN = 9001
 	}
 }
