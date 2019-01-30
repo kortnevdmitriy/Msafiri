@@ -3,7 +3,6 @@ apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.1'
     defaultConfig {
         applicationId "ai.kortnevdmitriy.msafiri"
         minSdkVersion 21
