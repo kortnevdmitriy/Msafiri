@@ -4,13 +4,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.squareup.picasso.Picasso;
-
-import ai.kortnevdmitriy.msafiri.R;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import ai.kortnevdmitriy.msafiri.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Account extends AppCompatActivity {
@@ -36,9 +36,9 @@ public class Account extends AppCompatActivity {
         TextView tvDisplayPhone = findViewById(R.id.user_profile_phone);
         CircleImageView avatarImageView = findViewById(R.id.user_profile_photo);
 
-        Picasso.with(getApplicationContext())
+    /*    Picasso.with(getApplicationContext())
                 .load(photoUrl)
-                .into(avatarImageView);
+                .into(avatarImageView);*/
         tvDisplayName.setText(displayName);
         tvDisplayEmail.setText(userEmail);
         tvDisplayPhone.setText("+254722972233");
