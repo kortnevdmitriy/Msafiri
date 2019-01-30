@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 class Account : AppCompatActivity() {
@@ -18,10 +19,10 @@ class Account : AppCompatActivity() {
 		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 		
 		val user = FirebaseAuth.getInstance().currentUser
-		val displayName = user!!.displayName
-		val userEmail = user.email
-		val phoneNumber = user.phoneNumber
-		val photoUrl = user.photoUrl
+		val displayName = user?.displayName
+		val userEmail = user?.email
+		val phoneNumber = user?.phoneNumber
+		val photoUrl = user?.photoUrl
 		
 		
 		val tvDisplayName = findViewById<TextView>(R.id.user_profile_name)
@@ -29,13 +30,10 @@ class Account : AppCompatActivity() {
 		val tvDisplayEmail = findViewById<TextView>(R.id.user_profile_email)
 		val tvDisplayPhone = findViewById<TextView>(R.id.user_profile_phone)
 		val avatarImageView = findViewById<CircleImageView>(R.id.user_profile_photo)
-		
-		/*    Picasso.with(getApplicationContext())
-                .load(photoUrl)
-                .into(avatarImageView);*/
+		Picasso.get().load(photoUrl).into(avatarImageView)
 		tvDisplayName.text = displayName
 		tvDisplayEmail.text = userEmail
-		tvDisplayPhone.text = "+254722972233"
+		tvDisplayPhone.text = phoneNumber
 	}
 	
 }
